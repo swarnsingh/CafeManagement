@@ -1,0 +1,13 @@
+platform :ios, '9.0'
+
+target 'Merchant Cafe App' do
+
+  use_frameworks!
+pod 'Alamofire', '~> 4.7'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+pod 'Firebase/Storage'
+pod 'Firebase/Firestore'
+pod 'Firebase/Auth'
+
+end

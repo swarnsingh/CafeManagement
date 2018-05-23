@@ -1,0 +1,6 @@
+framework module Pods_ITT_Cafe {
+  umbrella header "Pods-ITT Cafe-umbrella.h"
+
+  export *
+  module * { export * }
+}

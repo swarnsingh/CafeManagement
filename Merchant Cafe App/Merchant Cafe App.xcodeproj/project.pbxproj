@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B2A3F4D20B4201900F767BF /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A3F4C20B4201900F767BF /* Connectivity.swift */; };
+		8B42B00220B5819000293A7E /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42B00120B5819000293A7E /* PreferenceManager.swift */; };
+		8B4F06DB20B2C711003B28B0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4F06DA20B2C711003B28B0 /* LoginViewController.swift */; };
+		8B4F06E320B2E976003B28B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4F06E220B2E976003B28B0 /* HomeViewController.swift */; };
+		8B4F06E620B2F6CB003B28B0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4F06E520B2F6CB003B28B0 /* Constants.swift */; };
+		8B4F06E820B2FB3D003B28B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B4F06E720B2FB3D003B28B0 /* GoogleService-Info.plist */; };
+		C3C56D6120ADAA6500D2B351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C56D6020ADAA6500D2B351 /* AppDelegate.swift */; };
+		C3C56D6320ADAA6500D2B351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C56D6220ADAA6500D2B351 /* ViewController.swift */; };
+		C3C56D6620ADAA6500D2B351 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C56D6420ADAA6500D2B351 /* Main.storyboard */; };
+		C3C56D6920ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3C56D6720ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodeld */; };
+		C3C56D6B20ADAA6500D2B351 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3C56D6A20ADAA6500D2B351 /* Assets.xcassets */; };
+		C3C56D6E20ADAA6500D2B351 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C56D6C20ADAA6500D2B351 /* LaunchScreen.storyboard */; };
+		F21DC6065265500F38A49CFE /* Pods_Merchant_Cafe_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CEC3F148E874CA2405AC5D /* Pods_Merchant_Cafe_App.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00CEC3F148E874CA2405AC5D /* Pods_Merchant_Cafe_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merchant_Cafe_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33284F201A044C7BAD4F6780 /* Pods-Merchant Cafe App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant Cafe App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant Cafe App/Pods-Merchant Cafe App.release.xcconfig"; sourceTree = "<group>"; };
+		4A5071F0D008BAA3D2B87A0C /* Pods-Merchant Cafe App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant Cafe App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant Cafe App/Pods-Merchant Cafe App.debug.xcconfig"; sourceTree = "<group>"; };
+		8B2A3F4C20B4201900F767BF /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		8B42B00120B5819000293A7E /* PreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
+		8B4F06DA20B2C711003B28B0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8B4F06E220B2E976003B28B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8B4F06E520B2F6CB003B28B0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8B4F06E720B2FB3D003B28B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C3C56D5D20ADAA6500D2B351 /* Merchant Cafe App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Merchant Cafe App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C56D6020ADAA6500D2B351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C3C56D6220ADAA6500D2B351 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C3C56D6520ADAA6500D2B351 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C3C56D6820ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Merchant_Cafe_App.xcdatamodel; sourceTree = "<group>"; };
+		C3C56D6A20ADAA6500D2B351 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3C56D6D20ADAA6500D2B351 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C3C56D6F20ADAA6500D2B351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3C56D5A20ADAA6500D2B351 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F21DC6065265500F38A49CFE /* Pods_Merchant_Cafe_App.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B2A3F4B20B41FE500F767BF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8B2A3F4C20B4201900F767BF /* Connectivity.swift */,
+				8B42B00120B5819000293A7E /* PreferenceManager.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		8B4F06D620B2C6BE003B28B0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8B4F06D920B2C6F5003B28B0 /* view */,
+				8B4F06D820B2C6EE003B28B0 /* model */,
+				8B4F06D720B2C6E0003B28B0 /* controller */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8B4F06D720B2C6E0003B28B0 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B4F06DA20B2C711003B28B0 /* LoginViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		8B4F06D820B2C6EE003B28B0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		8B4F06D920B2C6F5003B28B0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		8B4F06DE20B2E940003B28B0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8B4F06E120B2E956003B28B0 /* controller */,
+				8B4F06E020B2E94E003B28B0 /* model */,
+				8B4F06DF20B2E947003B28B0 /* view */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8B4F06DF20B2E947003B28B0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		8B4F06E020B2E94E003B28B0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		8B4F06E120B2E956003B28B0 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B4F06E220B2E976003B28B0 /* HomeViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		8B4F06E420B2F6A1003B28B0 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8B4F06E520B2F6CB003B28B0 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C3C56D5420ADAA6400D2B351 = {
+			isa = PBXGroup;
+			children = (
+				C3C56D5F20ADAA6500D2B351 /* Merchant Cafe App */,
+				C3C56D5E20ADAA6500D2B351 /* Products */,
+				DC5F76CB792D1FFAF22A843F /* Pods */,
+				E83B7B63778D4CFBC00AF326 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C3C56D5E20ADAA6500D2B351 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3C56D5D20ADAA6500D2B351 /* Merchant Cafe App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3C56D5F20ADAA6500D2B351 /* Merchant Cafe App */ = {
+			isa = PBXGroup;
+			children = (
+				8B2A3F4B20B41FE500F767BF /* Util */,
+				8B4F06E420B2F6A1003B28B0 /* Constants */,
+				8B4F06DE20B2E940003B28B0 /* Home */,
+				8B4F06D620B2C6BE003B28B0 /* Login */,
+				C3C56D6020ADAA6500D2B351 /* AppDelegate.swift */,
+				C3C56D6220ADAA6500D2B351 /* ViewController.swift */,
+				C3C56D6420ADAA6500D2B351 /* Main.storyboard */,
+				C3C56D6A20ADAA6500D2B351 /* Assets.xcassets */,
+				C3C56D6C20ADAA6500D2B351 /* LaunchScreen.storyboard */,
+				C3C56D6F20ADAA6500D2B351 /* Info.plist */,
+				8B4F06E720B2FB3D003B28B0 /* GoogleService-Info.plist */,
+				C3C56D6720ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodeld */,
+			);
+			path = "Merchant Cafe App";
+			sourceTree = "<group>";
+		};
+		DC5F76CB792D1FFAF22A843F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A5071F0D008BAA3D2B87A0C /* Pods-Merchant Cafe App.debug.xcconfig */,
+				33284F201A044C7BAD4F6780 /* Pods-Merchant Cafe App.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E83B7B63778D4CFBC00AF326 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00CEC3F148E874CA2405AC5D /* Pods_Merchant_Cafe_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3C56D5C20ADAA6500D2B351 /* Merchant Cafe App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3C56D7220ADAA6500D2B351 /* Build configuration list for PBXNativeTarget "Merchant Cafe App" */;
+			buildPhases = (
+				A3C3EF08046C773A4DF555D5 /* [CP] Check Pods Manifest.lock */,
+				C3C56D5920ADAA6500D2B351 /* Sources */,
+				C3C56D5A20ADAA6500D2B351 /* Frameworks */,
+				C3C56D5B20ADAA6500D2B351 /* Resources */,
+				36ECEC1489A54875E7EBFD9B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Merchant Cafe App";
+			productName = "Merchant Cafe App";
+			productReference = C3C56D5D20ADAA6500D2B351 /* Merchant Cafe App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3C56D5520ADAA6400D2B351 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "In Time Tec";
+				TargetAttributes = {
+					C3C56D5C20ADAA6500D2B351 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C3C56D5820ADAA6400D2B351 /* Build configuration list for PBXProject "Merchant Cafe App" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C3C56D5420ADAA6400D2B351;
+			productRefGroup = C3C56D5E20ADAA6500D2B351 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3C56D5C20ADAA6500D2B351 /* Merchant Cafe App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3C56D5B20ADAA6500D2B351 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C56D6E20ADAA6500D2B351 /* LaunchScreen.storyboard in Resources */,
+				8B4F06E820B2FB3D003B28B0 /* GoogleService-Info.plist in Resources */,
+				C3C56D6B20ADAA6500D2B351 /* Assets.xcassets in Resources */,
+				C3C56D6620ADAA6500D2B351 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36ECEC1489A54875E7EBFD9B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Merchant Cafe App/Pods-Merchant Cafe App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Merchant Cafe App/Pods-Merchant Cafe App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3C3EF08046C773A4DF555D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Merchant Cafe App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3C56D5920ADAA6500D2B351 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B4F06E320B2E976003B28B0 /* HomeViewController.swift in Sources */,
+				C3C56D6320ADAA6500D2B351 /* ViewController.swift in Sources */,
+				C3C56D6920ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodeld in Sources */,
+				8B4F06DB20B2C711003B28B0 /* LoginViewController.swift in Sources */,
+				8B42B00220B5819000293A7E /* PreferenceManager.swift in Sources */,
+				C3C56D6120ADAA6500D2B351 /* AppDelegate.swift in Sources */,
+				8B4F06E620B2F6CB003B28B0 /* Constants.swift in Sources */,
+				8B2A3F4D20B4201900F767BF /* Connectivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C3C56D6420ADAA6500D2B351 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3C56D6520ADAA6500D2B351 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C3C56D6C20ADAA6500D2B351 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3C56D6D20ADAA6500D2B351 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3C56D7020ADAA6500D2B351 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C3C56D7120ADAA6500D2B351 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3C56D7320ADAA6500D2B351 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A5071F0D008BAA3D2B87A0C /* Pods-Merchant Cafe App.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5TBVV68K72;
+				INFOPLIST_FILE = "Merchant Cafe App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.intimetec.cafemanagement;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3C56D7420ADAA6500D2B351 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33284F201A044C7BAD4F6780 /* Pods-Merchant Cafe App.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5TBVV68K72;
+				INFOPLIST_FILE = "Merchant Cafe App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.intimetec.cafemanagement;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3C56D5820ADAA6400D2B351 /* Build configuration list for PBXProject "Merchant Cafe App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C56D7020ADAA6500D2B351 /* Debug */,
+				C3C56D7120ADAA6500D2B351 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3C56D7220ADAA6500D2B351 /* Build configuration list for PBXNativeTarget "Merchant Cafe App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C56D7320ADAA6500D2B351 /* Debug */,
+				C3C56D7420ADAA6500D2B351 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C3C56D6720ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C3C56D6820ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodel */,
+			);
+			currentVersion = C3C56D6820ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodel */;
+			path = Merchant_Cafe_App.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C3C56D5520ADAA6400D2B351 /* Project object */;
+}

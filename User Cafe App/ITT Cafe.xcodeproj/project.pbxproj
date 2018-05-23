@@ -1,0 +1,724 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05CB90FCDE2B8071E20AEA3A /* Pods_ITT_Cafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15004D7BCCAFAAE2FA9E47B /* Pods_ITT_Cafe.framework */; };
+		562652948D2B87E7E918EB9B /* Pods_ITT_CafeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E190D3DFF27970A00600D2CA /* Pods_ITT_CafeTests.framework */; };
+		A9E22260EE49D23FE7CC5532 /* Pods_ITT_CafeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2551C45F63CF40F3039AE2F /* Pods_ITT_CafeUITests.framework */; };
+		BFC9291320AADF18004EA4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC9291220AADF18004EA4C0 /* AppDelegate.swift */; };
+		BFC9291820AADF18004EA4C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC9291620AADF18004EA4C0 /* Main.storyboard */; };
+		BFC9291A20AADF18004EA4C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFC9291920AADF18004EA4C0 /* Assets.xcassets */; };
+		BFC9291D20AADF18004EA4C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC9291B20AADF18004EA4C0 /* LaunchScreen.storyboard */; };
+		BFC9292820AADF19004EA4C0 /* ITT_CafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC9292720AADF19004EA4C0 /* ITT_CafeTests.swift */; };
+		BFC9293320AADF19004EA4C0 /* ITT_CafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC9293220AADF19004EA4C0 /* ITT_CafeUITests.swift */; };
+		BFC9294120AAE147004EA4C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFC9294020AAE147004EA4C0 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BFC9292420AADF19004EA4C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFC9290720AADF18004EA4C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFC9290E20AADF18004EA4C0;
+			remoteInfo = "ITT Cafe";
+		};
+		BFC9292F20AADF19004EA4C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFC9290720AADF18004EA4C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFC9290E20AADF18004EA4C0;
+			remoteInfo = "ITT Cafe";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0BFB8EA81D883F598CF3EF45 /* Pods-ITT CafeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITT CafeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITT CafeUITests/Pods-ITT CafeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2BC9BA25F564758F9AA12452 /* Pods-ITT CafeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITT CafeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITT CafeTests/Pods-ITT CafeTests.release.xcconfig"; sourceTree = "<group>"; };
+		310F911F161F600AA7CA0037 /* Pods-ITT Cafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITT Cafe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITT Cafe/Pods-ITT Cafe.release.xcconfig"; sourceTree = "<group>"; };
+		642333538F27D8B0CC06E155 /* Pods-ITT CafeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITT CafeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ITT CafeUITests/Pods-ITT CafeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BFC9290F20AADF18004EA4C0 /* ITT Cafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITT Cafe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFC9291220AADF18004EA4C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BFC9291720AADF18004EA4C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BFC9291920AADF18004EA4C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFC9291C20AADF18004EA4C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BFC9291E20AADF18004EA4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFC9292320AADF19004EA4C0 /* ITT CafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ITT CafeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFC9292720AADF19004EA4C0 /* ITT_CafeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITT_CafeTests.swift; sourceTree = "<group>"; };
+		BFC9292920AADF19004EA4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFC9292E20AADF19004EA4C0 /* ITT CafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ITT CafeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFC9293220AADF19004EA4C0 /* ITT_CafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITT_CafeUITests.swift; sourceTree = "<group>"; };
+		BFC9293420AADF19004EA4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFC9294020AAE147004EA4C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C15004D7BCCAFAAE2FA9E47B /* Pods_ITT_Cafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITT_Cafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB1E20DC7E525B7F46AA42EB /* Pods-ITT Cafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITT Cafe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ITT Cafe/Pods-ITT Cafe.debug.xcconfig"; sourceTree = "<group>"; };
+		D2551C45F63CF40F3039AE2F /* Pods_ITT_CafeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITT_CafeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC59BB102D0413090AB8F758 /* Pods-ITT CafeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITT CafeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ITT CafeTests/Pods-ITT CafeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E190D3DFF27970A00600D2CA /* Pods_ITT_CafeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITT_CafeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BFC9290C20AADF18004EA4C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05CB90FCDE2B8071E20AEA3A /* Pods_ITT_Cafe.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC9292020AADF19004EA4C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				562652948D2B87E7E918EB9B /* Pods_ITT_CafeTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC9292B20AADF19004EA4C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9E22260EE49D23FE7CC5532 /* Pods_ITT_CafeUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BFC9290620AADF18004EA4C0 = {
+			isa = PBXGroup;
+			children = (
+				BFC9291120AADF18004EA4C0 /* ITT Cafe */,
+				BFC9292620AADF19004EA4C0 /* ITT CafeTests */,
+				BFC9293120AADF19004EA4C0 /* ITT CafeUITests */,
+				BFC9291020AADF18004EA4C0 /* Products */,
+				F2DFCA1D55DE501900360CA0 /* Pods */,
+				DA50B5E6C0A865529546B9D6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BFC9291020AADF18004EA4C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFC9290F20AADF18004EA4C0 /* ITT Cafe.app */,
+				BFC9292320AADF19004EA4C0 /* ITT CafeTests.xctest */,
+				BFC9292E20AADF19004EA4C0 /* ITT CafeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFC9291120AADF18004EA4C0 /* ITT Cafe */ = {
+			isa = PBXGroup;
+			children = (
+				BFC9294020AAE147004EA4C0 /* GoogleService-Info.plist */,
+				BFC9294220AAE151004EA4C0 /* Common_Files */,
+				BFC9294520AAE173004EA4C0 /* Models */,
+				BFC9294620AAE17F004EA4C0 /* View */,
+				BFC9294420AAE161004EA4C0 /* Controllers */,
+				BFC9291220AADF18004EA4C0 /* AppDelegate.swift */,
+				BFC9291620AADF18004EA4C0 /* Main.storyboard */,
+				BFC9291920AADF18004EA4C0 /* Assets.xcassets */,
+				BFC9291B20AADF18004EA4C0 /* LaunchScreen.storyboard */,
+				BFC9291E20AADF18004EA4C0 /* Info.plist */,
+			);
+			path = "ITT Cafe";
+			sourceTree = "<group>";
+		};
+		BFC9292620AADF19004EA4C0 /* ITT CafeTests */ = {
+			isa = PBXGroup;
+			children = (
+				BFC9292720AADF19004EA4C0 /* ITT_CafeTests.swift */,
+				BFC9292920AADF19004EA4C0 /* Info.plist */,
+			);
+			path = "ITT CafeTests";
+			sourceTree = "<group>";
+		};
+		BFC9293120AADF19004EA4C0 /* ITT CafeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BFC9293220AADF19004EA4C0 /* ITT_CafeUITests.swift */,
+				BFC9293420AADF19004EA4C0 /* Info.plist */,
+			);
+			path = "ITT CafeUITests";
+			sourceTree = "<group>";
+		};
+		BFC9294220AAE151004EA4C0 /* Common_Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common_Files;
+			sourceTree = "<group>";
+		};
+		BFC9294420AAE161004EA4C0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BFC9294520AAE173004EA4C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BFC9294620AAE17F004EA4C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA50B5E6C0A865529546B9D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C15004D7BCCAFAAE2FA9E47B /* Pods_ITT_Cafe.framework */,
+				E190D3DFF27970A00600D2CA /* Pods_ITT_CafeTests.framework */,
+				D2551C45F63CF40F3039AE2F /* Pods_ITT_CafeUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F2DFCA1D55DE501900360CA0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB1E20DC7E525B7F46AA42EB /* Pods-ITT Cafe.debug.xcconfig */,
+				310F911F161F600AA7CA0037 /* Pods-ITT Cafe.release.xcconfig */,
+				DC59BB102D0413090AB8F758 /* Pods-ITT CafeTests.debug.xcconfig */,
+				2BC9BA25F564758F9AA12452 /* Pods-ITT CafeTests.release.xcconfig */,
+				642333538F27D8B0CC06E155 /* Pods-ITT CafeUITests.debug.xcconfig */,
+				0BFB8EA81D883F598CF3EF45 /* Pods-ITT CafeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BFC9290E20AADF18004EA4C0 /* ITT Cafe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFC9293720AADF19004EA4C0 /* Build configuration list for PBXNativeTarget "ITT Cafe" */;
+			buildPhases = (
+				82F6E4FA247C449AD66C12E8 /* [CP] Check Pods Manifest.lock */,
+				BFC9290B20AADF18004EA4C0 /* Sources */,
+				BFC9290C20AADF18004EA4C0 /* Frameworks */,
+				BFC9290D20AADF18004EA4C0 /* Resources */,
+				6BF93A47B96211D88FB4E9FF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ITT Cafe";
+			productName = "ITT Cafe";
+			productReference = BFC9290F20AADF18004EA4C0 /* ITT Cafe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BFC9292220AADF19004EA4C0 /* ITT CafeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFC9293A20AADF19004EA4C0 /* Build configuration list for PBXNativeTarget "ITT CafeTests" */;
+			buildPhases = (
+				D1B8CC59B1D429F5521B9CE4 /* [CP] Check Pods Manifest.lock */,
+				BFC9291F20AADF19004EA4C0 /* Sources */,
+				BFC9292020AADF19004EA4C0 /* Frameworks */,
+				BFC9292120AADF19004EA4C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFC9292520AADF19004EA4C0 /* PBXTargetDependency */,
+			);
+			name = "ITT CafeTests";
+			productName = "ITT CafeTests";
+			productReference = BFC9292320AADF19004EA4C0 /* ITT CafeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BFC9292D20AADF19004EA4C0 /* ITT CafeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFC9293D20AADF19004EA4C0 /* Build configuration list for PBXNativeTarget "ITT CafeUITests" */;
+			buildPhases = (
+				6E41136923039BF8A6BD72D2 /* [CP] Check Pods Manifest.lock */,
+				BFC9292A20AADF19004EA4C0 /* Sources */,
+				BFC9292B20AADF19004EA4C0 /* Frameworks */,
+				BFC9292C20AADF19004EA4C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFC9293020AADF19004EA4C0 /* PBXTargetDependency */,
+			);
+			name = "ITT CafeUITests";
+			productName = "ITT CafeUITests";
+			productReference = BFC9292E20AADF19004EA4C0 /* ITT CafeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFC9290720AADF18004EA4C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Divyanshu Sharma";
+				TargetAttributes = {
+					BFC9290E20AADF18004EA4C0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					BFC9292220AADF19004EA4C0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BFC9290E20AADF18004EA4C0;
+					};
+					BFC9292D20AADF19004EA4C0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BFC9290E20AADF18004EA4C0;
+					};
+				};
+			};
+			buildConfigurationList = BFC9290A20AADF18004EA4C0 /* Build configuration list for PBXProject "ITT Cafe" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BFC9290620AADF18004EA4C0;
+			productRefGroup = BFC9291020AADF18004EA4C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BFC9290E20AADF18004EA4C0 /* ITT Cafe */,
+				BFC9292220AADF19004EA4C0 /* ITT CafeTests */,
+				BFC9292D20AADF19004EA4C0 /* ITT CafeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BFC9290D20AADF18004EA4C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFC9291D20AADF18004EA4C0 /* LaunchScreen.storyboard in Resources */,
+				BFC9294120AAE147004EA4C0 /* GoogleService-Info.plist in Resources */,
+				BFC9291A20AADF18004EA4C0 /* Assets.xcassets in Resources */,
+				BFC9291820AADF18004EA4C0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC9292120AADF19004EA4C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC9292C20AADF19004EA4C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6BF93A47B96211D88FB4E9FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ITT Cafe/Pods-ITT Cafe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ITT Cafe/Pods-ITT Cafe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E41136923039BF8A6BD72D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ITT CafeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82F6E4FA247C449AD66C12E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ITT Cafe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1B8CC59B1D429F5521B9CE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ITT CafeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BFC9290B20AADF18004EA4C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFC9291320AADF18004EA4C0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC9291F20AADF19004EA4C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFC9292820AADF19004EA4C0 /* ITT_CafeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC9292A20AADF19004EA4C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFC9293320AADF19004EA4C0 /* ITT_CafeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BFC9292520AADF19004EA4C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFC9290E20AADF18004EA4C0 /* ITT Cafe */;
+			targetProxy = BFC9292420AADF19004EA4C0 /* PBXContainerItemProxy */;
+		};
+		BFC9293020AADF19004EA4C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFC9290E20AADF18004EA4C0 /* ITT Cafe */;
+			targetProxy = BFC9292F20AADF19004EA4C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BFC9291620AADF18004EA4C0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFC9291720AADF18004EA4C0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BFC9291B20AADF18004EA4C0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFC9291C20AADF18004EA4C0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BFC9293520AADF19004EA4C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BFC9293620AADF19004EA4C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BFC9293820AADF19004EA4C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1E20DC7E525B7F46AA42EB /* Pods-ITT Cafe.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "ITT Cafe/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Intimetec.ITT-Cafe";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BFC9293920AADF19004EA4C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 310F911F161F600AA7CA0037 /* Pods-ITT Cafe.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "ITT Cafe/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Intimetec.ITT-Cafe";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BFC9293B20AADF19004EA4C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC59BB102D0413090AB8F758 /* Pods-ITT CafeTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "ITT CafeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Intimetec.ITT-CafeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ITT Cafe.app/ITT Cafe";
+			};
+			name = Debug;
+		};
+		BFC9293C20AADF19004EA4C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BC9BA25F564758F9AA12452 /* Pods-ITT CafeTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "ITT CafeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Intimetec.ITT-CafeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ITT Cafe.app/ITT Cafe";
+			};
+			name = Release;
+		};
+		BFC9293E20AADF19004EA4C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 642333538F27D8B0CC06E155 /* Pods-ITT CafeUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "ITT CafeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Intimetec.ITT-CafeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ITT Cafe";
+			};
+			name = Debug;
+		};
+		BFC9293F20AADF19004EA4C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BFB8EA81D883F598CF3EF45 /* Pods-ITT CafeUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "ITT CafeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Intimetec.ITT-CafeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ITT Cafe";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BFC9290A20AADF18004EA4C0 /* Build configuration list for PBXProject "ITT Cafe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFC9293520AADF19004EA4C0 /* Debug */,
+				BFC9293620AADF19004EA4C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFC9293720AADF19004EA4C0 /* Build configuration list for PBXNativeTarget "ITT Cafe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFC9293820AADF19004EA4C0 /* Debug */,
+				BFC9293920AADF19004EA4C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFC9293A20AADF19004EA4C0 /* Build configuration list for PBXNativeTarget "ITT CafeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFC9293B20AADF19004EA4C0 /* Debug */,
+				BFC9293C20AADF19004EA4C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFC9293D20AADF19004EA4C0 /* Build configuration list for PBXNativeTarget "ITT CafeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFC9293E20AADF19004EA4C0 /* Debug */,
+				BFC9293F20AADF19004EA4C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFC9290720AADF18004EA4C0 /* Project object */;
+}
