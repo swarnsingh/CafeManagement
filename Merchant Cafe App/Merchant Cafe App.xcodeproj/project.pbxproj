@@ -13,6 +13,9 @@
 		8B4F06E320B2E976003B28B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4F06E220B2E976003B28B0 /* HomeViewController.swift */; };
 		8B4F06E620B2F6CB003B28B0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4F06E520B2F6CB003B28B0 /* Constants.swift */; };
 		8B4F06E820B2FB3D003B28B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B4F06E720B2FB3D003B28B0 /* GoogleService-Info.plist */; };
+		8B55E48820B862C000289F29 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B55E48720B862B700289F29 /* CustomViews.swift */; };
+		8B55E48F20B8641100289F29 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B55E48C20B8641100289F29 /* TPKeyboardAvoidingScrollView.m */; };
+		8B55E49020B8641100289F29 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B55E48E20B8641100289F29 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		C3C56D6120ADAA6500D2B351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C56D6020ADAA6500D2B351 /* AppDelegate.swift */; };
 		C3C56D6320ADAA6500D2B351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C56D6220ADAA6500D2B351 /* ViewController.swift */; };
 		C3C56D6620ADAA6500D2B351 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C56D6420ADAA6500D2B351 /* Main.storyboard */; };
@@ -32,6 +35,12 @@
 		8B4F06E220B2E976003B28B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8B4F06E520B2F6CB003B28B0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8B4F06E720B2FB3D003B28B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8B55E48720B862B700289F29 /* CustomViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
+		8B55E48A20B8641100289F29 /* Cafe_User-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cafe_User-Bridging-Header.h"; sourceTree = "<group>"; };
+		8B55E48B20B8641100289F29 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		8B55E48C20B8641100289F29 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		8B55E48D20B8641100289F29 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		8B55E48E20B8641100289F29 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		C3C56D5D20ADAA6500D2B351 /* Merchant Cafe App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Merchant Cafe App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C56D6020ADAA6500D2B351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C56D6220ADAA6500D2B351 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +66,8 @@
 		8B2A3F4B20B41FE500F767BF /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				8B55E48920B8641100289F29 /* TPKeyboardAvoiding */,
+				8B55E48720B862B700289F29 /* CustomViews.swift */,
 				8B2A3F4C20B4201900F767BF /* Connectivity.swift */,
 				8B42B00120B5819000293A7E /* PreferenceManager.swift */,
 			);
@@ -66,8 +77,6 @@
 		8B4F06D620B2C6BE003B28B0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				8B4F06D920B2C6F5003B28B0 /* view */,
-				8B4F06D820B2C6EE003B28B0 /* model */,
 				8B4F06D720B2C6E0003B28B0 /* controller */,
 			);
 			path = Login;
@@ -81,42 +90,12 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
-		8B4F06D820B2C6EE003B28B0 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		8B4F06D920B2C6F5003B28B0 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
 		8B4F06DE20B2E940003B28B0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				8B4F06E120B2E956003B28B0 /* controller */,
-				8B4F06E020B2E94E003B28B0 /* model */,
-				8B4F06DF20B2E947003B28B0 /* view */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		8B4F06DF20B2E947003B28B0 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		8B4F06E020B2E94E003B28B0 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		8B4F06E120B2E956003B28B0 /* controller */ = {
@@ -133,6 +112,18 @@
 				8B4F06E520B2F6CB003B28B0 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		8B55E48920B8641100289F29 /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				8B55E48A20B8641100289F29 /* Cafe_User-Bridging-Header.h */,
+				8B55E48B20B8641100289F29 /* TPKeyboardAvoidingScrollView.h */,
+				8B55E48C20B8641100289F29 /* TPKeyboardAvoidingScrollView.m */,
+				8B55E48D20B8641100289F29 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				8B55E48E20B8641100289F29 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 		C3C56D5420ADAA6400D2B351 = {
@@ -268,10 +259,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Merchant Cafe App/Pods-Merchant Cafe App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenuSwift/SideMenuSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -282,10 +276,13 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -323,9 +320,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B55E48820B862C000289F29 /* CustomViews.swift in Sources */,
+				8B55E48F20B8641100289F29 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				8B4F06E320B2E976003B28B0 /* HomeViewController.swift in Sources */,
 				C3C56D6320ADAA6500D2B351 /* ViewController.swift in Sources */,
 				C3C56D6920ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodeld in Sources */,
+				8B55E49020B8641100289F29 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				8B4F06DB20B2C711003B28B0 /* LoginViewController.swift in Sources */,
 				8B42B00220B5819000293A7E /* PreferenceManager.swift in Sources */,
 				C3C56D6120ADAA6500D2B351 /* AppDelegate.swift in Sources */,

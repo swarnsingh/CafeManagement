@@ -5,16 +5,21 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet var emailTextField: UITextField!
     
-    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: CustomTextField!
     
-    @IBOutlet var loginButton: UIButton!
     
-    @IBOutlet var forgotPasswordLabel:UILabel!
+    @IBOutlet weak var passwordTextField: CustomTextField!
+    
+    
+    @IBOutlet weak var loginButton: CustomButton!
+    
+    
+    @IBOutlet weak var forgotPasswordLabel: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +38,11 @@ class LoginViewController: UIViewController {
     }
     
     private func isValidPassword(password:String?) -> Bool {
-        return (password?.count)! >= 6;
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#])[A-Za-z\\dd$@$!%*?&#]{6,}"
+        
+        let passwordTest = NSPredicate(format:"SELF MATCHES %@", passwordRegex)
+        
+        return passwordTest.evaluate(with: password!)
     }
     
     private func showAlert(message:String?) {
@@ -61,7 +70,8 @@ class LoginViewController: UIViewController {
             isFieldsValid = false
         } else {
             if (!isValidPassword(password: password)) {
-                showAlert(message: "Password length must be 6 digits.")
+                isFieldsValid = false
+                showAlert(message: "Password should have minimum one upper case, one lower case, one digit and minimum 6 digit characters.")
             }
         }
         return isFieldsValid
@@ -69,12 +79,16 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func onLogin(_ sender: Any) {
+      
         let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
       
         if (isLoginFieldValid(email: email, password: password)) {
             if Connectivity.isConnectedToInternet {
+                MBProgressHUD.showAdded(to: self.view, animated: true)
+                
                 Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     if (error == nil && user != nil) {
                         
                         let deviceID = UIDevice.current.identifierForVendor?.uuidString
@@ -87,7 +101,9 @@ class LoginViewController: UIViewController {
                         print("Login successfully : \(String(describing: user?.user.email))")
                     } else {
                         PreferenceManager.setUserLogin(isUserLogin: false)
-                        print("Error Logged In : \(String(describing: error?.localizedDescription)) ")
+                        let errorMsg = (error?.localizedDescription ?? "Username or Password is invalid!")
+                        self.showAlert(errorMsg)
+                        print("Error Logged In : \(errorMsg) ")
                     }
                 }
             } else {
