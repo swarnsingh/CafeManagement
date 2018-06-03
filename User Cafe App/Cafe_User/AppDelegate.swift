@@ -8,16 +8,32 @@
 
 import UIKit
 import Firebase
+import DualSlideMenu
+import MBProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let leftView = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "LeftMenuController")
+        let rightView = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "RightMenuController")
+        let mainView = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "MainController")
+        
+        Constants.sideMenuController = DualSlideMenuViewController(mainViewController: mainView, leftMenuViewController: leftView, rightMenuViewController: rightView)
+        Constants.sideMenuController.leftSideOffset = 100
+        Constants.sideMenuController.rightSideOffset = 100
+        Constants.sideMenuController.addSwipeGestureInSide(viewController: rightView, direction: .right)
+        Constants.sideMenuController.addSwipeGestureInSide(viewController: leftView, direction: .left)
+        window!.rootViewController = Constants.sideMenuController
+        window!.makeKeyAndVisible()
+
+        UIApplication.shared.statusBarStyle = .lightContent
         
         // Override point for customization after application launch.
         return true
@@ -45,6 +61,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    //MARK: Navigation Methods
+    
+    func setupRootView(){
+        
+        
+        
+    }
+    
 
 }
 

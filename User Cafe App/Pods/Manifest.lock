@@ -1,11 +1,14 @@
 PODS:
   - Alamofire (4.7.2)
+  - AlamofireImage (3.3.1):
+    - Alamofire (~> 4.5)
   - BoringSSL (10.0.2):
     - BoringSSL/Implementation (= 10.0.2)
     - BoringSSL/Interface (= 10.0.2)
   - BoringSSL/Implementation (10.0.2):
     - BoringSSL/Interface (= 10.0.2)
   - BoringSSL/Interface (10.0.2)
+  - DualSlideMenu (1.7.3)
   - Firebase/Auth (4.13.0):
     - Firebase/Core
     - FirebaseAuth (= 4.6.1)
@@ -93,6 +96,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - AlamofireImage (~> 3.3)
+  - DualSlideMenu
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
@@ -103,7 +108,9 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - AlamofireImage
     - BoringSSL
+    - DualSlideMenu
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -125,7 +132,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
   BoringSSL: 60dd24df4af296bf41d78e5841dbb95d75f88c0d
+  DualSlideMenu: 8e1c5255a95c3dcfc1c6dc470105278765f52093
   Firebase: 5ec5e863d269d82d66b4bf56856726f8fb8f0fb3
   FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
   FirebaseAuth: bf22cacf22c60ab454bf2636f556d8892b10b53f
@@ -145,6 +154,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
 
-PODFILE CHECKSUM: 17a2e23450041dfe7b253dfc491d8964766a0666
+PODFILE CHECKSUM: c4d04c61da5e5183f4871d2a9cc6cc71507a20c9
 
 COCOAPODS: 1.5.0

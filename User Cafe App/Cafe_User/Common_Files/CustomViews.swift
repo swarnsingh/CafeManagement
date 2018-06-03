@@ -219,7 +219,7 @@ extension UIViewController{
     
     func showAlertController(_ type:UIAlertControllerStyle, title: String , text:String , options:[String], callback:@escaping (Int)->Void){
         
-        let alertController = UIAlertController.init(title: "Alert", message: text, preferredStyle: type)
+        let alertController = UIAlertController.init(title: title, message: text, preferredStyle: type)
 
         if options.count > 0{
             
@@ -228,7 +228,8 @@ extension UIViewController{
                 let action = UIAlertAction(title: options[i], style: .default, handler: { (action) in
                     
                     callback(i)
-                    
+                    alertController.dismiss(animated: true, completion: nil)
+
                 })
                 
                 alertController.addAction(action)
@@ -238,7 +239,7 @@ extension UIViewController{
             let action = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
                 
                 callback(11)
-                
+                alertController.dismiss(animated: true, completion: nil)
             })
             
             alertController.addAction(action)

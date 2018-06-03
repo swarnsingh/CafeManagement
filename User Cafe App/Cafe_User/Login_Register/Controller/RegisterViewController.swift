@@ -49,6 +49,14 @@ class RegisterViewController: UIViewController {
                         
                         Auth.auth().currentUser?.sendEmailVerification(completion: nil)
                         
+                        let data = ["first_name":self.firstNameTextField.text!,
+                                    "last_name":self.lastNameTextField.text!,
+                                    "email":self.emailTextField.text!]
+                        
+                        let uID = user?.providerData.map{ $0.uid }
+                        
+                        Database.setDataAt(.user, With: uID!.first!, data: data)
+                        
                         self.showAlert(SuccessMessage.userCreated.stringValue, callback: {
                             
                             self.navigationController?.popViewController(animated: true)

@@ -13,8 +13,20 @@
 		BF0C380C20B6BA7D00EEC62C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C380A20B6BA7C00EEC62C /* LoginViewController.swift */; };
 		BF0C380F20B6BA8A00EEC62C /* RegisterValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C380D20B6BA8900EEC62C /* RegisterValidation.swift */; };
 		BF0C381020B6BA8A00EEC62C /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C380E20B6BA8900EEC62C /* LoginValidation.swift */; };
+		BF13C17A20B7CB5E00987F86 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C17920B7CB5E00987F86 /* HomeViewController.swift */; };
+		BF13C17C20B7CDF900987F86 /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C17B20B7CDF900987F86 /* HomeTableView.swift */; };
+		BF13C18020B7CFB900987F86 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = BF13C17F20B7CFB800987F86 /* placeholder.png */; };
+		BF13C18220B7D4F700987F86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C18120B7D4F700987F86 /* User.swift */; };
+		BF13C18420B7D9FA00987F86 /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C18320B7D9FA00987F86 /* DatabaseHandler.swift */; };
+		BF13C18720B7DEE200987F86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF13C18620B7DEE200987F86 /* Main.storyboard */; };
+		BF13C18C20B7E09100987F86 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C18B20B7E09100987F86 /* SideMenuViewController.swift */; };
+		BF13C18E20B7E0A600987F86 /* SideMenuTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C18D20B7E0A600987F86 /* SideMenuTable.swift */; };
+		BF13C19420B7FE1100987F86 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C19320B7FE1100987F86 /* ProductViewController.swift */; };
+		BF13C19620B7FE1B00987F86 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C19520B7FE1B00987F86 /* Product.swift */; };
+		BF13C19820B7FE2A00987F86 /* ProductListCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C19720B7FE2A00987F86 /* ProductListCollection.swift */; };
+		BF13C19A20B802A600987F86 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C19920B802A600987F86 /* Category.swift */; };
 		BF974A1220B3E709006346F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF974A1120B3E709006346F0 /* AppDelegate.swift */; };
-		BF974A1720B3E709006346F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF974A1520B3E709006346F0 /* Main.storyboard */; };
+		BF974A1720B3E709006346F0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF974A1520B3E709006346F0 /* Login.storyboard */; };
 		BF974A1920B3E709006346F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF974A1820B3E709006346F0 /* Assets.xcassets */; };
 		BF974A1C20B3E709006346F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF974A1A20B3E709006346F0 /* LaunchScreen.storyboard */; };
 		BF974A2720B3E70A006346F0 /* Cafe_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF974A2620B3E70A006346F0 /* Cafe_UserTests.swift */; };
@@ -25,6 +37,14 @@
 		BF974A5C20B3E877006346F0 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF974A5B20B3E877006346F0 /* CustomViews.swift */; };
 		BF974A6220B40C71006346F0 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF974A6120B40C71006346F0 /* Validate.swift */; };
 		BF974A6620B40E28006346F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF974A6520B40E28006346F0 /* Constants.swift */; };
+		BFBBEA0E20BE66F2003856B6 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBBEA0D20BE66F2003856B6 /* ProductDetailViewController.swift */; };
+		BFBBEA1020BE6E34003856B6 /* ProductDetailCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBBEA0F20BE6E34003856B6 /* ProductDetailCollection.swift */; };
+		BFCA418420BFB09F00B68926 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA418320BFB09F00B68926 /* ForgotPasswordViewController.swift */; };
+		BFCA418A20BFCA1600B68926 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA418920BFCA1600B68926 /* CartViewController.swift */; };
+		BFCA418D20BFEBE200B68926 /* Cafe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFCA418B20BFEBE200B68926 /* Cafe.xcdatamodeld */; };
+		BFCA419A20BFF1E800B68926 /* CartTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA419920BFF1E800B68926 /* CartTableView.swift */; };
+		BFCA419D20C0088C00B68926 /* CartProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA419B20C0088B00B68926 /* CartProduct+CoreDataProperties.swift */; };
+		BFCA419E20C0088C00B68926 /* CartProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA419C20C0088C00B68926 /* CartProduct+CoreDataClass.swift */; };
 		D1E7DFE6AD970FBD45DA5989 /* Pods_Cafe_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D8586E1B3DF879425C8413 /* Pods_Cafe_User.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,9 +76,21 @@
 		BF0C380A20B6BA7C00EEC62C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF0C380D20B6BA8900EEC62C /* RegisterValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterValidation.swift; sourceTree = "<group>"; };
 		BF0C380E20B6BA8900EEC62C /* LoginValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
+		BF13C17920B7CB5E00987F86 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BF13C17B20B7CDF900987F86 /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
+		BF13C17F20B7CFB800987F86 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		BF13C18120B7D4F700987F86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BF13C18320B7D9FA00987F86 /* DatabaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHandler.swift; sourceTree = "<group>"; };
+		BF13C18620B7DEE200987F86 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BF13C18B20B7E09100987F86 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		BF13C18D20B7E0A600987F86 /* SideMenuTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTable.swift; sourceTree = "<group>"; };
+		BF13C19320B7FE1100987F86 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		BF13C19520B7FE1B00987F86 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		BF13C19720B7FE2A00987F86 /* ProductListCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCollection.swift; sourceTree = "<group>"; };
+		BF13C19920B802A600987F86 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		BF974A0E20B3E709006346F0 /* Cafe_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cafe_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF974A1120B3E709006346F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF974A1620B3E709006346F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF974A1620B3E709006346F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		BF974A1820B3E709006346F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF974A1B20B3E709006346F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF974A1D20B3E70A006346F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +109,14 @@
 		BF974A5B20B3E877006346F0 /* CustomViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
 		BF974A6120B40C71006346F0 /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		BF974A6520B40E28006346F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BFBBEA0D20BE66F2003856B6 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		BFBBEA0F20BE6E34003856B6 /* ProductDetailCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailCollection.swift; sourceTree = "<group>"; };
+		BFCA418320BFB09F00B68926 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		BFCA418920BFCA1600B68926 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		BFCA418C20BFEBE200B68926 /* Cafe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cafe.xcdatamodel; sourceTree = "<group>"; };
+		BFCA419920BFF1E800B68926 /* CartTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableView.swift; sourceTree = "<group>"; };
+		BFCA419B20C0088B00B68926 /* CartProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CartProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BFCA419C20C0088C00B68926 /* CartProduct+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CartProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD2660DE13ECFB326E744511 /* Pods-Cafe_User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cafe_User.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cafe_User/Pods-Cafe_User.release.xcconfig"; sourceTree = "<group>"; };
 		D30F748B4FCD290E3B8F3BE1 /* Pods-Cafe_User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cafe_User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cafe_User/Pods-Cafe_User.debug.xcconfig"; sourceTree = "<group>"; };
 		DB5B3FB301E35BB73B6315BF /* Pods-Cafe_UserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cafe_UserTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cafe_UserTests/Pods-Cafe_UserTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +175,7 @@
 			children = (
 				BF0C380A20B6BA7C00EEC62C /* LoginViewController.swift */,
 				BF0C380920B6BA7C00EEC62C /* RegisterViewController.swift */,
+				BFCA418320BFB09F00B68926 /* ForgotPasswordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +192,102 @@
 		BF0C380820B6BA5300EEC62C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF13C18120B7D4F700987F86 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF13C17520B7CB1500987F86 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C17820B7CB3300987F86 /* Model */,
+				BF13C17720B7CB3000987F86 /* View */,
+				BF13C17620B7CB2E00987F86 /* Controller */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		BF13C17620B7CB2E00987F86 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C17920B7CB5E00987F86 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BF13C17720B7CB3000987F86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C17B20B7CDF900987F86 /* HomeTableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF13C17820B7CB3300987F86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C19920B802A600987F86 /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF13C18820B7E06700987F86 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C18A20B7E07C00987F86 /* View */,
+				BF13C18920B7E07600987F86 /* Controller */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		BF13C18920B7E07600987F86 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C18B20B7E09100987F86 /* SideMenuViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BF13C18A20B7E07C00987F86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C18D20B7E0A600987F86 /* SideMenuTable.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF13C18F20B7FDD900987F86 /* ProductView */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C19220B7FDF400987F86 /* Model */,
+				BF13C19120B7FDF100987F86 /* View */,
+				BF13C19020B7FDEE00987F86 /* Controller */,
+			);
+			path = ProductView;
+			sourceTree = "<group>";
+		};
+		BF13C19020B7FDEE00987F86 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C19320B7FE1100987F86 /* ProductViewController.swift */,
+				BFBBEA0D20BE66F2003856B6 /* ProductDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BF13C19120B7FDF100987F86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C19720B7FE2A00987F86 /* ProductListCollection.swift */,
+				BFBBEA0F20BE6E34003856B6 /* ProductDetailCollection.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF13C19220B7FDF400987F86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C19520B7FE1B00987F86 /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,15 +317,23 @@
 		BF974A1020B3E709006346F0 /* Cafe_User */ = {
 			isa = PBXGroup;
 			children = (
+				BFCA419220BFECBE00B68926 /* DatabaseHandler */,
 				BF974A3F20B3E728006346F0 /* GoogleService-Info.plist */,
 				BF974A1120B3E709006346F0 /* AppDelegate.swift */,
+				BF13C17F20B7CFB800987F86 /* placeholder.png */,
 				BF974A5220B3E837006346F0 /* ThirdParty */,
 				BF974A4F20B3E81F006346F0 /* Common_Files */,
+				BFCA418520BFC9E800B68926 /* CartView */,
+				BF13C18F20B7FDD900987F86 /* ProductView */,
+				BF13C18820B7E06700987F86 /* SideMenu */,
+				BF13C17520B7CB1500987F86 /* HomeView */,
 				BF0C380520B6BA4000EEC62C /* Login_Register */,
-				BF974A1520B3E709006346F0 /* Main.storyboard */,
+				BF974A1520B3E709006346F0 /* Login.storyboard */,
+				BF13C18620B7DEE200987F86 /* Main.storyboard */,
 				BF974A1820B3E709006346F0 /* Assets.xcassets */,
 				BF974A1A20B3E709006346F0 /* LaunchScreen.storyboard */,
 				BF974A1D20B3E70A006346F0 /* Info.plist */,
+				BFCA418B20BFEBE200B68926 /* Cafe.xcdatamodeld */,
 			);
 			path = Cafe_User;
 			sourceTree = "<group>";
@@ -239,6 +384,49 @@
 				BF974A5420B3E866006346F0 /* Cafe_User-Bridging-Header.h */,
 			);
 			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		BFCA418520BFC9E800B68926 /* CartView */ = {
+			isa = PBXGroup;
+			children = (
+				BFCA418820BFCA0100B68926 /* Model */,
+				BFCA418720BFC9FE00B68926 /* View */,
+				BFCA418620BFC9FB00B68926 /* Controller */,
+			);
+			path = CartView;
+			sourceTree = "<group>";
+		};
+		BFCA418620BFC9FB00B68926 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BFCA418920BFCA1600B68926 /* CartViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BFCA418720BFC9FE00B68926 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFCA419920BFF1E800B68926 /* CartTableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFCA418820BFCA0100B68926 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFCA419C20C0088C00B68926 /* CartProduct+CoreDataClass.swift */,
+				BFCA419B20C0088B00B68926 /* CartProduct+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BFCA419220BFECBE00B68926 /* DatabaseHandler */ = {
+			isa = PBXGroup;
+			children = (
+				BF13C18320B7D9FA00987F86 /* DatabaseHandler.swift */,
+			);
+			path = DatabaseHandler;
 			sourceTree = "<group>";
 		};
 		DC438B6C231C880684BA3108 /* Pods */ = {
@@ -369,7 +557,9 @@
 				BF974A1C20B3E709006346F0 /* LaunchScreen.storyboard in Resources */,
 				BF974A4020B3E728006346F0 /* GoogleService-Info.plist in Resources */,
 				BF974A1920B3E709006346F0 /* Assets.xcassets in Resources */,
-				BF974A1720B3E709006346F0 /* Main.storyboard in Resources */,
+				BF13C18720B7DEE200987F86 /* Main.storyboard in Resources */,
+				BF13C18020B7CFB900987F86 /* placeholder.png in Resources */,
+				BF974A1720B3E709006346F0 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +624,9 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Cafe_User/Pods-Cafe_User-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/DualSlideMenu/DualSlideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -449,7 +641,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DualSlideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -491,15 +685,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF13C19820B7FE2A00987F86 /* ProductListCollection.swift in Sources */,
+				BFCA418420BFB09F00B68926 /* ForgotPasswordViewController.swift in Sources */,
+				BF13C18E20B7E0A600987F86 /* SideMenuTable.swift in Sources */,
+				BFBBEA0E20BE66F2003856B6 /* ProductDetailViewController.swift in Sources */,
+				BFCA418A20BFCA1600B68926 /* CartViewController.swift in Sources */,
+				BF13C18220B7D4F700987F86 /* User.swift in Sources */,
+				BFBBEA1020BE6E34003856B6 /* ProductDetailCollection.swift in Sources */,
+				BFCA419A20BFF1E800B68926 /* CartTableView.swift in Sources */,
+				BF13C18420B7D9FA00987F86 /* DatabaseHandler.swift in Sources */,
 				BF974A1220B3E709006346F0 /* AppDelegate.swift in Sources */,
+				BFCA419D20C0088C00B68926 /* CartProduct+CoreDataProperties.swift in Sources */,
+				BF13C19420B7FE1100987F86 /* ProductViewController.swift in Sources */,
 				BF974A5A20B3E867006346F0 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				BF0C380F20B6BA8A00EEC62C /* RegisterValidation.swift in Sources */,
 				BF0C380B20B6BA7D00EEC62C /* RegisterViewController.swift in Sources */,
 				BF974A6220B40C71006346F0 /* Validate.swift in Sources */,
 				BF0C380C20B6BA7D00EEC62C /* LoginViewController.swift in Sources */,
+				BFCA418D20BFEBE200B68926 /* Cafe.xcdatamodeld in Sources */,
+				BF13C19A20B802A600987F86 /* Category.swift in Sources */,
+				BF13C17C20B7CDF900987F86 /* HomeTableView.swift in Sources */,
+				BF13C19620B7FE1B00987F86 /* Product.swift in Sources */,
+				BFCA419E20C0088C00B68926 /* CartProduct+CoreDataClass.swift in Sources */,
 				BF974A6620B40E28006346F0 /* Constants.swift in Sources */,
+				BF13C17A20B7CB5E00987F86 /* HomeViewController.swift in Sources */,
 				BF974A5920B3E867006346F0 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				BF0C381020B6BA8A00EEC62C /* LoginValidation.swift in Sources */,
+				BF13C18C20B7E09100987F86 /* SideMenuViewController.swift in Sources */,
 				BF974A5C20B3E877006346F0 /* CustomViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,12 +748,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BF974A1520B3E709006346F0 /* Main.storyboard */ = {
+		BF974A1520B3E709006346F0 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BF974A1620B3E709006346F0 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		BF974A1A20B3E709006346F0 /* LaunchScreen.storyboard */ = {
@@ -670,7 +882,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Cafe_User/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Intimetec.ITT-Cafe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -689,7 +901,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Cafe_User/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Intimetec.ITT-Cafe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -805,6 +1017,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BFCA418B20BFEBE200B68926 /* Cafe.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BFCA418C20BFEBE200B68926 /* Cafe.xcdatamodel */,
+			);
+			currentVersion = BFCA418C20BFEBE200B68926 /* Cafe.xcdatamodel */;
+			path = Cafe.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BF974A0620B3E709006346F0 /* Project object */;
 }

@@ -11,18 +11,16 @@ import FirebaseAuth
 import MBProgressHUD
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
-
+    
     @IBOutlet weak var emailTextField:UITextField!
     @IBOutlet weak var passwordTextField:UITextField!
     
-    let segueIdentifier = "register"
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,7 +48,21 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                             return
                         }
                         
-                        self.showAlert(SuccessMessage.loginSuccessfull.stringValue)
+                        Database.getDataOf(.user, At: user!.providerID, callback: { data in
+                            
+                            guard let userInfo = data else { return }
+                            
+                            let uID = user?.providerData.map{ $0.uid }
+                            
+                            User.current.update(info: userInfo, id: uID!.first!)
+                            
+                            let userData = try! JSONEncoder().encode(User.current)
+                            
+                            UserDefaults.standard.set(userData, forKey: "CafeUser")
+                            
+                            self.navigationController?.dismiss(animated: true, completion: nil)
+                            
+                        })
                         
                         return
                     }
@@ -67,28 +79,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             
         }
         
-        
-    }
-    
-    @IBAction private func forgotPasswordPressed(){
-
-        //                Auth.auth().sendPasswordReset(withEmail: emailTextField.text!, completion: { (error) in
-        //
-        //                    guard let errorOfPasswordReset = error else {
-        //
-        //                        self.showAlert(SuccessMessage.passwordResetMail.stringValue)
-        //                        return
-        //                    }
-        //
-        //                    self.showAlert(errorOfPasswordReset.localizedDescription)
-        //
-        //                })
-        
-    }
-    
-    @IBAction private func alreadyHaveAccountPressed(){
-        
-        self.performSegue(withIdentifier: segueIdentifier, sender: self)
         
     }
     

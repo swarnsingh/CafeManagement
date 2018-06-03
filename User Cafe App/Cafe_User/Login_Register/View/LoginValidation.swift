@@ -15,30 +15,39 @@ extension LoginViewController{
         
         if emailTextField.text?.count == 0{
             
-            emailTextField.becomeFirstResponder()
+           emailTextField.becomeFirstResponder()
+            
             result(ValidationResult(ErrorMessage.emptyEmail.stringValue,false))
+            
             return
+
         }
         
         if !emailTextField.isValidEmail(){
             
             emailTextField.becomeFirstResponder()
+            
             result(ValidationResult(ErrorMessage.invalidEmail.stringValue,false))
             return
+
         }
         
         if passwordTextField.text?.count == 0{
             
             passwordTextField.becomeFirstResponder()
+
             result(ValidationResult(ErrorMessage.emptyPassword.stringValue,false))
             return
+
         }
         
         if !passwordTextField.isValidPassword(){
             
             passwordTextField.becomeFirstResponder()
+
             result(ValidationResult(ErrorMessage.invalidPassword.stringValue,false))
             return
+            
         }
         
         result(ValidationResult("",true))

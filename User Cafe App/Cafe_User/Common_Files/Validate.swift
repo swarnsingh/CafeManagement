@@ -22,7 +22,7 @@ extension UITextField{
     
     func isValidPassword()->Bool{
         
-        let passwordRegex = "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8,}$"
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#])[A-Za-z\\dd$@$!%*?&#]{8,}"
         
         let passwordTest = NSPredicate(format:"SELF MATCHES %@", passwordRegex)
         

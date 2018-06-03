@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import DualSlideMenu
 
 typealias ValidationResult = (error:String,isValid:Bool)
 
@@ -19,7 +21,7 @@ enum SuccessMessage{
         switch self {
             
         case .passwordResetMail:
-            return "Password reset mail has been sent successfully."
+            return "Password reset mail has been sent successfully. Please check your inbox."
 
         case .userCreated:
             return "User has been registered successfully. We have sent you a verification mail, Verify your mail to login."
@@ -62,8 +64,45 @@ enum ErrorMessage{
     
 }
 
+enum AppNotifications:String{
+    
+    case logout,login
+    
+    var instance:Notification{
+        
+        return Notification(name: Notification.Name(self.rawValue))
+        
+    }
+    
+}
+
+enum AppStoryBoard:String{
+    
+    case Login,Main
+    
+    var instance:UIStoryboard{
+        
+        return UIStoryboard(name: self.rawValue, bundle: nil)
+        
+    }
+    
+}
+
 class Constants: NSObject {
     
     static let AppName = "ITT Cafe"
     
+    static let screenHeight = UIScreen.main.bounds.height
+
+    static let screenWidth = UIScreen.main.bounds.width
+
+    static var sideMenuController:DualSlideMenuViewController!
 }
+
+enum SwipeDirection:String{
+
+    case left,right
+}
+
+
+
