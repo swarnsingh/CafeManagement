@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.3.0)
   - Alamofire (4.7.2)
   - AlamofireImage (3.3.1):
     - Alamofire (~> 4.5)
@@ -90,8 +91,10 @@ PODS:
   - nanopb/encode (0.3.8)
   - Protobuf (3.5.0)
   - SideMenuSwift (0.4.0)
+  - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0 (~> 2.3.0)
   - Alamofire (~> 4.7)
   - AlamofireImage (~> 3.3)
   - Firebase/Auth
@@ -101,9 +104,11 @@ DEPENDENCIES:
   - Firebase/Storage
   - MBProgressHUD (~> 1.1.0)
   - SideMenuSwift
+  - Toast-Swift (~> 3.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ActionSheetPicker-3.0
     - Alamofire
     - AlamofireImage
     - BoringSSL
@@ -126,8 +131,10 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SideMenuSwift
+    - Toast-Swift
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
   BoringSSL: 60dd24df4af296bf41d78e5841dbb95d75f88c0d
@@ -150,7 +157,8 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SideMenuSwift: 620bebef86c04680ada5f15f9dee928fd740adf4
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: e590c69d031c02a2766dc84dc6e0ddcef2375de7
+PODFILE CHECKSUM: b1df111ffd623bffadc8787c2ef0034ab9a19268
 
 COCOAPODS: 1.5.2

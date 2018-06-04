@@ -1,17 +1,13 @@
-//
-//  CustomViews.swift
-//  ITT Cafe
-//
-//  Created by Divyanshu Sharma on 22/05/18.
-//  Copyright © 2018 Divyanshu Sharma. All rights reserved.
-//
+/**
+ *  @author Swarn Singh.
+ */
 
 import Foundation
 import UIKit
 
 class CustomImageView:UIImageView{
     
-    @IBInspectable var cornerRadius:CGFloat = 0.0{
+    @IBInspectable var cornerRadius:CGFloat = 0.0 {
         
         didSet{
             
@@ -45,6 +41,44 @@ class CustomImageView:UIImageView{
     }
     
 }
+
+class CustomTextView:UITextView{
+    
+    @IBInspectable var cornerRadius:CGFloat = 0.0 {
+        
+        didSet{
+            
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+            
+        }
+        
+    }
+    
+    @IBInspectable var borderWidth:CGFloat = 0.0{
+        
+        didSet{
+            
+            self.layer.borderWidth = borderWidth
+            self.layer.masksToBounds = true
+            
+        }
+        
+    }
+    
+    @IBInspectable var borderColor:UIColor = .clear{
+        
+        didSet{
+            
+            self.layer.borderColor = borderColor.cgColor
+            self.layer.masksToBounds = true
+            
+        }
+        
+    }
+    
+}
+
 
 class CustomTextField:UITextField{
     
@@ -183,13 +217,13 @@ extension UIViewController{
     
     func showAlert(_ text:String){
         
-        self.showAlert(Constants.AppName, text)
+        self.showAlert(Constants.ALERT, text)
         
     }
     
     func showAlert(_ text:String, callback:@escaping ()->Void){
         
-        let alertController = UIAlertController.init(title: Constants.AppName, message: text, preferredStyle: .alert)
+        let alertController = UIAlertController.init(title: "Alert!", message: text, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Ok", style: .default, handler: { (action) in
             

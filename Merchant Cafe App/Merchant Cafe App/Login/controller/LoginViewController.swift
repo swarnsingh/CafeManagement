@@ -96,7 +96,8 @@ class LoginViewController: UIViewController {
                         Constants.db.collection("Admin").document("1").setData(["account_info":["device_id":deviceID!]], merge: true)
                         
                         PreferenceManager.setUserLogin(isUserLogin: true)
-                        self.performSegue(withIdentifier: Constants.HOME_SEGUE, sender: nil)
+                        
+                        self.performSegue(withIdentifier: "NavigationController", sender: nil)
                         print("User Device ID : \(String(describing: deviceID))")
                         print("Login successfully : \(String(describing: user?.user.email))")
                     } else {

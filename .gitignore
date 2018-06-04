@@ -44,7 +44,9 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
-
+*.pbxproj
+*.xcuserstate
+*.xcbkptlist
 ## Other
 *.moved-aside
 *.xccheckout

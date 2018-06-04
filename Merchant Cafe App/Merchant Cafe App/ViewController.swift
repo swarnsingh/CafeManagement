@@ -7,12 +7,19 @@ import UIKit
 class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        var nextViewController: UIViewController
         
         if PreferenceManager.isUserLogin() {
-            self.performSegue(withIdentifier: Constants.HOME_SEGUE, sender: nil)
+            nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        
         } else {
-            self.performSegue(withIdentifier: Constants.LOGIN_SEGUE, sender: nil)
+            nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         }
+        self.present(nextViewController, animated:true, completion:nil)
     }
     
     private func showAlert(message:String?) {
