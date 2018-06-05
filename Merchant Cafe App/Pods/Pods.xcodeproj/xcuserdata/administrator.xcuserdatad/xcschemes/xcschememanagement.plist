@@ -7,7 +7,7 @@
 		<key>ActionSheetPicker-3.0.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>21</integer>
+			<integer>18</integer>
 		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
@@ -19,7 +19,7 @@
 		<key>AlamofireImage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>17</integer>
+			<integer>19</integer>
 		</dict>
 		<key>BoringSSL.xcscheme</key>
 		<dict>
@@ -31,7 +31,7 @@
 		<key>FirebaseAuth.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>18</integer>
+			<integer>20</integer>
 		</dict>
 		<key>FirebaseCore.xcscheme</key>
 		<dict>
@@ -78,7 +78,7 @@
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>21</integer>
 		</dict>
 		<key>Pods-Merchant Cafe App.xcscheme</key>
 		<dict>
@@ -97,12 +97,12 @@
 		<key>SideMenuSwift.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>20</integer>
+			<integer>22</integer>
 		</dict>
 		<key>Toast-Swift.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>22</integer>
+			<integer>23</integer>
 		</dict>
 		<key>gRPC-Core.xcscheme</key>
 		<dict>
