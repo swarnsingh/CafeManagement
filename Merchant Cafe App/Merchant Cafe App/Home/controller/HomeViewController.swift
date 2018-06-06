@@ -133,19 +133,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             OrderStatus.backgroundColor = UIColor.init(red: 51/255.0, green: 102/255.0, blue: 255/255.0, alpha: 1.0)
             OrderStatus.textColor = UIColor.white
             
-        }
-        else if  order.states.keys.contains(OrderDetail.OrderStatus.Accepted){
+        } else if  order.states.keys.contains(OrderDetail.OrderStatus.Accepted){
             OrderStatus.text = "Accepted"
             OrderStatus.backgroundColor = UIColor.init(red: 51/255.0, green: 204/255.0, blue: 0/255.0, alpha: 1.0)
             OrderStatus.textColor = UIColor.white
-        }
-        else{
+        } else {
             OrderStatus.text = "Placed"
             OrderStatus.backgroundColor = UIColor.init(red: 255/255.0, green: 163/255.0, blue: 26/255.0, alpha: 1.0)
             OrderStatus.textColor = UIColor.white
-            
         }
-        
         
         OrderPlacedBy.text = "\(order.user.firstName) \(order.user.lastName)"
         
@@ -159,17 +155,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let order = orderArray[indexPath.section]
         
+        let orderDetailVC = AppStoryBoard.OrderDetail.instance.instantiateViewController(withIdentifier: Constants.ORDER_DETAIL_VIEW_SEGUE) as! OrderDetailViewController
         
-        /* let orderDetailVC = /AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: Constants.PRODUCT_VIEW_SEGUE) as! ProductViewController
-         
-         // orderDetailV = category
-         orderDetailVC.orderArray = orderArray
-         
-         self.navigationController?.pushViewController(orderDetailVC, animated: true)
-         
-         */
+        orderDetailVC.orderDetail = order
+        
+        self.navigationController?.pushViewController(orderDetailVC, animated: true)
+        
     }
-    
     
     
     func getOrders() {

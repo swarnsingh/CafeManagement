@@ -74,7 +74,7 @@ enum AppNotifications:String{
 
 enum AppStoryBoard:String{
     
-    case Login,Main
+    case OrderDetail,Main
     
     var instance:UIStoryboard{
         
@@ -111,6 +111,7 @@ class Constants: NSObject {
     public static let PRODUCT_OP_VIEW_SEGUE = "ProductOperationsViewController"
     
     public static let Category_OP_VIEW_SEGUE = "AddCategoryFormViewController"
-
+    
+    public static let ORDER_DETAIL_VIEW_SEGUE = "OrderDetailViewController"
 
 }

@@ -12,6 +12,7 @@ struct OrderDetail {
     }
     
     var orderId = ""
+    var documentID = ""
     var instruction = ""
     var orderPrice = 0.0
     var products = [Product]()
@@ -22,7 +23,7 @@ struct OrderDetail {
         self.instruction = info["instruction"] as? String ?? ""
         self.orderPrice =  info["order_price"] as? Double ?? 0.0
         self.orderId = info["order_id"] as? String ?? ""
-
+        self.documentID = id
         
         let userJSON = info["user_info"] as? [String:Any] ?? [:]
         
@@ -43,7 +44,7 @@ struct OrderDetail {
             guard let date = Constants.dateFormatter.date(from: String(describing: value)) else {return}
             
             states[OrderStatus(rawValue: key)!] = date
-            
+
         }
         
     }
