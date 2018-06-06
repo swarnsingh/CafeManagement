@@ -86,6 +86,8 @@ enum AppStoryBoard:String{
 
 class Constants: NSObject {
     
+    static let dateFormatter = DateFormatter()
+    
     static let AppName = "MerchantCafe"
     
     static let ALERT = "Alert"
