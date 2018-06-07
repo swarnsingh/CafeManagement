@@ -23,11 +23,7 @@ extension ProductDetailViewController:UICollectionViewDelegate,UICollectionViewD
         
         let url = URL(string:product.image)!
         
-        imageview.af_setImage(withURL: url, placeholderImage: UIImage(named: "placeholder.png"), filter: nil, progress: nil, progressQueue: .main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: { (response) in
-            
-            imageview.contentMode = .scaleAspectFill
-            
-        })
+        imageview.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: .main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: nil)
         
         return cell
         

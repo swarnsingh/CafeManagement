@@ -21,5 +21,7 @@ extension CartProduct {
     @NSManaged public var price: Double
     @NSManaged public var category_id: String?
     @NSManaged public dynamic var addedQty: Int16
-    
+    @NSManaged public var category_name: String?
+    @NSManaged public var image: String?
+
 }

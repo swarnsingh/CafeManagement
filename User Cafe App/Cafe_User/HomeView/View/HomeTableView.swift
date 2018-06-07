@@ -39,12 +39,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             
             let url = URL(string:category.image)!
             
-            imageCell.af_setImage(withURL: url, placeholderImage: UIImage(named: "placeholder.png"), filter: nil, progress: nil, progressQueue: .main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: { (response) in
-                
-                imageCell.contentMode = .scaleAspectFill
-                
-            })
-            
+            imageCell.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: .main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: nil)
             
         }
 
@@ -55,9 +50,10 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
-        let view = UIView()
-        view.backgroundColor = UIColor.init(red: 51/255.0, green: 58/255.0, blue: 83/255.0, alpha: 1.0)
-        return view
+        return UIView()
+//        let view = UIView()
+//        view.backgroundColor = UIColor.init(red: 51/255.0, green: 58/255.0, blue: 83/255.0, alpha: 1.0)
+//        return view
         
     }
     

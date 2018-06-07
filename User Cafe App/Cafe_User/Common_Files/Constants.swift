@@ -66,7 +66,7 @@ enum ErrorMessage{
 
 enum AppNotifications:String{
     
-    case logout,login
+    case logout,login,productQtyChange
     
     var instance:Notification{
         

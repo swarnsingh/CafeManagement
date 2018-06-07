@@ -3,11 +3,13 @@
     <entity name="CartProduct" representedClassName=".CartProduct" syncable="YES">
         <attribute name="addedQty" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="category_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CartProduct" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="CartProduct" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

@@ -41,15 +41,6 @@ extension LoginViewController{
 
         }
         
-        if !passwordTextField.isValidPassword(){
-            
-            passwordTextField.becomeFirstResponder()
-
-            result(ValidationResult(ErrorMessage.invalidPassword.stringValue,false))
-            return
-            
-        }
-        
         result(ValidationResult("",true))
         
     }

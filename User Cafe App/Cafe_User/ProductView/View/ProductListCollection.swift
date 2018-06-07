@@ -30,12 +30,7 @@ extension ProductViewController:UICollectionViewDelegate,UICollectionViewDataSou
             
             let url = URL(string:prodcut.image)!
             
-            imageCell.af_setImage(withURL: url, placeholderImage: UIImage(named: "placeholder.png"), filter: nil, progress: nil, progressQueue: .main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: { (response) in
-                
-                imageCell.contentMode = .scaleAspectFill
-                
-            })
-            
+            imageCell.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: .main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: nil)
             
         }
         

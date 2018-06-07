@@ -13,7 +13,7 @@ import CoreData
 class Database{
     
     enum Collection:String {
-        case user,admin,products,category,config
+        case user,admin,products,category,config,order
     }
     
     enum Entity{

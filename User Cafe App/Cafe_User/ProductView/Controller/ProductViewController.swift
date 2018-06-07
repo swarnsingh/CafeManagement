@@ -21,8 +21,13 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = cateogry.name
-        self.navigationController?.navigationBar.tintColor = .white
         self.getProduct()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "cart"), style: .plain, target: self, action: #selector(cartButtonPressed))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBadge), name: AppNotifications.productQtyChange.instance.name, object: nil)
+        
+        self.updateBadge()
         
         // Do any additional setup after loading the view.
     }
@@ -30,6 +35,21 @@ class ProductViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.updateBadge()
+
+    }
+    
+    //MARK: Button Methods
+    
+    @objc func cartButtonPressed(){
+        
+        Constants.sideMenuController.toggle(swipeDirection: SwipeDirection.left.rawValue)
+        
     }
 
     //MARK: WebApi Method

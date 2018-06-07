@@ -19,11 +19,16 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        categoryListTableView.tableFooterView = UIView()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(userDidLogout), name: AppNotifications.logout.instance.name, object: nil)
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBadge), name: AppNotifications.productQtyChange.instance.name, object: nil)
+        
+        self.navigationController?.navigationBar.tintColor = .white
+        
         self.getCategories()
         
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +44,8 @@ class HomeViewController: UIViewController {
             performSegue(withIdentifier: "login", sender: self)
             
         }
+        
+        self.updateBadge()
         
     }
     
@@ -66,7 +73,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController{
-    
+        
     //MARK: WebAPI Method
     
     func getCategories(){
@@ -85,6 +92,10 @@ extension HomeViewController{
                 
                 self.categoryArray = self.categoryArray.filter{$0.products.count > 0}
 
+                self.categoryArray = self.categoryArray.sorted(by: { (cat1, cat2) -> Bool in
+                    return cat1.name.localizedCaseInsensitiveCompare(cat2.name) == .orderedAscending
+                })
+                
                 self.categoryListTableView.reloadData()
                 
             }
