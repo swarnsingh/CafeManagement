@@ -10,9 +10,11 @@ import UIKit
 import Firebase
 import DualSlideMenu
 import MBProgressHUD
+import UserNotifications
+import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
 
     var window: UIWindow?
 
@@ -20,18 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let leftView = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "LeftMenuController")
-        let rightView = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "RightMenuController")
-        let mainView = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "MainController")
+        self.registerForPushNotifications(application: application)
         
-        Constants.sideMenuController = DualSlideMenuViewController(mainViewController: mainView, leftMenuViewController: leftView, rightMenuViewController: rightView)
-        Constants.sideMenuController.leftSideOffset = 100
-        Constants.sideMenuController.rightSideOffset = 100
-        Constants.sideMenuController.addSwipeGestureInSide(viewController: rightView, direction: .right)
-        Constants.sideMenuController.addSwipeGestureInSide(viewController: leftView, direction: .left)
-        window!.rootViewController = Constants.sideMenuController
-        window!.makeKeyAndVisible()
+        self.setRootController()
 
         UIApplication.shared.statusBarStyle = .lightContent
         
@@ -61,5 +54,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+}
+
+extension AppDelegate:UNUserNotificationCenterDelegate{
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+    }
+    
+}
+
+extension AppDelegate{
+    
+    func registerForPushNotifications(application:UIApplication){
+        
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+        
+    }
+    
+    func setRootController(){
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let leftView = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "LeftMenuController")
+        let rightView = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "RightMenuController")
+        let mainView = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "MainController")
+        
+        Constants.sideMenuController = DualSlideMenuViewController(mainViewController: mainView, leftMenuViewController: leftView, rightMenuViewController: rightView)
+        Constants.sideMenuController.leftSideOffset = 100
+        Constants.sideMenuController.rightSideOffset = 100
+        Constants.sideMenuController.addSwipeGestureInSide(viewController: rightView, direction: .right)
+        Constants.sideMenuController.addSwipeGestureInSide(viewController: leftView, direction: .left)
+        window!.rootViewController = Constants.sideMenuController
+        window!.makeKeyAndVisible()
+        
+    }
+    
 }
 

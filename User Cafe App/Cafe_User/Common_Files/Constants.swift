@@ -14,11 +14,14 @@ typealias ValidationResult = (error:String,isValid:Bool)
 
 enum SuccessMessage{
     
-    case passwordResetMail,userCreated,loginSuccessfull
+    case passwordResetMail,userCreated,loginSuccessfull,orderPlaced
     
     var stringValue:String{
         
         switch self {
+            
+        case .orderPlaced:
+            return "Order placed successfully."
             
         case .passwordResetMail:
             return "Password reset mail has been sent successfully. Please check your inbox."
@@ -97,6 +100,23 @@ class Constants: NSObject {
     static let screenWidth = UIScreen.main.bounds.width
 
     static var sideMenuController:DualSlideMenuViewController!
+    
+    static let dateFormatter = DateFormatter()
+    
+    class func generateOTP()->String{
+        
+        var result = ""
+        
+        repeat{
+            
+            result += "\(arc4random_uniform(10000))"
+            
+        }while(result.count < 4)
+        
+        return result
+        
+    }
+    
 }
 
 enum SwipeDirection:String{

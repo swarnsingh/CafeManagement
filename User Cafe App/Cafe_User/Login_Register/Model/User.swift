@@ -27,6 +27,7 @@ struct User:Codable {
     
     var firstName = ""
     var lastName = ""
+    var image = ""
     var email = ""
     var device = Device()
     var id = ""
@@ -87,11 +88,28 @@ extension User{
 
 extension User{
     
+    var jsonRepresentation:[String:String]{
+        
+        return ["id":id,
+                "first_name":firstName,
+                "last_name":lastName,
+                "image":image]
+    }
+    
     mutating func logout(){
         
         self.state = .loggedOut
         UserDefaults.standard.removeObject(forKey: "CafeUser")
         
+    }
+    
+    init(info:[String:Any]) {
+        
+        firstName = info["first_name"] as? String ?? ""
+        lastName = info["last_name"] as? String ?? ""
+        image = info["image"] as? String ?? ""
+        id = info["id"] as? String ?? ""
+
     }
     
     mutating func update(info:[String:Any], id:String){
