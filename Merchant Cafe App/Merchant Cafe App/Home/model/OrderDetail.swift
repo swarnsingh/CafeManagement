@@ -3,6 +3,7 @@
  */
 
 import Foundation
+import UIKit
 
 struct OrderDetail {
     
@@ -27,10 +28,10 @@ struct OrderDetail {
         
         self.user = User.init(info: userJSON)
         
-        let productJSON = info["products"] as? [[String:Any]]
+        let productJSON = info["products"] as? [[String:Any]] ?? [[:]]
         
-        for product in productJSON! {
-            self.products.append(Product.init(info: product))
+        for product in productJSON {
+            self.products.append(Product(info: product))
         }
         
         let statusJSON = info["status"] as? [String:Any] ?? [:]

@@ -9,8 +9,12 @@ import Toast_Swift
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var totalOrders: UILabel!
     var orderArray = [OrderDetail]()
+    var deliveredOrderArray = [OrderDetail]()
+    //var totalOrderCount: Int = 0
     
+    @IBOutlet var TotalSales: UILabel!
     @IBOutlet var OrderTableView: UITableView!
     override func viewWillAppear(_ animated: Bool) {
         
@@ -19,7 +23,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
     }
- 
+    
     override func viewDidAppear(_ animated: Bool) {
         Constants.db.collection("Admin").document("1").addSnapshotListener(
         includeMetadataChanges: true) { querySnapshot, error in
@@ -59,8 +63,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = .white
         
+        totalOrders.backgroundColor  = UIColor.init(red: 184/255.0, green: 23/255.0, blue: 72/255.0, alpha: 1.0)
+        TotalSales.backgroundColor  = UIColor.init(red: 184/255.0, green: 23/255.0, blue: 72/255.0, alpha: 1.0)
+        
         if Connectivity.isConnectedToInternet {
             self.getOrders()
+            
         } else {
             self.view.makeToast("Please check your internet connection!", duration: 1.0, position: .bottom)
         }
@@ -92,6 +100,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
         let order = orderArray[indexPath.section]
@@ -101,9 +110,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let OrderItems = cell?.viewWithTag(103) as! UILabel
         let OrderPlacedAt = cell?.viewWithTag(104) as! UILabel
         let OrderPlacedBy = cell?.viewWithTag(105) as! UILabel
+        let OrderStatus = cell?.viewWithTag(106) as! UILabel
         
-        OrderId.text = order.orderId
-        OrderPrice.text = "\(order.orderPrice)"
+        OrderId.text = "#\(order.orderId)"
+        OrderPrice.text = "₹\(order.orderPrice)"
         OrderItems.text = "\(order.products.count)"
         
         
@@ -111,15 +121,34 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if order.states.keys.contains(OrderDetail.OrderStatus.Placed){
             
             let placedAt = order.states[.Placed]
-            Constants.dateFormatter.dateFormat = "dd MMM yyyy"
+            Constants.dateFormatter.dateFormat = nil
+            Constants.dateFormatter.dateStyle = .medium
+            Constants.dateFormatter.timeStyle = .medium
             OrderPlacedAt.text = Constants.dateFormatter.string(from: placedAt!)
-
+            
+        }
+        
+        if order.states.keys.contains(OrderDetail.OrderStatus.Ready){
+            OrderStatus.text = "Ready"
+            OrderStatus.backgroundColor = UIColor.init(red: 51/255.0, green: 102/255.0, blue: 255/255.0, alpha: 1.0)
+            OrderStatus.textColor = UIColor.white
+            
+        }
+        else if  order.states.keys.contains(OrderDetail.OrderStatus.Accepted){
+            OrderStatus.text = "Accepted"
+            OrderStatus.backgroundColor = UIColor.init(red: 51/255.0, green: 204/255.0, blue: 0/255.0, alpha: 1.0)
+            OrderStatus.textColor = UIColor.white
+        }
+        else{
+            OrderStatus.text = "Placed"
+            OrderStatus.backgroundColor = UIColor.init(red: 255/255.0, green: 163/255.0, blue: 26/255.0, alpha: 1.0)
+            OrderStatus.textColor = UIColor.white
+            
         }
         
         
+        OrderPlacedBy.text = "\(order.user.firstName) \(order.user.lastName)"
         
-        OrderPlacedBy.text = order.user.firstName
-
         cell?.selectionStyle = .none
         
         return cell!
@@ -130,15 +159,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let order = orderArray[indexPath.section]
         
-       
-           /* let orderDetailVC = /AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: Constants.PRODUCT_VIEW_SEGUE) as! ProductViewController
-            
-           // orderDetailV = category
-            orderDetailVC.orderArray = orderArray
-            
-            self.navigationController?.pushViewController(orderDetailVC, animated: true)
-       
-       */
+        
+        /* let orderDetailVC = /AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: Constants.PRODUCT_VIEW_SEGUE) as! ProductViewController
+         
+         // orderDetailV = category
+         orderDetailVC.orderArray = orderArray
+         
+         self.navigationController?.pushViewController(orderDetailVC, animated: true)
+         
+         */
     }
     
     
@@ -150,19 +179,44 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if error == nil {
                 
                 self.orderArray.removeAll()
-                
+                self.deliveredOrderArray.removeAll()
                 for document in (snapshot?.documents)!{
                     
-                    let order = OrderDetail(info: document.data(), id: document.documentID )
+                    let order = OrderDetail(info: document.data(), id: document.documentID)
                     
                     self.orderArray.append(order)
                     
                 }
+                
+                self.deliveredOrderArray = self.orderArray.filter{
+                    
+                    if $0.states.keys.contains(.Delivered){
+                        
+                        guard let deliveredAt = $0.states[.Delivered] else {return false}
+                        
+                        let dayOfDelivery = Calendar.current.component(.day, from: deliveredAt)
+                        
+                        let currentDay = Calendar.current.component(.day, from: Date())
+                        
+                        return currentDay-dayOfDelivery < 30
+                        
+                    }
+                    
+                    return false
+                }
+                
+                
+                let totalDeliveredPrice = self.deliveredOrderArray.map{$0.orderPrice}.reduce(0.0,+)
+                print(totalDeliveredPrice)
+                self.totalOrders.text = "Total Orders: \n \(self.deliveredOrderArray.count)"
+                self.TotalSales.text = "Total Sales: \n ₹\(totalDeliveredPrice)"
+                self.orderArray = self.orderArray.filter{ return !$0.states.keys.contains(.Delivered) && !$0.states.keys.contains(.Declined) }
+                
                 self.OrderTableView.reloadData()
                 
             }
             
-        }
+        } 
         
     }
     
