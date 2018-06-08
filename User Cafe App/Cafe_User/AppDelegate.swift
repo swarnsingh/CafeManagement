@@ -14,7 +14,7 @@ import UserNotifications
 import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -58,12 +58,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
 
 extension AppDelegate:UNUserNotificationCenterDelegate{
     
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        Constants.device = Device(token: Messaging.messaging().fcmToken ?? "")
+        
+        Messaging.messaging().subscribe(toTopic: "itt")
+        
     }
     
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error.localizedDescription)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -85,9 +89,17 @@ extension AppDelegate{
             UNUserNotificationCenter.current().delegate = self
             
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { (isAuthorized, error) in
+                
+                if isAuthorized{
+                    
+                    application.registerForRemoteNotifications()
+                    
+                }
+                
+            })
+
         } else {
             let settings: UIUserNotificationSettings =
                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)

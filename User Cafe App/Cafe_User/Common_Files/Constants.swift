@@ -79,6 +79,15 @@ enum AppNotifications:String{
     
 }
 
+struct Device {
+    
+    let id = UIDevice.current.identifierForVendor?.uuidString
+    let type = UIDevice.current.model
+    var token = ""
+    let osVersion = UIDevice.current.systemVersion
+    
+}
+
 enum AppStoryBoard:String{
     
     case Login,Main
@@ -94,6 +103,10 @@ enum AppStoryBoard:String{
 class Constants: NSObject {
     
     static let AppName = "ITT Cafe"
+    
+    static var device = Device()
+    
+    static let adminPushID = "632817096151@gcm.googleapis.com"
     
     static let screenHeight = UIScreen.main.bounds.height
 

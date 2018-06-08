@@ -8,18 +8,11 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseAuth
 
 struct User:Codable {
     
     static var current = User()
-    
-    struct Device {
-        
-        var id = ""
-        var type = ""
-        var token = ""
-        var osVersion = 0.0
-    }
     
     enum State{
         case loggedIn,loggedOut
@@ -29,7 +22,6 @@ struct User:Codable {
     var lastName = ""
     var image = ""
     var email = ""
-    var device = Device()
     var id = ""
     var state = State.loggedOut
     
@@ -96,10 +88,24 @@ extension User{
                 "image":image]
     }
     
+    func updateDeviceInfo(){
+        
+        let device = ["device":["id":Constants.device.id ?? "",
+                                "model":Constants.device.type,
+                                "os_version":Constants.device.osVersion,
+                                "token":Constants.device.token]]
+        
+        let database = Firestore.firestore().collection(Database.Collection.user.rawValue).document(self.id)
+        
+        database.setData(device, options: SetOptions.merge())
+        
+    }
+    
     mutating func logout(){
         
         self.state = .loggedOut
         UserDefaults.standard.removeObject(forKey: "CafeUser")
+        try? Auth.auth().signOut()
         
     }
     

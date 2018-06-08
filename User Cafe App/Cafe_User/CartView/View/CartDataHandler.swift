@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseFirestore
+import FirebaseMessaging
 
 extension CartViewController{
     
@@ -76,6 +77,10 @@ extension CartViewController{
         self.fetchSavedCartProducts()
 
         self.showAlert(SuccessMessage.orderPlaced.stringValue)
+        
+        let pushID = UUID().uuidString
+        
+        Messaging.messaging().sendMessage(["title":"hello","message":"kaiso ho"], to: Constants.adminPushID, withMessageID: pushID, timeToLive: Int64.max)
         
     }
     

@@ -26,6 +26,7 @@
 		BF13C19820B7FE2A00987F86 /* ProductListCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C19720B7FE2A00987F86 /* ProductListCollection.swift */; };
 		BF13C19A20B802A600987F86 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13C19920B802A600987F86 /* Category.swift */; };
 		BF4B3A7820C92B2F00CC0C31 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B3A7720C92B2F00CC0C31 /* Order.swift */; };
+		BF5F736120CA494C002CBB3C /* HomeFirebaseListners.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F736020CA494C002CBB3C /* HomeFirebaseListners.swift */; };
 		BF974A1220B3E709006346F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF974A1120B3E709006346F0 /* AppDelegate.swift */; };
 		BF974A1720B3E709006346F0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF974A1520B3E709006346F0 /* Login.storyboard */; };
 		BF974A1920B3E709006346F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF974A1820B3E709006346F0 /* Assets.xcassets */; };
@@ -91,6 +92,8 @@
 		BF13C19720B7FE2A00987F86 /* ProductListCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCollection.swift; sourceTree = "<group>"; };
 		BF13C19920B802A600987F86 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		BF4B3A7720C92B2F00CC0C31 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		BF5F736020CA494C002CBB3C /* HomeFirebaseListners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFirebaseListners.swift; sourceTree = "<group>"; };
+		BF5F736220CA54B9002CBB3C /* Cafe_User.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cafe_User.entitlements; sourceTree = "<group>"; };
 		BF974A0E20B3E709006346F0 /* Cafe_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cafe_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF974A1120B3E709006346F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF974A1620B3E709006346F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
@@ -223,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				BF13C17B20B7CDF900987F86 /* HomeTableView.swift */,
+				BF5F736020CA494C002CBB3C /* HomeFirebaseListners.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +357,7 @@
 		BF974A1020B3E709006346F0 /* Cafe_User */ = {
 			isa = PBXGroup;
 			children = (
+				BF5F736220CA54B9002CBB3C /* Cafe_User.entitlements */,
 				BFCA419220BFECBE00B68926 /* DatabaseHandler */,
 				BF974A3F20B3E728006346F0 /* GoogleService-Info.plist */,
 				BF974A1120B3E709006346F0 /* AppDelegate.swift */,
@@ -553,7 +558,15 @@
 					BF974A0D20B3E709006346F0 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					BF974A2120B3E70A006346F0 = {
 						CreatedOnToolsVersion = 9.2;
@@ -747,6 +760,7 @@
 				BF13C17C20B7CDF900987F86 /* HomeTableView.swift in Sources */,
 				BF13C19620B7FE1B00987F86 /* Product.swift in Sources */,
 				BFCA419E20C0088C00B68926 /* CartProduct+CoreDataClass.swift in Sources */,
+				BF5F736120CA494C002CBB3C /* HomeFirebaseListners.swift in Sources */,
 				BF974A6620B40E28006346F0 /* Constants.swift in Sources */,
 				BF13C17A20B7CB5E00987F86 /* HomeViewController.swift in Sources */,
 				BF974A5920B3E867006346F0 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -920,12 +934,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Cafe_User/Cafe_User.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 543BQA7L5F;
 				INFOPLIST_FILE = Cafe_User/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Intimetec.ITT-Cafe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "86f1e0e0-f246-48d4-b45d-035cd279f439";
+				PROVISIONING_PROFILE_SPECIFIER = CafeUserDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Cafe_User/ThirdParty/TPKeyboardAvoiding/Cafe_User-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -939,12 +957,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Cafe_User/Cafe_User.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 543BQA7L5F;
 				INFOPLIST_FILE = Cafe_User/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Intimetec.ITT-Cafe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "86f1e0e0-f246-48d4-b45d-035cd279f439";
+				PROVISIONING_PROFILE_SPECIFIER = CafeUserDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Cafe_User/ThirdParty/TPKeyboardAvoiding/Cafe_User-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
