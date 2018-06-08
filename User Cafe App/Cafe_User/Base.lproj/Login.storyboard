@@ -133,7 +133,6 @@
                                                     </attributedString>
                                                 </state>
                                                 <connections>
-                                                    <action selector="alreadyHaveAccountPressed" destination="eMU-L8-F49" eventType="touchUpInside" id="OSS-BK-mH3"/>
                                                     <segue destination="wrc-9B-AmK" kind="show" id="mWW-PJ-SGf"/>
                                                 </connections>
                                             </button>
