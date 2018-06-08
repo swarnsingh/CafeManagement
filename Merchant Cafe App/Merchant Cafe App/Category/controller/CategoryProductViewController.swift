@@ -68,7 +68,7 @@ extension CategoryProductViewController {
     
     func getCategories() {
         
-        Firestore.firestore().collection("category").addSnapshotListener { (snapshot, error) in
+        let unsubscribe = Firestore.firestore().collection("category").addSnapshotListener { (snapshot, error) in
             
             if error == nil {
                 
@@ -85,7 +85,7 @@ extension CategoryProductViewController {
             }
             
         }
-        
+        unsubscribe;
     }
     
 }

@@ -15,8 +15,13 @@ class SideMenuViewController: UIViewController {
     @IBOutlet var categoryMenuButton: UIButton!
     @IBOutlet var productMenuButton: UIButton!
     
+    @IBOutlet var profileImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+       // self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
+      //  self.profileImageView.clipsToBounds = true
+      //  self.profileImageView.layer.borderWidth = 3.0
+        //self.profileImageView.layer.borderColor = (UIColor.white as! CGColor)
         
         logoutMenuButton.addTarget(self, action: #selector(self.onLogout(_:)), for: .touchUpInside)
         categoryMenuButton.addTarget(self, action: #selector(self.onCategoryPress(_:)), for: .touchUpInside)

@@ -74,54 +74,83 @@ class OrderDetailViewController: UIViewController {
                 _ = self.navigationController?.popViewController(animated: true)
             })
             self.view.makeToast("Order Ready message sent Succesfully", duration: 1.0, position: .bottom)
+            
         } else {
             self.view.makeToast("Please check internet connection!", duration: 1.0, position: .bottom)
+            
         }
     }
     
     @objc func delieveredButtonPressed() {
         print("Delivered")
+        self.showAlertController(.alert, title: "Deliver Order", text: "Press confirm to deliver the order", options: ["Confirm"]) { (tappedIndex) in
+            
+            if tappedIndex == 0{
+                
+            }
+        }
     }
     
     @objc func acceptButtonPressed() {
         
-        if Connectivity.isConnectedToInternet {
-            MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.showAlertController(.alert, title: "Accept Order", text: "Press confirm to accept the order", options: ["Confirm"]) { (tappedIndex) in
             
-            print("Accept Order")
+            if tappedIndex == 0{
+                
+                
+                if Connectivity.isConnectedToInternet {
+                    MBProgressHUD.showAdded(to: self.view, animated: true)
+                    
+                    print("Accept Order")
+                    
+                    let document = Firestore.firestore().collection("order").document(self.orderDetail!.documentID)
+                    
+                    document.setData(["status":[OrderDetail.OrderStatus.Accepted.rawValue:FieldValue.serverTimestamp()]], merge: true)
+                    
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
+                        _ = self.navigationController?.popViewController(animated: true)
+                    })
+                    self.view.makeToast("Order Accepted Succesfully", duration: 1.0, position: .bottom)
+                } else {
+                    self.view.makeToast("Please check internet connection!", duration: 1.0, position: .bottom)
+                    
+                }
+                
+            }
             
-            let document = Firestore.firestore().collection("order").document(orderDetail!.documentID)
-            
-            document.setData(["status":[OrderDetail.OrderStatus.Accepted.rawValue:FieldValue.serverTimestamp()]], merge: true)
-            
-            MBProgressHUD.hide(for: self.view, animated: true)
-            DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
-                _ = self.navigationController?.popViewController(animated: true)
-            })
-            self.view.makeToast("Order Accepted Succesfully", duration: 1.0, position: .bottom)
-        } else {
-            self.view.makeToast("Please check internet connection!", duration: 1.0, position: .bottom)
         }
+        
     }
     
     @objc func declineButtonPressed() {
-        if Connectivity.isConnectedToInternet {
-            MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        self.showAlertController(.alert, title: "Decline Order", text: "Press confirm to decline the order", options: ["Confirm"]) { (tappedIndex) in
             
-            print("Decline Order")
-            
-            let document = Firestore.firestore().collection("order").document(orderDetail!.documentID)
-            
-            document.setData(["status":[OrderDetail.OrderStatus.Declined.rawValue:FieldValue.serverTimestamp()]], merge: true)
-            
-            MBProgressHUD.hide(for: self.view, animated: true)
-            DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
-                _ = self.navigationController?.popViewController(animated: true)
-            })
-            self.view.makeToast("Order Declined Succesfully", duration: 1.0, position: .bottom)
-        } else {
-            self.view.makeToast("Please check internet connection!", duration: 1.0, position: .bottom)
+            if tappedIndex == 0{
+                if Connectivity.isConnectedToInternet {
+                    MBProgressHUD.showAdded(to: self.view, animated: true)
+                    
+                    print("Decline Order")
+                    
+                    let document = Firestore.firestore().collection("order").document(self.orderDetail!.documentID)
+                    
+                    document.setData(["status":[OrderDetail.OrderStatus.Declined.rawValue:FieldValue.serverTimestamp()]], merge: true)
+                    
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
+                        _ = self.navigationController?.popViewController(animated: true)
+                    })
+                    
+                    self.view.makeToast("Order Declined Succesfully", duration: 1.0, position: .bottom)
+                } else {
+                    
+                    self.view.makeToast("Please check internet connection!", duration: 1.0, position: .bottom)
+                    
+                }
+            }
         }
+        
     }
     
     override func didReceiveMemoryWarning() {
