@@ -84,7 +84,19 @@ enum AppStoryBoard:String{
     
 }
 
+
+struct Device {
+    
+    let id = UIDevice.current.identifierForVendor?.uuidString
+    let type = UIDevice.current.model
+    var token = ""
+    let osVersion = UIDevice.current.systemVersion
+    
+}
+
 class Constants: NSObject {
+    
+    static var device = Device()
     
     static let dateFormatter = DateFormatter()
     

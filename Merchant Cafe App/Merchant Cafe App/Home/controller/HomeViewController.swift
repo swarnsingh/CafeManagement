@@ -24,29 +24,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        Constants.db.collection("Admin").document("1").addSnapshotListener(
-        includeMetadataChanges: true) { querySnapshot, error in
-            guard let documents = querySnapshot?.get("account_info") else {
-                print("Error fetching account_info documents: \(error!)")
-                return
-            }
-            let account_info: [String:Any] = documents as! [String : Any]
-            
-            let deviceId = account_info["device_id"] as! String
-            
-            if deviceId != UIDevice.current.identifierForVendor?.uuidString {
-                if (PreferenceManager.isUserLogin()) {
-                    self.showAlert("User logged in from another device. Please login again.")
-                    PreferenceManager.setUserLogin(isUserLogin: false)
-                    self.goToController(controller: Constants.LOGIN_SEGUE, nextViewController: LoginViewController.self)
-                    
-                }
-            }
-            print("Account Info : \(String(describing: account_info["device_id"]))")
-        }
-    }
-    
     private func goToController(controller: String, nextViewController : AnyClass) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: controller)
@@ -72,6 +49,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             self.view.makeToast("Please check your internet connection!", duration: 1.0, position: .bottom)
         }
+        
+        Constants.db.collection("admin").document("1").addSnapshotListener(
+        includeMetadataChanges: true) { querySnapshot, error in
+            
+            let accountData = querySnapshot?.data()!["account_info"] as? [String:Any] ?? [:]
+
+            let deviceData = accountData["device"] as? [String:Any] ?? [:]
+
+            let deviceId = deviceData["id"] as? String ?? ""
+            
+            if deviceId != UIDevice.current.identifierForVendor?.uuidString {
+                if (PreferenceManager.isUserLogin()) {
+                    self.showAlert("User logged in from another device. Please login again.")
+                    PreferenceManager.setUserLogin(isUserLogin: false)
+                    self.goToController(controller: Constants.LOGIN_SEGUE, nextViewController: LoginViewController.self)
+                    
+                }
+            }
+        }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -166,7 +163,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func getOrders() {
         
-        Firestore.firestore().collection("order").addSnapshotListener{ (snapshot, error) in
+        Firestore.firestore().collection("order").order(by: "status", descending: true).addSnapshotListener{ (snapshot, error) in
             
             if error == nil {
                 
