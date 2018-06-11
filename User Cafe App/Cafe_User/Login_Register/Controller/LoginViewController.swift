@@ -45,16 +45,19 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                         if !(user?.isEmailVerified)!{
                             
                             self.showAlert(ErrorMessage.verifyEmail.stringValue)
+                            try? Auth.auth().signOut()
                             return
                         }
                         
-                        Database.getDataOf(.user, At: user!.providerID, callback: { data in
+                        let uID = user?.providerData.map{ $0.uid }
+                        
+                        Database.getDataOf(.user, At: uID!.first!, callback: { data in
                             
                             guard let userInfo = data else { return }
                             
-                            let uID = user?.providerData.map{ $0.uid }
-                            
                             User.current.update(info: userInfo, id: uID!.first!)
+                            
+                            User.current.updateDeviceInfo()
                             
                             let userData = try! JSONEncoder().encode(User.current)
                             

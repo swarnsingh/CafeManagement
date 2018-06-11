@@ -17,6 +17,7 @@ struct Product {
     var detail = ""
     var id = ""
     var price = 0.0
+    var addedQty = 0
     
     init(info:[String:Any],id:String) {
         
@@ -31,6 +32,17 @@ struct Product {
             self.images = info["images"] as? [String] ?? []
             
         }
+        
+    }
+    
+    init(info:[String:Any]) {
+        
+        self.name = info["name"] as? String ?? ""
+        self.image = info["image"] as? String ?? ""
+        self.id = info["id"] as? String ?? ""
+        self.price = info["price"] as? Double ?? 0.0
+        self.detail = info["detail"] as? String ?? ""
+        self.addedQty = info["quantity"] as? Int ?? 0
         
     }
     

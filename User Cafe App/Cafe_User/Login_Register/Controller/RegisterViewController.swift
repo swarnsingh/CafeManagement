@@ -51,7 +51,7 @@ class RegisterViewController: UIViewController {
                         
                         let data = ["first_name":self.firstNameTextField.text!,
                                     "last_name":self.lastNameTextField.text!,
-                                    "email":self.emailTextField.text!]
+                                    "email":self.emailTextField.text!] as [String : Any]
                         
                         let uID = user?.providerData.map{ $0.uid }
                         

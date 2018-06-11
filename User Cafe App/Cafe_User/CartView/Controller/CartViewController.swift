@@ -50,7 +50,7 @@ class CartViewController: UIViewController {
             
             if tappedIndex == 0{
                 
-                //self.placeOrder(Database.Collection.order.ra)
+                self.placeOrder()
                 
             }
             

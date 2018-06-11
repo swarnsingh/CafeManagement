@@ -19,8 +19,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBO-Sm-IaS">
+                                <rect key="frame" x="0.0" y="64" width="375" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Oqw-bg-gc6"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dUJ-f8-Vs8">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="200" id="jOy-ia-SeN">
@@ -80,10 +87,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="WB8-Zm-Cgs" firstAttribute="trailing" secondItem="xBO-Sm-IaS" secondAttribute="trailing" id="7We-oc-Wk4"/>
+                            <constraint firstItem="xBO-Sm-IaS" firstAttribute="leading" secondItem="WB8-Zm-Cgs" secondAttribute="leading" id="Ct5-bO-Rrk"/>
                             <constraint firstItem="dUJ-f8-Vs8" firstAttribute="leading" secondItem="WB8-Zm-Cgs" secondAttribute="leading" id="Leq-KR-3qH"/>
                             <constraint firstItem="WB8-Zm-Cgs" firstAttribute="bottom" secondItem="dUJ-f8-Vs8" secondAttribute="bottom" id="Mhc-tc-Nwp"/>
-                            <constraint firstItem="dUJ-f8-Vs8" firstAttribute="top" secondItem="WB8-Zm-Cgs" secondAttribute="top" id="Pee-9N-hg1"/>
+                            <constraint firstItem="xBO-Sm-IaS" firstAttribute="top" secondItem="WB8-Zm-Cgs" secondAttribute="top" id="NsI-Eg-Yh5"/>
                             <constraint firstItem="WB8-Zm-Cgs" firstAttribute="trailing" secondItem="dUJ-f8-Vs8" secondAttribute="trailing" id="WsH-Om-c3U"/>
+                            <constraint firstItem="dUJ-f8-Vs8" firstAttribute="top" secondItem="xBO-Sm-IaS" secondAttribute="bottom" id="fot-Le-3TK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WB8-Zm-Cgs"/>
                     </view>
@@ -129,6 +139,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Inl-Pe-yTK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="OnD-yD-5vu"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TzQ-Ce-Le0">
                                 <rect key="frame" x="8" y="72" width="359" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -195,8 +212,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TzQ-Ce-Le0" firstAttribute="leading" secondItem="yav-VB-7g6" secondAttribute="leading" constant="8" id="39Q-tE-oWU"/>
+                            <constraint firstItem="Inl-Pe-yTK" firstAttribute="top" secondItem="yav-VB-7g6" secondAttribute="top" id="GXg-m6-LSS"/>
+                            <constraint firstItem="yav-VB-7g6" firstAttribute="trailing" secondItem="Inl-Pe-yTK" secondAttribute="trailing" id="Npd-xh-TTj"/>
                             <constraint firstItem="yav-VB-7g6" firstAttribute="bottom" secondItem="TzQ-Ce-Le0" secondAttribute="bottom" constant="8" id="V5O-og-192"/>
-                            <constraint firstItem="TzQ-Ce-Le0" firstAttribute="top" secondItem="yav-VB-7g6" secondAttribute="top" constant="8" id="Wut-4L-KoX"/>
+                            <constraint firstItem="Inl-Pe-yTK" firstAttribute="leading" secondItem="yav-VB-7g6" secondAttribute="leading" id="WKx-mO-lsU"/>
+                            <constraint firstItem="TzQ-Ce-Le0" firstAttribute="top" secondItem="Inl-Pe-yTK" secondAttribute="bottom" constant="7" id="ZGJ-U9-hO9"/>
                             <constraint firstItem="yav-VB-7g6" firstAttribute="trailing" secondItem="TzQ-Ce-Le0" secondAttribute="trailing" constant="8" id="u9L-Kb-vhh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yav-VB-7g6"/>
@@ -217,8 +237,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="StJ-Wk-OU8">
+                                <rect key="frame" x="0.0" y="20" width="375" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Sit-t5-i0w"/>
+                                </constraints>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-1e-sre">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="21" width="375" height="646"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1a-8b-Ugb">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="371"/>
@@ -230,7 +257,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="khu-98-mpz">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="khu-98-mpz">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -425,12 +452,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2SP-1e-sre" firstAttribute="leading" secondItem="CVB-up-VzK" secondAttribute="leading" id="01K-jn-SzV"/>
-                            <constraint firstItem="2SP-1e-sre" firstAttribute="top" secondItem="CVB-up-VzK" secondAttribute="top" id="1FO-V8-IQQ"/>
                             <constraint firstItem="CVB-up-VzK" firstAttribute="bottom" secondItem="2SP-1e-sre" secondAttribute="bottom" id="5mW-wm-RP4"/>
                             <constraint firstItem="UCG-XB-J2Y" firstAttribute="leading" secondItem="CVB-up-VzK" secondAttribute="leading" id="6Pk-6Z-Ff2"/>
+                            <constraint firstItem="StJ-Wk-OU8" firstAttribute="top" secondItem="CVB-up-VzK" secondAttribute="top" id="AyC-VP-Y3s"/>
                             <constraint firstItem="UCG-XB-J2Y" firstAttribute="bottom" secondItem="CVB-up-VzK" secondAttribute="bottom" id="BqU-Au-hvX"/>
+                            <constraint firstItem="2SP-1e-sre" firstAttribute="top" secondItem="StJ-Wk-OU8" secondAttribute="bottom" id="D4B-A7-U92"/>
                             <constraint firstItem="UCG-XB-J2Y" firstAttribute="trailing" secondItem="CVB-up-VzK" secondAttribute="trailing" id="Ha1-Bu-D4d"/>
                             <constraint firstItem="CVB-up-VzK" firstAttribute="trailing" secondItem="2SP-1e-sre" secondAttribute="trailing" id="IDJ-na-JYa"/>
+                            <constraint firstItem="StJ-Wk-OU8" firstAttribute="leading" secondItem="CVB-up-VzK" secondAttribute="leading" id="OGv-am-SNd"/>
+                            <constraint firstItem="CVB-up-VzK" firstAttribute="trailing" secondItem="StJ-Wk-OU8" secondAttribute="trailing" id="h6Y-Iq-dfh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CVB-up-VzK"/>
                     </view>
@@ -651,6 +681,9 @@
                                 <state key="normal" title="CHECKOUT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkoutButtonPressed:" destination="wJi-25-yw9" eventType="touchUpInside" id="fS8-Qt-UB2"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8h-Xr-Iov" customClass="CustomView" customModule="Cafe_User" customModuleProvider="target">
                                 <rect key="frame" x="92" y="0.0" width="1" height="667"/>

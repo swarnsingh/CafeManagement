@@ -14,11 +14,14 @@ typealias ValidationResult = (error:String,isValid:Bool)
 
 enum SuccessMessage{
     
-    case passwordResetMail,userCreated,loginSuccessfull
+    case passwordResetMail,userCreated,loginSuccessfull,orderPlaced
     
     var stringValue:String{
         
         switch self {
+            
+        case .orderPlaced:
+            return "Order placed successfully."
             
         case .passwordResetMail:
             return "Password reset mail has been sent successfully. Please check your inbox."
@@ -76,6 +79,15 @@ enum AppNotifications:String{
     
 }
 
+struct Device {
+    
+    let id = UIDevice.current.identifierForVendor?.uuidString
+    let type = UIDevice.current.model
+    var token = ""
+    let osVersion = UIDevice.current.systemVersion
+    
+}
+
 enum AppStoryBoard:String{
     
     case Login,Main
@@ -92,11 +104,32 @@ class Constants: NSObject {
     
     static let AppName = "ITT Cafe"
     
+    static var device = Device()
+    
+    static let adminPushID = "632817096151@gcm.googleapis.com"
+    
     static let screenHeight = UIScreen.main.bounds.height
 
     static let screenWidth = UIScreen.main.bounds.width
 
     static var sideMenuController:DualSlideMenuViewController!
+    
+    static let dateFormatter = DateFormatter()
+    
+    class func generateOTP()->String{
+        
+        var result = ""
+        
+        repeat{
+            
+            result += "\(arc4random_uniform(10000))"
+            
+        }while(result.count < 4)
+        
+        return result
+        
+    }
+    
 }
 
 enum SwipeDirection:String{

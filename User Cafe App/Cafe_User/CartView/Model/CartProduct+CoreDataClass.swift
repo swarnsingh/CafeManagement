@@ -75,4 +75,14 @@ public class CartProduct: NSManagedObject {
         
     }
     
+    var jsonRepresentation:[String:Any]{
+        
+        return ["id":id ?? "",
+                "price":price,
+                "quantity":addedQty,
+                "image":image ?? "",
+                "name":name ?? ""]
+        
+    }
+    
 }
