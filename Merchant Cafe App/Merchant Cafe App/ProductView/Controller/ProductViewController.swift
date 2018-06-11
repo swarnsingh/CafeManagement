@@ -56,7 +56,7 @@ class ProductViewController: UIViewController {
     func getProduct() -> Category {
         self.productArray.removeAll()
         
-        Firestore.firestore().collection("category").addSnapshotListener { (snapshot, error) in
+        let unsubscribe = Firestore.firestore().collection("category").addSnapshotListener { (snapshot, error) in
             if error == nil {
                 for document in (snapshot?.documents)!{
                     let category = Category(info: document.data(), id: document.documentID)
@@ -79,6 +79,7 @@ class ProductViewController: UIViewController {
                 }
             }
         }
+        unsubscribe ;
         return self.category!
     }
 }

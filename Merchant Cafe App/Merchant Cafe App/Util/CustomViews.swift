@@ -152,6 +152,78 @@ class CustomView:UIView{
         
     }
     
+    @IBInspectable var shadowRadius:CGFloat = 0.0{
+        
+        didSet{
+            
+            self.layer.shadowRadius = shadowRadius
+            self.layer.masksToBounds = false
+            self.layer.shadowOpacity = 0.7
+            
+        }
+        
+    }
+    
+    @IBInspectable var shadowColor:UIColor = .clear{
+        
+        didSet{
+            
+            self.layer.shadowColor = shadowColor.cgColor
+            
+        }
+        
+    }
+    
+    @IBInspectable var borderWidth:CGFloat = 0.0{
+        
+        didSet{
+            
+            self.layer.borderWidth = borderWidth
+            self.layer.masksToBounds = true
+            
+        }
+        
+    }
+    
+    @IBInspectable var borderColor:UIColor = .clear{
+        
+        didSet{
+            
+            self.layer.borderColor = borderColor.cgColor
+            self.layer.masksToBounds = true
+            
+        }
+        
+    }
+    
+}
+
+class CustomLabel:UILabel{
+    
+    @IBInspectable var cornerRadius:CGFloat = 0.0{
+        
+        didSet{
+            
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+            
+        }
+        
+    }
+    
+    @IBInspectable var shadowRadius:CGFloat = 0.0{
+        
+        didSet{
+            
+            self.layer.shadowRadius = shadowRadius
+            self.layer.masksToBounds = false
+            self.layer.shadowOpacity = 0.7
+            
+        }
+        
+    }
+
+    
     @IBInspectable var borderWidth:CGFloat = 0.0{
         
         didSet{

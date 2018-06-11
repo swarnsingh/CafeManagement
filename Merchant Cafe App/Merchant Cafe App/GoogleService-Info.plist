@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>632817096151-he8velo60hkpcsf0bih6otb1l4rk8i7i.apps.googleusercontent.com</string>
+	<string>632817096151-81ft7f2lv4bos5cghm7q2ugm8o33c80q.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.632817096151-he8velo60hkpcsf0bih6otb1l4rk8i7i</string>
+	<string>com.googleusercontent.apps.632817096151-81ft7f2lv4bos5cghm7q2ugm8o33c80q</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDPeZc1tizwuFWrJyV-Qfc2TtPO-1uqaxg</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.intimetec.CafeMangement</string>
+	<string>com.intimetec.cafemanagement</string>
 	<key>PROJECT_ID</key>
 	<string>itt-cafe-f1640</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:632817096151:ios:94c80ad6a35ccff3</string>
+	<string>1:632817096151:ios:1b2c9538fe113d78</string>
 	<key>DATABASE_URL</key>
 	<string>https://itt-cafe-f1640.firebaseio.com</string>
 </dict>

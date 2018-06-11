@@ -74,7 +74,7 @@ enum AppNotifications:String{
 
 enum AppStoryBoard:String{
     
-    case Login,Main
+    case OrderDetail,Main
     
     var instance:UIStoryboard{
         
@@ -84,7 +84,21 @@ enum AppStoryBoard:String{
     
 }
 
+
+struct Device {
+    
+    let id = UIDevice.current.identifierForVendor?.uuidString
+    let type = UIDevice.current.model
+    var token = ""
+    let osVersion = UIDevice.current.systemVersion
+    
+}
+
 class Constants: NSObject {
+    
+    static var device = Device()
+    
+    static let dateFormatter = DateFormatter()
     
     static let AppName = "MerchantCafe"
     
@@ -109,6 +123,7 @@ class Constants: NSObject {
     public static let PRODUCT_OP_VIEW_SEGUE = "ProductOperationsViewController"
     
     public static let Category_OP_VIEW_SEGUE = "AddCategoryFormViewController"
-
+    
+    public static let ORDER_DETAIL_VIEW_SEGUE = "OrderDetailViewController"
 
 }
