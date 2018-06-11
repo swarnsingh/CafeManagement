@@ -206,7 +206,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let orderPlaced1Date = order1.states[.Placed]
                     let orderPlaced2Date = order2.states[.Placed]
                     
-                    return orderPlaced1Date?.compare(orderPlaced2Date!) == .orderedDescending
+                    guard let date1 = orderPlaced1Date, let date2 = orderPlaced2Date else {return false}
+                    
+                    return date1.compare(date2) == .orderedDescending
                     
                 })
                 
