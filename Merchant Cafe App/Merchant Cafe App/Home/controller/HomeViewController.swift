@@ -201,6 +201,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.TotalSales.text = "Total Sales: \n ₹\(totalDeliveredPrice)"
                 self.orderArray = self.orderArray.filter{ return !$0.states.keys.contains(.Delivered) && !$0.states.keys.contains(.Declined) }
                 
+                self.orderArray = self.orderArray.sorted(by: { (order1, order2) -> Bool in
+                    
+                    let orderPlaced1Date = order1.states[.Placed]
+                    let orderPlaced2Date = order2.states[.Placed]
+                    
+                    return orderPlaced1Date?.compare(orderPlaced2Date!) == .orderedDescending
+                    
+                })
+                
                 self.OrderTableView.reloadData()
                 
             }
