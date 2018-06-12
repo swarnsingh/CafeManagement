@@ -27,7 +27,7 @@ class OrderDetailViewController: UIViewController {
     @IBOutlet weak var declineOrderBtn: CustomButton!
     
     var orderDetail: OrderDetail?
-    
+    var otp: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,13 +82,55 @@ class OrderDetailViewController: UIViewController {
     }
     
     @objc func delieveredButtonPressed() {
-        print("Delivered")
-        self.showAlertController(.alert, title: "Deliver Order", text: "Press confirm to deliver the order", options: ["Confirm"]) { (tappedIndex) in
+        showInputDialog()
+    }
+    
+    func showInputDialog() {
+        
+        let alertController = UIAlertController(title: "Validate Order!", message: "Please Enter The OTP", preferredStyle: .alert)
+        
+        
+        let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
             
-            if tappedIndex == 0{
+            self.otp = alertController.textFields?[0].text
+           
+            if self.otp ==  self.orderDetail?.otp {
+                MBProgressHUD.showAdded(to: self.view, animated: true)
+                let document = Firestore.firestore().collection("order").document(self.orderDetail!.documentID)
+                
+                document.setData(["status":[OrderDetail.OrderStatus.Delivered.rawValue:FieldValue.serverTimestamp()]], merge: true)
+                MBProgressHUD.hide(for: self.view, animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
+                    _ = self.navigationController?.popViewController(animated: true)
+                })
+                self.view.makeToast("Order Delivered Succesfully", duration: 1.0, position: .bottom)
+            }
+            else{
+                self.showAlert("OTP Doesn't Match!")
+                DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
+                    _ = self.navigationController?.popViewController(animated: true)
+                })
                 
             }
+           
+            
         }
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter OTP"
+        }
+        
+        
+        //adding the action to dialogbox
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        //finally presenting the dialog box
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @objc func acceptButtonPressed() {
