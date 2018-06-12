@@ -12,6 +12,7 @@ struct OrderDetail {
     }
     
     var orderId = ""
+    var otp = ""
     var documentID = ""
     var instruction = ""
     var orderPrice = 0.0
@@ -24,6 +25,7 @@ struct OrderDetail {
         self.orderPrice =  info["order_price"] as? Double ?? 0.0
         self.orderId = info["order_id"] as? String ?? ""
         self.documentID = id
+        self.otp = info["otp"] as? String ?? ""
         
         let userJSON = info["user_info"] as? [String:Any] ?? [:]
         
