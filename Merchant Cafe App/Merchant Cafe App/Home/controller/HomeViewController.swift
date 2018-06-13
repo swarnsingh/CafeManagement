@@ -78,21 +78,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
         return orderArray.count
-        
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,18 +86,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
-        let order = orderArray[indexPath.section]
+        let order = orderArray[indexPath.row]
         
         let OrderId = cell?.viewWithTag(101) as! UILabel
         let OrderPrice = cell?.viewWithTag(102) as! UILabel
-        let OrderItems = cell?.viewWithTag(103) as! UILabel
+        //let OrderItems = cell?.viewWithTag(103) as! UILabel
         let OrderPlacedAt = cell?.viewWithTag(104) as! UILabel
         let OrderPlacedBy = cell?.viewWithTag(105) as! UILabel
         let OrderStatus = cell?.viewWithTag(106) as! UILabel
         
         OrderId.text = "#\(order.orderId)"
         OrderPrice.text = "₹\(order.orderPrice)"
-        OrderItems.text = "\(order.products.count)"
+       // OrderItems.text = "\(order.products.count)"
         
         
         
@@ -119,25 +105,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let placedAt = order.states[.Placed]
             Constants.dateFormatter.dateFormat = nil
-            Constants.dateFormatter.dateStyle = .medium
-            Constants.dateFormatter.timeStyle = .medium
+            Constants.dateFormatter.dateStyle = .short
+            Constants.dateFormatter.timeStyle = .short
             OrderPlacedAt.text = Constants.dateFormatter.string(from: placedAt!)
             
         }
         
         if order.states.keys.contains(OrderDetail.OrderStatus.Ready){
             OrderStatus.text = "Ready"
-            OrderStatus.backgroundColor = UIColor.init(red: 51/255.0, green: 102/255.0, blue: 255/255.0, alpha: 1.0)
-            OrderStatus.textColor = UIColor.white
+            //OrderStatus.backgroundColor = UIColor.init(red: 51/255.0, green: 102/255.0, blue: 255/255.0, alpha: 1.0)
+            OrderStatus.textColor = UIColor.init(red: 51/255.0, green: 102/255.0, blue: 255/255.0, alpha: 1.0)
             
         } else if  order.states.keys.contains(OrderDetail.OrderStatus.Accepted){
             OrderStatus.text = "Accepted"
-            OrderStatus.backgroundColor = UIColor.init(red: 51/255.0, green: 204/255.0, blue: 0/255.0, alpha: 1.0)
-            OrderStatus.textColor = UIColor.white
+           // OrderStatus.backgroundColor = UIColor.init(red: 51/255.0, green: 204/255.0, blue: 0/255.0, alpha: 1.0)
+            OrderStatus.textColor = UIColor.init(red: 51/255.0, green: 204/255.0, blue: 0/255.0, alpha: 1.0)
         } else {
             OrderStatus.text = "Placed"
-            OrderStatus.backgroundColor = UIColor.init(red: 255/255.0, green: 163/255.0, blue: 26/255.0, alpha: 1.0)
-            OrderStatus.textColor = UIColor.white
+           // OrderStatus.backgroundColor = UIColor.init(red: 255/255.0, green: 163/255.0, blue: 26/255.0, alpha: 1.0)
+            OrderStatus.textColor = UIColor.init(red: 255/255.0, green: 163/255.0, blue: 26/255.0, alpha: 1.0)
         }
         
         OrderPlacedBy.text = "\(order.user.firstName) \(order.user.lastName)"

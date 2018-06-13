@@ -76,7 +76,10 @@ class LoginViewController: UIViewController {
         }
         return isFieldsValid
     }
-    
+   
+    @IBAction func onResetPassword(_ sender: Any) {
+        print("Oops I forgot my password")
+    }
     
     @IBAction func onLogin(_ sender: Any) {
       
