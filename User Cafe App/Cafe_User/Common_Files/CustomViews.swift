@@ -344,4 +344,23 @@ extension UIBarButtonItem {
     func removeBadge() {
         badgeLayer?.removeFromSuperlayer()
     }
+    
+}
+
+extension UIImage{
+    
+    func resize(to:CGSize)->UIImage?{
+        
+        UIGraphicsBeginImageContext(to)
+        
+        self.draw(in: CGRect(x: 0, y: 0, width: to.width, height: to.height))
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return image
+        
+    }
+    
 }

@@ -46,6 +46,10 @@ class HomeViewController: UIViewController {
          
             performSegue(withIdentifier: "login", sender: self)
             
+        }else{
+            
+            User.current.syncWithFirebase {}
+            
         }
         
         self.updateBadge()

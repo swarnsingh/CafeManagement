@@ -34,9 +34,15 @@ extension SideMenuViewController:UITableViewDelegate,UITableViewDataSource{
         
         Constants.sideMenuController.toggle(swipeDirection: SwipeDirection.right.rawValue)
 
+        let navController = Constants.sideMenuController.mainView as! UINavigationController
+        
         switch indexPath.row {
         case 0:
-            break
+            
+            let profileVC = AppStoryBoard.Login.instance.instantiateViewController(withIdentifier: "ProfileViewController")
+            
+            navController.pushViewController(profileVC, animated: true)
+            
         case 1:
             break
         case 2:
