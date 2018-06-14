@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0F55CE37603BE1EDF6539FE3 /* Pods_Cafe_UserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21937F9D9FA93D4BEAC7D600 /* Pods_Cafe_UserUITests.framework */; };
 		13E5324DEC3A6220F245CAE1 /* Pods_Cafe_UserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CD3FEAF3AA387C83F5AFAC /* Pods_Cafe_UserTests.framework */; };
+		BF04DAAC20D22B5800E68606 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF04DAAB20D22B5800E68606 /* ProfileViewController.swift */; };
+		BF04DAAE20D22C0300E68606 /* ProfileValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF04DAAD20D22C0300E68606 /* ProfileValidator.swift */; };
+		BF04DAB020D22FD600E68606 /* ProfilePicturePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF04DAAF20D22FD600E68606 /* ProfilePicturePicker.swift */; };
+		BF04DAB220D2468700E68606 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF04DAB120D2468700E68606 /* ChangePasswordViewController.swift */; };
 		BF0C380B20B6BA7D00EEC62C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C380920B6BA7C00EEC62C /* RegisterViewController.swift */; };
 		BF0C380C20B6BA7D00EEC62C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C380A20B6BA7C00EEC62C /* LoginViewController.swift */; };
 		BF0C380F20B6BA8A00EEC62C /* RegisterValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C380D20B6BA8900EEC62C /* RegisterValidation.swift */; };
@@ -75,6 +79,10 @@
 		57CD3FEAF3AA387C83F5AFAC /* Pods_Cafe_UserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cafe_UserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		951D83D53E7E47580D4F37E8 /* Pods-Cafe_UserUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cafe_UserUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cafe_UserUITests/Pods-Cafe_UserUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		97D8586E1B3DF879425C8413 /* Pods_Cafe_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cafe_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF04DAAB20D22B5800E68606 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BF04DAAD20D22C0300E68606 /* ProfileValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileValidator.swift; sourceTree = "<group>"; };
+		BF04DAAF20D22FD600E68606 /* ProfilePicturePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicturePicker.swift; sourceTree = "<group>"; };
+		BF04DAB120D2468700E68606 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		BF0C380920B6BA7C00EEC62C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BF0C380A20B6BA7C00EEC62C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF0C380D20B6BA8900EEC62C /* RegisterValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterValidation.swift; sourceTree = "<group>"; };
@@ -165,6 +173,41 @@
 				21937F9D9FA93D4BEAC7D600 /* Pods_Cafe_UserUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF04DAA720D22B2000E68606 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BF04DAAA20D22B3100E68606 /* Model */,
+				BF04DAA920D22B2E00E68606 /* View */,
+				BF04DAA820D22B2A00E68606 /* Controller */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		BF04DAA820D22B2A00E68606 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF04DAAB20D22B5800E68606 /* ProfileViewController.swift */,
+				BF04DAB120D2468700E68606 /* ChangePasswordViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BF04DAA920D22B2E00E68606 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF04DAAD20D22C0300E68606 /* ProfileValidator.swift */,
+				BF04DAAF20D22FD600E68606 /* ProfilePicturePicker.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF04DAAA20D22B3100E68606 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BF0C380520B6BA4000EEC62C /* Login_Register */ = {
@@ -364,6 +407,7 @@
 				BF13C17F20B7CFB800987F86 /* placeholder.png */,
 				BF974A5220B3E837006346F0 /* ThirdParty */,
 				BF974A4F20B3E81F006346F0 /* Common_Files */,
+				BF04DAA720D22B2000E68606 /* Profile */,
 				BF4B3A7320C92B0300CC0C31 /* Orders */,
 				BFCA418520BFC9E800B68926 /* CartView */,
 				BF13C18F20B7FDD900987F86 /* ProductView */,
@@ -741,11 +785,15 @@
 				BF13C18E20B7E0A600987F86 /* SideMenuTable.swift in Sources */,
 				BFBBEA0E20BE66F2003856B6 /* ProductDetailViewController.swift in Sources */,
 				BFCA418A20BFCA1600B68926 /* CartViewController.swift in Sources */,
+				BF04DAAE20D22C0300E68606 /* ProfileValidator.swift in Sources */,
 				BFAD8BF320C7BE2500CA1DCA /* CartDataHandler.swift in Sources */,
+				BF04DAAC20D22B5800E68606 /* ProfileViewController.swift in Sources */,
 				BF13C18220B7D4F700987F86 /* User.swift in Sources */,
 				BFBBEA1020BE6E34003856B6 /* ProductDetailCollection.swift in Sources */,
 				BFCA419A20BFF1E800B68926 /* CartTableView.swift in Sources */,
 				BF13C18420B7D9FA00987F86 /* DatabaseHandler.swift in Sources */,
+				BF04DAB020D22FD600E68606 /* ProfilePicturePicker.swift in Sources */,
+				BF04DAB220D2468700E68606 /* ChangePasswordViewController.swift in Sources */,
 				BF974A1220B3E709006346F0 /* AppDelegate.swift in Sources */,
 				BFCA419D20C0088C00B68926 /* CartProduct+CoreDataProperties.swift in Sources */,
 				BF4B3A7820C92B2F00CC0C31 /* Order.swift in Sources */,

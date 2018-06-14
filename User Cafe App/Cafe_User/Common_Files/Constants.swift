@@ -14,7 +14,7 @@ typealias ValidationResult = (error:String,isValid:Bool)
 
 enum SuccessMessage{
     
-    case passwordResetMail,userCreated,loginSuccessfull,orderPlaced
+    case passwordResetMail,userCreated,loginSuccessfull,orderPlaced,profileUpdated,passwordChanged
     
     var stringValue:String{
         
@@ -31,6 +31,12 @@ enum SuccessMessage{
             
         case .loginSuccessfull:
             return "Login Successfull."
+            
+        case .profileUpdated:
+            return "Profile updated successfully."
+            
+        case .passwordChanged:
+            return "Password changed successfully."
         }
         
     }
@@ -41,6 +47,7 @@ enum ErrorMessage{
     
     case emptyEmail,invalidEmail,emptyPassword,invalidPassword
     case emptyFirstName,emptyLastName,passwordNotMatch,verifyEmail
+    case incorrectPreviousPassword
     
     var stringValue:String{
         
@@ -61,6 +68,10 @@ enum ErrorMessage{
             return "Password and confirm password not match."
         case .verifyEmail:
             return "Your email is not verified. Please verify it first."
+            
+        case .incorrectPreviousPassword:
+            return "You have entered incorrect previous password."
+        
         }
         
     }

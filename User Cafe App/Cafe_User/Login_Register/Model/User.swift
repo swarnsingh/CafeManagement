@@ -118,11 +118,30 @@ extension User{
 
     }
     
+    mutating func syncWithFirebase(completionHandler:@escaping ()->Void){
+        
+        Database.getDataOf(.user, At: self.id, callback: { data in
+            
+            guard let userInfo = data else { return }
+            
+            User.current.update(info: userInfo, id: User.current.id)
+            
+            let userData = try! JSONEncoder().encode(User.current)
+            
+            UserDefaults.standard.set(userData, forKey: "CafeUser")
+            
+            completionHandler()
+            
+        })
+        
+    }
+    
     mutating func update(info:[String:Any], id:String){
         
         self.firstName = info["first_name"] as? String ?? ""
         self.lastName = info["last_name"] as? String ?? ""
         self.email = info["email"] as? String ?? ""
+        self.image = info["image"] as? String ?? ""
         self.id = id
         self.state = .loggedIn
         

@@ -51,23 +51,16 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                         
                         let uID = user?.providerData.map{ $0.uid }
                         
-                        Database.getDataOf(.user, At: uID!.first!, callback: { data in
-                            
-                            guard let userInfo = data else { return }
-                            
-                            User.current.update(info: userInfo, id: uID!.first!)
-                            
-                            User.current.updateDeviceInfo()
-                            
-                            let userData = try! JSONEncoder().encode(User.current)
-                            
-                            UserDefaults.standard.set(userData, forKey: "CafeUser")
+                        User.current.id = uID!.first!
+                        
+                        User.current.syncWithFirebase {
                             
                             self.navigationController?.dismiss(animated: true, completion: nil)
                             
-                        })
+                        }
                         
                         return
+                        
                     }
                     
                     self.showAlert(signInError.localizedDescription)
