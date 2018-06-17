@@ -82,8 +82,8 @@ extension Order{
         let date = Constants.dateFormatter.date(from: dateString) ?? Date()
         
         Constants.dateFormatter.dateFormat = nil
-        Constants.dateFormatter.dateStyle = .medium
-        Constants.dateFormatter.timeStyle = .medium
+        Constants.dateFormatter.dateStyle = .short
+        Constants.dateFormatter.timeStyle = .short
         
         return Constants.dateFormatter.string(from: date)
         

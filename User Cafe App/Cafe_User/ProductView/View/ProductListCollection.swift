@@ -26,6 +26,8 @@ extension ProductViewController:UICollectionViewDelegate,UICollectionViewDataSou
         let priceCell = cell.viewWithTag(103) as! UILabel
         let imageCell = cell.viewWithTag(102) as! UIImageView
         
+        imageCell.image = nil
+        
         if prodcut.image.count > 0{
             
             let url = URL(string:prodcut.image)!

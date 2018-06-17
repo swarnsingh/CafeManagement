@@ -44,7 +44,11 @@ extension SideMenuViewController:UITableViewDelegate,UITableViewDataSource{
             navController.pushViewController(profileVC, animated: true)
             
         case 1:
-            break
+            
+            let orderListVC = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "OrderListViewController")
+            
+            navController.pushViewController(orderListVC, animated: true)
+            
         case 2:
             
             self.showAlertController(.alert, title: "Alert", text: "Are you sure to logout?", options: ["Logout"], callback: { tappedIndex in

@@ -924,18 +924,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiM-jX-V3X">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiM-jX-V3X">
                                 <rect key="frame" x="8" y="394" width="359" height="50"/>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.090196078430000007" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="i2b-Jm-hoW"/>
+                                    <constraint firstAttribute="height" constant="50" id="QHK-ei-BUx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
-                                <state key="normal" title="                              Categories">
+                                <state key="normal" title="Categories">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTP-Az-rBx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTP-Az-rBx">
                                 <rect key="frame" x="8" y="452" width="359" height="50"/>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.090196078430000007" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -949,7 +949,7 @@
                                     <action selector="ProductMenuButton:" destination="Vk4-3S-f19" eventType="touchUpInside" id="bF8-nb-LyG"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="HYT-E4-zpD" customClass="CustomImageView" customModule="Merchant_Cafe_App" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mask.png" translatesAutoresizingMaskIntoConstraints="NO" id="HYT-E4-zpD" customClass="CustomImageView" customModule="Merchant_Cafe_App" customModuleProvider="target">
                                 <rect key="frame" x="100" y="108" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="7KQ-1Y-E6J"/>
@@ -1763,6 +1763,7 @@ boBzAAAAAAAAAgEAAAAAAAAAWQAAAAAAAAAAAAAAAAAAgHU
 </mutableData>
         </image>
         <image name="logo" width="200" height="200"/>
+        <image name="mask.png" width="16" height="16"/>
         <image name="placeholder.png" width="80" height="80"/>
     </resources>
 </document>

@@ -52,6 +52,10 @@
 		BFCA419A20BFF1E800B68926 /* CartTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA419920BFF1E800B68926 /* CartTableView.swift */; };
 		BFCA419D20C0088C00B68926 /* CartProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA419B20C0088B00B68926 /* CartProduct+CoreDataProperties.swift */; };
 		BFCA419E20C0088C00B68926 /* CartProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA419C20C0088C00B68926 /* CartProduct+CoreDataClass.swift */; };
+		BFFFC0AC20D683FD00C47061 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFC0AB20D683FD00C47061 /* OrderListViewController.swift */; };
+		BFFFC0AE20D6840900C47061 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFC0AD20D6840900C47061 /* OrderDetailViewController.swift */; };
+		BFFFC0B020D6841800C47061 /* OrderListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFC0AF20D6841800C47061 /* OrderListTableView.swift */; };
+		BFFFC0B220D6842500C47061 /* OrderDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFC0B120D6842500C47061 /* OrderDetailTableView.swift */; };
 		D1E7DFE6AD970FBD45DA5989 /* Pods_Cafe_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D8586E1B3DF879425C8413 /* Pods_Cafe_User.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +136,10 @@
 		BFCA419920BFF1E800B68926 /* CartTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableView.swift; sourceTree = "<group>"; };
 		BFCA419B20C0088B00B68926 /* CartProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CartProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BFCA419C20C0088C00B68926 /* CartProduct+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CartProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BFFFC0AB20D683FD00C47061 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
+		BFFFC0AD20D6840900C47061 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
+		BFFFC0AF20D6841800C47061 /* OrderListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableView.swift; sourceTree = "<group>"; };
+		BFFFC0B120D6842500C47061 /* OrderDetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailTableView.swift; sourceTree = "<group>"; };
 		CD2660DE13ECFB326E744511 /* Pods-Cafe_User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cafe_User.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cafe_User/Pods-Cafe_User.release.xcconfig"; sourceTree = "<group>"; };
 		D30F748B4FCD290E3B8F3BE1 /* Pods-Cafe_User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cafe_User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cafe_User/Pods-Cafe_User.debug.xcconfig"; sourceTree = "<group>"; };
 		DB5B3FB301E35BB73B6315BF /* Pods-Cafe_UserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cafe_UserTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cafe_UserTests/Pods-Cafe_UserTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -356,6 +364,8 @@
 		BF4B3A7420C92B1200CC0C31 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BFFFC0AB20D683FD00C47061 /* OrderListViewController.swift */,
+				BFFFC0AD20D6840900C47061 /* OrderDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -363,6 +373,8 @@
 		BF4B3A7520C92B1800CC0C31 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BFFFC0AF20D6841800C47061 /* OrderListTableView.swift */,
+				BFFFC0B120D6842500C47061 /* OrderDetailTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -798,7 +810,9 @@
 				BFCA419D20C0088C00B68926 /* CartProduct+CoreDataProperties.swift in Sources */,
 				BF4B3A7820C92B2F00CC0C31 /* Order.swift in Sources */,
 				BF13C19420B7FE1100987F86 /* ProductViewController.swift in Sources */,
+				BFFFC0B220D6842500C47061 /* OrderDetailTableView.swift in Sources */,
 				BF974A5A20B3E867006346F0 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				BFFFC0AC20D683FD00C47061 /* OrderListViewController.swift in Sources */,
 				BF0C380F20B6BA8A00EEC62C /* RegisterValidation.swift in Sources */,
 				BF0C380B20B6BA7D00EEC62C /* RegisterViewController.swift in Sources */,
 				BF974A6220B40C71006346F0 /* Validate.swift in Sources */,
@@ -810,6 +824,8 @@
 				BFCA419E20C0088C00B68926 /* CartProduct+CoreDataClass.swift in Sources */,
 				BF5F736120CA494C002CBB3C /* HomeFirebaseListners.swift in Sources */,
 				BF974A6620B40E28006346F0 /* Constants.swift in Sources */,
+				BFFFC0AE20D6840900C47061 /* OrderDetailViewController.swift in Sources */,
+				BFFFC0B020D6841800C47061 /* OrderListTableView.swift in Sources */,
 				BF13C17A20B7CB5E00987F86 /* HomeViewController.swift in Sources */,
 				BF974A5920B3E867006346F0 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				BF0C381020B6BA8A00EEC62C /* LoginValidation.swift in Sources */,
