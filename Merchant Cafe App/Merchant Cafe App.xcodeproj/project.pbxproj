@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0D8C0220D238370098E0BF /* Reports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0D8C0120D238370098E0BF /* Reports.storyboard */; };
+		8B0D8C0620D23C9D0098E0BF /* MerchantReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D8C0520D23C9D0098E0BF /* MerchantReportViewController.swift */; };
 		8B2534A720C7FD8B00E5B3CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B2534A620C7FD8A00E5B3CB /* GoogleService-Info.plist */; };
 		8B2534AF20C8010A00E5B3CB /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2534AA20C8010A00E5B3CB /* OrderDetailViewController.swift */; };
 		8B2534B120C8010A00E5B3CB /* OrderDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2534AE20C8010A00E5B3CB /* OrderDetailTableView.swift */; };
@@ -46,6 +48,8 @@
 		00CEC3F148E874CA2405AC5D /* Pods_Merchant_Cafe_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merchant_Cafe_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33284F201A044C7BAD4F6780 /* Pods-Merchant Cafe App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant Cafe App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant Cafe App/Pods-Merchant Cafe App.release.xcconfig"; sourceTree = "<group>"; };
 		4A5071F0D008BAA3D2B87A0C /* Pods-Merchant Cafe App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant Cafe App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant Cafe App/Pods-Merchant Cafe App.debug.xcconfig"; sourceTree = "<group>"; };
+		8B0D8C0120D238370098E0BF /* Reports.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reports.storyboard; sourceTree = "<group>"; };
+		8B0D8C0520D23C9D0098E0BF /* MerchantReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantReportViewController.swift; sourceTree = "<group>"; };
 		8B2534A620C7FD8A00E5B3CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B2534AA20C8010A00E5B3CB /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		8B2534AE20C8010A00E5B3CB /* OrderDetailTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailTableView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B0D8C0320D23C5A0098E0BF /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D8C0420D23C6A0098E0BF /* controller */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
+		8B0D8C0420D23C6A0098E0BF /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D8C0520D23C9D0098E0BF /* MerchantReportViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		8B2534A820C8010A00E5B3CB /* OrderDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +338,7 @@
 		C3C56D5F20ADAA6500D2B351 /* Merchant Cafe App */ = {
 			isa = PBXGroup;
 			children = (
+				8B0D8C0320D23C5A0098E0BF /* Reports */,
 				8B2534A820C8010A00E5B3CB /* OrderDetail */,
 				C3AD1CD620C68314005A2068 /* SideMenu */,
 				8B7F977420BCE2BF006E4334 /* ProductOperations */,
@@ -338,6 +359,7 @@
 				C3C56D6F20ADAA6500D2B351 /* Info.plist */,
 				C383CC9920BF093C007E83BE /* imageBackground.jpg */,
 				C3C56D6720ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodeld */,
+				8B0D8C0120D238370098E0BF /* Reports.storyboard */,
 			);
 			path = "Merchant Cafe App";
 			sourceTree = "<group>";
@@ -420,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B0D8C0220D238370098E0BF /* Reports.storyboard in Resources */,
 				C3C56D6E20ADAA6500D2B351 /* LaunchScreen.storyboard in Resources */,
 				8B2534B420C8012500E5B3CB /* OrderDetail.storyboard in Resources */,
 				C383CC9A20BF093E007E83BE /* imageBackground.jpg in Resources */,
@@ -520,6 +543,7 @@
 				8B2534AF20C8010A00E5B3CB /* OrderDetailViewController.swift in Sources */,
 				8B7F976120BABF4E006E4334 /* Category.swift in Sources */,
 				8B55E49020B8641100289F29 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				8B0D8C0620D23C9D0098E0BF /* MerchantReportViewController.swift in Sources */,
 				8B7F977220BB2E56006E4334 /* Product.swift in Sources */,
 				8B4F06DB20B2C711003B28B0 /* LoginViewController.swift in Sources */,
 				8B2534B120C8010A00E5B3CB /* OrderDetailTableView.swift in Sources */,

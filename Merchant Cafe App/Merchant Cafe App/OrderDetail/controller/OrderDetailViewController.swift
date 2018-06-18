@@ -10,6 +10,8 @@ import Toast_Swift
 
 class OrderDetailViewController: UIViewController {
     
+    @IBOutlet weak var orderStatusLabel: UILabel!
+    
     @IBOutlet weak var orderNoLabel: UILabel!
     
     @IBOutlet weak var priceLabel: UILabel!
@@ -41,20 +43,33 @@ class OrderDetailViewController: UIViewController {
             
             orderFromLabel.text = "Order From: \(orderDetail?.user.firstName ?? "")"
             
-            if ((orderDetail?.states[.Ready]) != nil) {
+            if ((orderDetail?.states[.Delivered]) != nil) {
+                acceptOrderBtn.isHidden = true
+                declineOrderBtn.isHidden = true
+                orderStatusLabel.textColor = UIColor.init(red: 184/255.0, green: 23/255.0, blue: 72/255.0, alpha: 1.0)
+                orderStatusLabel.text = OrderDetail.OrderStatus.Delivered.rawValue
+            } else if ((orderDetail?.states[.Declined]) != nil) {
+                acceptOrderBtn.isHidden = true
+                declineOrderBtn.isHidden = true
+                orderStatusLabel.text = OrderDetail.OrderStatus.Declined.rawValue
+                orderStatusLabel.textColor = UIColor.red
+            } else if ((orderDetail?.states[.Ready]) != nil) {
                 declineOrderBtn.addTarget(self, action: #selector(OrderDetailViewController.delieveredButtonPressed), for: .touchUpInside)
                 acceptOrderBtn.setTitle("Ready",for: .normal)
                 acceptOrderBtn.isEnabled = false
                 acceptOrderBtn.alpha = 0.5
                 declineOrderBtn.setTitle("Delivered",for: .normal)
+                orderStatusLabel.text = OrderDetail.OrderStatus.Ready.rawValue
             } else if ((orderDetail?.states[.Accepted]) != nil) {
                 acceptOrderBtn.addTarget(self, action: #selector(OrderDetailViewController.readyButtonPressed), for: .touchUpInside)
                 declineOrderBtn.addTarget(self, action: #selector(OrderDetailViewController.delieveredButtonPressed), for: .touchUpInside)
                 acceptOrderBtn.setTitle("Ready",for: .normal)
                 declineOrderBtn.setTitle("Delivered",for: .normal)
+                orderStatusLabel.text = OrderDetail.OrderStatus.Accepted.rawValue
             } else if ((orderDetail?.states[.Placed]) != nil) {
                 acceptOrderBtn.addTarget(self, action: #selector(OrderDetailViewController.acceptButtonPressed), for: .touchUpInside)
                 declineOrderBtn.addTarget(self, action: #selector(OrderDetailViewController.declineButtonPressed), for: .touchUpInside)
+                orderStatusLabel.text = OrderDetail.OrderStatus.Placed.rawValue
             }
         }
     }

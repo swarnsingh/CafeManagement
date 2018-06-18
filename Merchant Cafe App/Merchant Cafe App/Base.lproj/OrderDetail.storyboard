@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -195,6 +195,12 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iol-di-koo">
+                                                <rect key="frame" x="20" y="10" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -207,11 +213,13 @@
                                             <constraint firstItem="vRs-97-PQ6" firstAttribute="leading" secondItem="G1I-LN-1XN" secondAttribute="leading" constant="20" id="Kbx-Db-L4E"/>
                                             <constraint firstItem="ghB-jH-WvO" firstAttribute="top" secondItem="08F-NI-OQM" secondAttribute="bottom" constant="20" id="LiK-ne-Ktm"/>
                                             <constraint firstItem="JqQ-JO-QCV" firstAttribute="top" secondItem="G1I-LN-1XN" secondAttribute="top" constant="10" id="PLF-KT-Wud"/>
+                                            <constraint firstItem="iol-di-koo" firstAttribute="leading" secondItem="G1I-LN-1XN" secondAttribute="leading" constant="20" id="RfY-1k-qsJ"/>
                                             <constraint firstAttribute="trailing" secondItem="ghB-jH-WvO" secondAttribute="trailing" constant="20" id="T92-VH-A9L"/>
                                             <constraint firstAttribute="trailing" secondItem="RjR-Q3-tnX" secondAttribute="trailing" constant="20" id="Tl2-bk-Sdq"/>
                                             <constraint firstAttribute="trailing" secondItem="08F-NI-OQM" secondAttribute="trailing" constant="20" id="W9V-qB-9p4"/>
                                             <constraint firstItem="08F-NI-OQM" firstAttribute="leading" secondItem="G1I-LN-1XN" secondAttribute="leading" constant="20" id="cEk-Yz-baY"/>
                                             <constraint firstItem="08F-NI-OQM" firstAttribute="top" secondItem="JqQ-JO-QCV" secondAttribute="bottom" constant="10" id="dVE-gg-8dJ"/>
+                                            <constraint firstItem="iol-di-koo" firstAttribute="top" secondItem="G1I-LN-1XN" secondAttribute="top" constant="10" id="dvC-CR-7CZ"/>
                                             <constraint firstAttribute="trailing" secondItem="JqQ-JO-QCV" secondAttribute="trailing" constant="20" id="gCn-3O-ZGU"/>
                                             <constraint firstAttribute="bottom" secondItem="ghB-jH-WvO" secondAttribute="bottom" constant="100" id="iOV-jG-phl"/>
                                             <constraint firstItem="O4c-dv-jGl" firstAttribute="centerX" secondItem="G1I-LN-1XN" secondAttribute="centerX" id="uYk-bu-9bG"/>
@@ -244,6 +252,7 @@
                         <outlet property="orderDateLabel" destination="ujb-DE-qKL" id="3S6-yT-h0h"/>
                         <outlet property="orderFromLabel" destination="O4c-dv-jGl" id="ldy-NG-NOR"/>
                         <outlet property="orderNoLabel" destination="JqQ-JO-QCV" id="Bvw-Bn-56y"/>
+                        <outlet property="orderStatusLabel" destination="iol-di-koo" id="X4u-Eh-H3p"/>
                         <outlet property="orderTableView" destination="EwT-xI-m5R" id="bUz-Mv-lw7"/>
                         <outlet property="priceLabel" destination="uPv-LI-YVP" id="C8N-eX-Vqw"/>
                         <outlet property="quantityLabel" destination="7Oj-ch-aO2" id="X9L-Aq-VDR"/>

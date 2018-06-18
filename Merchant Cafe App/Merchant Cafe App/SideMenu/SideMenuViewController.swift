@@ -67,7 +67,12 @@ class SideMenuViewController: UIViewController {
     
     @IBAction func onOrderHistoryPress(_ sender: Any) {
         print("My Orders")
+        let storyBoard : UIStoryboard = UIStoryboard(name: AppStoryBoard.Reports.rawValue, bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: Constants.REPORTS_VIEW_SEGUE) as! MerchantReportViewController
         
+        
+        (self.sideMenuController?.contentViewController as! UINavigationController).pushViewController(nextViewController, animated: true)
+        sideMenuController?.hideMenu()
     }
     
 }
