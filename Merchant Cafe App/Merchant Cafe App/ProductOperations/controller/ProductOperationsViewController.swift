@@ -188,12 +188,14 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
                                     }
                                 } else {
                                     
-                                    var category = self.categoryArray.filter{$0.name == self.categoryTextField.text!}.first!
+                                    if self.category == nil {
+                                        self.category = self.categoryArray.filter{$0.name == self.categoryTextField.text!}.first!
+                                    }
                                     
                                     let document = Firestore.firestore().collection("products").document()
-                                    let categoryDocument = Firestore.firestore().collection("category").document(category.id)
-                                    category.products.append(document.documentID)
-                                    categoryDocument.updateData(["products":category.products])
+                                    let categoryDocument = Firestore.firestore().collection("category").document((self.category?.id)!)
+                                    self.category?.products.append(document.documentID)
+                                    categoryDocument.updateData(["products":self.category?.products as Any])
                                     document.setData(data)
                                     
                                 }

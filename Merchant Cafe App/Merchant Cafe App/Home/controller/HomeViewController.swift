@@ -10,12 +10,11 @@ import Toast_Swift
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var totalOrders: UILabel!
-    var orderArray = [OrderDetail]()
-    var deliveredOrderArray = [OrderDetail]()
-    //var totalOrderCount: Int = 0
-    
     @IBOutlet var TotalSales: UILabel!
     @IBOutlet var OrderTableView: UITableView!
+    var orderArray = [OrderDetail]()
+    var deliveredOrderArray = [OrderDetail]()
+    
     override func viewWillAppear(_ animated: Bool) {
         
         if !PreferenceManager.isUserLogin() {
@@ -33,7 +32,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func sidmenuButtonPressed(_ sender:UIButton){
         
         self.sideMenuController?.revealMenu()
-        
     }
     
     override func viewDidLoad() {
@@ -54,9 +52,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         includeMetadataChanges: true) { querySnapshot, error in
             
             let accountData = querySnapshot?.data()!["account_info"] as? [String:Any] ?? [:]
-
+            
             let deviceData = accountData["device"] as? [String:Any] ?? [:]
-
+            
             let deviceId = deviceData["id"] as? String ?? ""
             
             if deviceId != UIDevice.current.identifierForVendor?.uuidString {
@@ -68,15 +66,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         }
-        
-        // Do any additional setup after loading the view.
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+ 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orderArray.count
     }
@@ -97,7 +88,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         OrderId.text = "#\(order.orderId)"
         OrderPrice.text = "₹\(order.orderPrice)"
-       // OrderItems.text = "\(order.products.count)"
+        // OrderItems.text = "\(order.products.count)"
         
         
         
@@ -113,16 +104,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if order.states.keys.contains(OrderDetail.OrderStatus.Ready){
             OrderStatus.text = "Ready"
-            //OrderStatus.backgroundColor = UIColor.init(red: 51/255.0, green: 102/255.0, blue: 255/255.0, alpha: 1.0)
+            
             OrderStatus.textColor = UIColor.init(red: 51/255.0, green: 102/255.0, blue: 255/255.0, alpha: 1.0)
             
         } else if  order.states.keys.contains(OrderDetail.OrderStatus.Accepted){
             OrderStatus.text = "Accepted"
-           // OrderStatus.backgroundColor = UIColor.init(red: 51/255.0, green: 204/255.0, blue: 0/255.0, alpha: 1.0)
+            
             OrderStatus.textColor = UIColor.init(red: 51/255.0, green: 204/255.0, blue: 0/255.0, alpha: 1.0)
         } else {
             OrderStatus.text = "Placed"
-           // OrderStatus.backgroundColor = UIColor.init(red: 255/255.0, green: 163/255.0, blue: 26/255.0, alpha: 1.0)
+            
             OrderStatus.textColor = UIColor.init(red: 255/255.0, green: 163/255.0, blue: 26/255.0, alpha: 1.0)
         }
         
@@ -199,13 +190,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 })
                 
                 self.OrderTableView.reloadData()
-                
             }
-            
-        } 
-        
+        }
     }
-    
-    
 }
 

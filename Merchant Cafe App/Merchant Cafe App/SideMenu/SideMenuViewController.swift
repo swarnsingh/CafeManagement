@@ -9,25 +9,22 @@
 import UIKit
 import SideMenuSwift
 class SideMenuViewController: UIViewController {
-
+    
     
     @IBOutlet var logoutMenuButton: UIButton!
     @IBOutlet var categoryMenuButton: UIButton!
     @IBOutlet var productMenuButton: UIButton!
-    
+    @IBOutlet var orderHistoryButton: UIButton!
+    @IBOutlet var myProfileButton: UIButton!
     @IBOutlet var profileImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
-      //  self.profileImageView.clipsToBounds = true
-      //  self.profileImageView.layer.borderWidth = 3.0
-        //self.profileImageView.layer.borderColor = (UIColor.white as! CGColor)
         
         logoutMenuButton.addTarget(self, action: #selector(self.onLogout(_:)), for: .touchUpInside)
         categoryMenuButton.addTarget(self, action: #selector(self.onCategoryPress(_:)), for: .touchUpInside)
         productMenuButton.addTarget(self, action: #selector(self.onProductClick(_:)), for: .touchUpInside)
-
-        // Do any additional setup after loading the view.
+        
     }
     
     private func goToController(controller: String, nextViewController : AnyClass) {
@@ -35,6 +32,7 @@ class SideMenuViewController: UIViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: controller)
         self.present(nextViewController, animated:true, completion:nil)
     }
+    
     @IBAction func onLogout(_ sender: Any) {
         PreferenceManager.setUserLogin(isUserLogin: false)
         self.goToController(controller: Constants.LOGIN_SEGUE, nextViewController: LoginViewController.self)
@@ -59,11 +57,17 @@ class SideMenuViewController: UIViewController {
         
         (self.sideMenuController?.contentViewController as! UINavigationController).pushViewController(nextViewController, animated: true)
         sideMenuController?.hideMenu()
-  
+        
     }
     
+    @IBAction func onMyProfilePress(_ sender: Any) {
+        
+        print("My Profile")
+    }
     
+    @IBAction func onOrderHistoryPress(_ sender: Any) {
+        print("My Orders")
+        
+    }
     
-    
-
 }
