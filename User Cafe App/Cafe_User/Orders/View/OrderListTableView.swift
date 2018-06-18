@@ -46,8 +46,20 @@ extension OrderListViewController:UITableViewDelegate,UITableViewDataSource{
         orderStatusLabel.text = order.status.rawValue
         orderDateLabel.text = order.placedAt
         orderProductCountLabel.text = "\(order.products.count) item"
+        orderStatusLabel.textColor = order.status.color
+        
+        cell.selectionStyle = .none
         
         return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let detailVC = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "OrderDetailViewController") as! OrderDetailViewController
+        detailVC.order = orderListArray[indexPath.section]
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
         
     }
     

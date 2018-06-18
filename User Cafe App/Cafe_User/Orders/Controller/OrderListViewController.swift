@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class OrderListViewController: UIViewController {
     
-    @IBOutlet weak var orderListTableView:UITableView!
+    @IBOutlet weak private var orderListTableView:UITableView!
 
     var orderListArray = [Order]()
     

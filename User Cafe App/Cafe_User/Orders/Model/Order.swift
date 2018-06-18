@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Order {
     
@@ -30,6 +31,23 @@ struct Order {
             
         }
         
+        var color:UIColor{
+            
+            switch self {
+            case .Placed:
+                return UIColor(red: 255/255.0, green: 163/255.0, blue: 26/255.0, alpha: 1.0)
+            case .Accepted:
+                return UIColor(red: 51/255.0, green: 204/255.0, blue: 0/255.0, alpha: 1.0)
+            case .Declined:
+                return UIColor.red
+            case .Ready:
+                return UIColor(red: 51/255.0, green: 102/255.0, blue: 255/255.0, alpha: 1.0)
+            case .Delivered:
+                return UIColor(red: 184/255.0, green: 23/255.0, blue: 72/255.0, alpha: 1.0)
+            }
+            
+        }
+        
     }
     
     var id = ""
@@ -38,11 +56,13 @@ struct Order {
     var products = [Product]()
     var buyer:User!
     var statusInfo = [String:Any]()
+    var otp = ""
     
     init(info:[String:Any]) {
         
         self.id = info["order_id"] as? String ?? ""
         self.price = info["order_price"] as? Double ?? 0.0
+        self.otp = info["otp"] as? String ?? ""
         
         for productInfo in info["products"] as? [[String:Any]] ?? [[:]]{
             
