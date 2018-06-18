@@ -34,6 +34,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         let imageCell = cell?.viewWithTag(102) as! UIImageView
         
         labelCell.text = category.name
+        imageCell.image = nil
         
         if category.image.count > 0{
             
