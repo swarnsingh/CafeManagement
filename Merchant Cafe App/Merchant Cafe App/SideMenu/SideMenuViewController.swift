@@ -61,8 +61,12 @@ class SideMenuViewController: UIViewController {
     }
     
     @IBAction func onMyProfilePress(_ sender: Any) {
+
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         
-        print("My Profile")
+        (self.sideMenuController?.contentViewController as! UINavigationController).pushViewController(nextViewController, animated: true)
+        sideMenuController?.hideMenu()
     }
     
     @IBAction func onOrderHistoryPress(_ sender: Any) {
