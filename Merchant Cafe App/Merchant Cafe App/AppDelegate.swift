@@ -103,8 +103,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { (isAuthorized, error) in
                 
                 if isAuthorized{
-                    
-                    application.registerForRemoteNotifications()
+                    DispatchQueue.main.async {
+                        application.registerForRemoteNotifications()
+                    }
                     
                 }
                 

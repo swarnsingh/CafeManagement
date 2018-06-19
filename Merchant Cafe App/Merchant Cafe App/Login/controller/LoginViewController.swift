@@ -104,6 +104,16 @@ class LoginViewController: UIViewController {
                         
                         PreferenceManager.setUserLogin(isUserLogin: true)
                         
+                        Firestore.firestore().collection("admin").document("1").getDocument(completion: { (snapshot, error) in
+                            
+                            if error == nil{
+                                
+                                User.current.email = email!
+                                
+                                User.current.syncWithFirebase {}
+                            }
+                        })
+                        
                         self.dismiss(animated: true, completion: nil)
 
                     } else {
