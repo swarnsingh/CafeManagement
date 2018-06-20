@@ -12,12 +12,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: CustomTextField!
     
-    
     @IBOutlet weak var passwordTextField: CustomTextField!
     
-    
     @IBOutlet weak var loginButton: CustomButton!
-    
     
     @IBOutlet weak var forgotPasswordLabel: UIButton!
     
@@ -76,52 +73,71 @@ class LoginViewController: UIViewController {
         }
         return isFieldsValid
     }
-   
+    
     @IBAction func onResetPassword(_ sender: Any) {
         print("Oops I forgot my password")
     }
     
+    private func isMerchantUser(email: String?) -> Bool {
+        
+        let emails = Constants.config.admins.map{$0.email}
+        
+        return emails.contains(email!)
+    }
+    
     @IBAction func onLogin(_ sender: Any) {
-      
+        
         let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-      
+        
         if (isLoginFieldValid(email: email, password: password)) {
             if Connectivity.isConnectedToInternet {
-                MBProgressHUD.showAdded(to: self.view, animated: true)
-                
-                Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
-                    MBProgressHUD.hide(for: self.view, animated: true)
-                    if (error == nil && user != nil) {
+                if isMerchantUser(email: email) {
+                    MBProgressHUD.showAdded(to: self.view, animated: true)
+                    
+                    Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
                         
-                        let device = ["device":["id":Constants.device.id ?? "",
-                                                "model":Constants.device.type,
-                                                "os_version":Constants.device.osVersion,
-                                                "token":Constants.device.token]]
-                        
-                        
-                        Constants.db.collection("admin").document("1").setData(["account_info":device], merge: true)
-                        
-                        PreferenceManager.setUserLogin(isUserLogin: true)
-                        
-                        Firestore.firestore().collection("admin").document("1").getDocument(completion: { (snapshot, error) in
+                        if (error == nil && user != nil) {
                             
-                            if error == nil{
+                            let device = ["device":["id":Constants.device.id ?? "",
+                                                    "model":Constants.device.type,
+                                                    "os_version":Constants.device.osVersion,
+                                                    "token":Constants.device.token]]
+                            
+                            var userInfo = Constants.config.admins.filter{$0.email == email!}.first!.jsonRepresentation as [String:Any]
+                            userInfo["account_info"] = device
+                            
+                            Constants.db.collection("admin").document("1").setData(userInfo, merge: true, completion: { (error) in
                                 
-                                User.current.email = email!
-                                
-                                User.current.syncWithFirebase {}
-                            }
-                        })
-                        
-                        self.dismiss(animated: true, completion: nil)
-
-                    } else {
-                        PreferenceManager.setUserLogin(isUserLogin: false)
-                        let errorMsg = (error?.localizedDescription ?? "Username or Password is invalid!")
-                        self.showAlert(errorMsg)
-                        print("Error Logged In : \(errorMsg) ")
+                                if error == nil{
+                                    
+                                    PreferenceManager.setUserLogin(isUserLogin: true)
+                                    
+                                    Firestore.firestore().collection("admin").document("1").getDocument(completion: { (snapshot, error) in
+                                        
+                                        if error == nil{
+                                            
+                                            User.current.email = email!
+                                            
+                                            User.current.syncWithFirebase {
+                                                
+                                                self.dismiss(animated: true, completion: nil)
+                                            }
+                                        }
+                                    })
+                                    
+                                }
+                            })
+                            MBProgressHUD.hide(for: self.view, animated: true)
+                        } else {
+                            PreferenceManager.setUserLogin(isUserLogin: false)
+                            let errorMsg = (error?.localizedDescription ?? "Username or Password is invalid!")
+                            self.showAlert(errorMsg)
+                            print("Error Logged In : \(errorMsg) ")
+                        }
                     }
+                } else {
+                    showAlert(message: "You are not authorized merchant user!")
                 }
             } else {
                 showAlert(message: "Please check your internet connection!")

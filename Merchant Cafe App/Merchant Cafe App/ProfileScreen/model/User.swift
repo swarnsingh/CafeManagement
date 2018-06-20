@@ -23,6 +23,7 @@ struct User:Codable {
     var image = ""
     var email = ""
     var id = ""
+    var mobile = ""
     var state = State.loggedOut
     
     enum CodingKeys: String, CodingKey{
@@ -32,7 +33,7 @@ struct User:Codable {
         case email
         case image
         case id
-    
+        case mobile
     }
     
     private init(){
@@ -44,11 +45,8 @@ struct User:Codable {
             self = try! JSONDecoder().decode(User.self, from: data)
             
             self.state = .loggedIn
-
         }
-        
     }
-
 }
 
 extension User{
@@ -61,9 +59,8 @@ extension User{
         try container.encode(email, forKey: .email)
         try container.encode(id, forKey: .id)
         try container.encode(image, forKey: .image)
-
+        try container.encode(mobile, forKey: .mobile)
     }
-    
 }
 
 extension User{
@@ -76,9 +73,8 @@ extension User{
         email = try values.decode(String.self, forKey: .email)
         image = try values.decode(String.self, forKey: .image)
         id = try values.decode(String.self, forKey: .id)
-
+        mobile = try values.decode(String.self, forKey: .mobile)
     }
-    
 }
 
 extension User{
@@ -88,21 +84,23 @@ extension User{
         return ["id":id,
                 "first_name":firstName,
                 "last_name":lastName,
-                "image":image]
+                "image":image,
+                "email":email,
+                "mobile":mobile]
     }
     
-    func updateDeviceInfo(){
-        
-        let device = ["device":["id":Constants.device.id ?? "",
-                                "model":Constants.device.type,
-                                "os_version":Constants.device.osVersion,
-                                "token":Constants.device.token]]
-        
-        let database = Firestore.firestore().collection(Database.Collection.user.rawValue).document(self.id)
-        
-        database.setData(device, merge: true)
-        
-    }
+//    func updateDeviceInfo(){
+//
+//        let device = ["device":["id":Constants.device.id ?? "",
+//                                "model":Constants.device.type,
+//                                "os_version":Constants.device.osVersion,
+//                                "token":Constants.device.token]]
+//
+//        let database = Firestore.firestore().collection(Database.Collection.user.rawValue).document(self.id)
+//
+//        database.setData(device, merge: true)
+//
+//    }
     
     mutating func logout(){
         
@@ -113,32 +111,39 @@ extension User{
     }
     
     init(info:[String:Any]) {
-        
+        email = info["email"] as? String ?? ""
         firstName = info["first_name"] as? String ?? ""
         lastName = info["last_name"] as? String ?? ""
         image = info["image"] as? String ?? ""
         id = info["id"] as? String ?? ""
+        mobile = info["mobile"] as? String ?? ""
 
     }
     
     mutating func syncWithFirebase(completionHandler:@escaping ()->Void){
         
-        Database.getDataOf(.admin, At: "1", callback: { data in
+        Firestore.firestore().collection("config").getDocuments { (snapshot, error) in
             
-            guard var userInfo = data else { return }
+            if error == nil{
+                
+                let document = snapshot?.documents.first!
+                
+                let admins = document!.data()["admins"] as? [[String:Any]] ?? [[:]]
+                
+                let myinfo = admins.filter{$0["email"] as! String == self.email}.first!
+                
+                User.current.update(info: myinfo, id: User.current.id)
+                
+                let userData = try! JSONEncoder().encode(User.current)
+                
+                UserDefaults.standard.set(userData, forKey: "CafeUser")
+                
+                completionHandler()
+
+            }
             
-            userInfo["email"] = User.current.email
-            
-            User.current.update(info: userInfo, id: User.current.id)
-            
-            let userData = try! JSONEncoder().encode(User.current)
-            
-            UserDefaults.standard.set(userData, forKey: "CafeUser")
-            
-            completionHandler()
-            
-        })
-        
+        }
+
     }
     
     mutating func update(info:[String:Any], id:String){
@@ -146,10 +151,9 @@ extension User{
         self.firstName = info["first_name"] as? String ?? ""
         self.lastName = info["last_name"] as? String ?? ""
         self.email = info["email"] as? String ?? ""
+        self.mobile = info["mobile"] as? String ?? ""
         self.image = info["image"] as? String ?? ""
         self.id = id
         self.state = .loggedIn
-        
     }
-    
 }

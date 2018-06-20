@@ -10,7 +10,6 @@ import UIKit
 import SideMenuSwift
 class SideMenuViewController: UIViewController {
     
-    
     @IBOutlet var logoutMenuButton: UIButton!
     @IBOutlet var categoryMenuButton: UIButton!
     @IBOutlet var productMenuButton: UIButton!
@@ -36,6 +35,7 @@ class SideMenuViewController: UIViewController {
     @IBAction func onLogout(_ sender: Any) {
         PreferenceManager.setUserLogin(isUserLogin: false)
         self.goToController(controller: Constants.LOGIN_SEGUE, nextViewController: LoginViewController.self)
+        Constants.sideMenu.hideMenu()
     }
     
     @IBAction func onCategoryPress(_ sender: UIButton){
@@ -45,7 +45,7 @@ class SideMenuViewController: UIViewController {
         nextViewController.isFromCategory = true
         
         (self.sideMenuController?.contentViewController as! UINavigationController).pushViewController(nextViewController, animated: true)
-        sideMenuController?.hideMenu()
+        Constants.sideMenu.hideMenu()
         
     }
     
@@ -56,7 +56,7 @@ class SideMenuViewController: UIViewController {
         //nextViewController.isFromCategory = true
         
         (self.sideMenuController?.contentViewController as! UINavigationController).pushViewController(nextViewController, animated: true)
-        sideMenuController?.hideMenu()
+        Constants.sideMenu.hideMenu()
         
     }
     
@@ -66,7 +66,7 @@ class SideMenuViewController: UIViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         
         (self.sideMenuController?.contentViewController as! UINavigationController).pushViewController(nextViewController, animated: true)
-        sideMenuController?.hideMenu()
+        Constants.sideMenu.hideMenu()
     }
     
     @IBAction func onOrderHistoryPress(_ sender: Any) {
@@ -76,7 +76,7 @@ class SideMenuViewController: UIViewController {
         
         
         (self.sideMenuController?.contentViewController as! UINavigationController).pushViewController(nextViewController, animated: true)
-        sideMenuController?.hideMenu()
+        Constants.sideMenu.hideMenu()
     }
     
 }

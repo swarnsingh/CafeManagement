@@ -5,6 +5,7 @@
 import UIKit
 import CoreData
 import Firebase
+import FirebaseFirestore
 import UserNotifications
 import FirebaseMessaging
 
@@ -20,6 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         self.registerForPushNotifications(application: application)
         
+        Firestore.firestore().collection("config").addSnapshotListener { (snapshot, error) in
+            if error == nil {
+                for document in (snapshot?.documents)! {
+                    Constants.config = Config(info: document.data())
+                    print(Constants.config.admins)
+                }
+            }
+        }
         return true
     }
     

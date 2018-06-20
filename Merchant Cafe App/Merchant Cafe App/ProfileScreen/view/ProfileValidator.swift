@@ -33,23 +33,46 @@ extension ProfileViewController{
     }
     
     func updateData(){
+
+        let dbRef = Firestore.firestore().collection(Database.Collection.config.rawValue)
         
-        let dbRef = Firestore.firestore().collection(Database.Collection.admin.rawValue).document("1")
-        
-        let json = ["first_name":self.firstNameTextField.text!,
-                    "last_name":self.lastNameTextField.text!,
-                    "image":imagePath ?? ""]
-        
-        dbRef.setData(json, merge: true)
-        
-        self.showAlert("profile Updated Successfully", callback: {
+        dbRef.getDocuments { (snapshot, error) in
             
-            User.current.syncWithFirebase {}
+            if error == nil{
+                
+                let document = snapshot?.documents.first
+                
+                var admins = document?.data()["admins"] as? [[String:Any]] ?? [[:]]
+                
+                var me = admins.filter{$0["email"] as! String == self.emailTextField.text!}.first!
+                
+                me["first_name"] = self.firstNameTextField.text!
+                me["last_name"] = self.lastNameTextField.text!
+                me["image"] = self.imagePath ?? ""
+                
+                let index = admins.index(where: { (info) -> Bool in
+                    return info["email"] as! String == self.emailTextField.text!
+                })
+                
+                admins.remove(at: index!)
+                admins.append(me)
+                
+                var data = document?.data()
+                data!["admins"] = admins
+                
+                document?.reference.setData(data!, merge: true)
+                
+                self.showAlert("profile Updated Successfully", callback: {
+                    
+                    User.current.syncWithFirebase {}
+                    
+                    self.navigationController?.popViewController(animated: true)
+                    
+                })
+                
+            }
             
-            self.navigationController?.popViewController(animated: true)
-            
-        })
-        
+        }
         
     }
     

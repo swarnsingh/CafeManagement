@@ -12,10 +12,12 @@ class ProductViewController: UIViewController {
     
     var categoryArray = [Category]()
     var productArray = [Product]()
-    
+    var productSnapShot: FirebaseFirestore.ListenerRegistration?
+
     @IBOutlet weak var productCollectionView:UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
+    
         if Connectivity.isConnectedToInternet {
             MBProgressHUD.showAdded(to: self.view, animated: true)
             category = getProduct()
@@ -51,12 +53,17 @@ class ProductViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        productSnapShot?.remove()
+        print("Product SnapShot removed")
+    }
+    
     //MARK: WebApi Method
     
     func getProduct() -> Category {
         self.productArray.removeAll()
         
-        let unsubscribe = Firestore.firestore().collection("category").addSnapshotListener { (snapshot, error) in
+        productSnapShot = Firestore.firestore().collection("category").addSnapshotListener { (snapshot, error) in
             if error == nil {
                 for document in (snapshot?.documents)!{
                     let category = Category(info: document.data(), id: document.documentID)
@@ -79,7 +86,7 @@ class ProductViewController: UIViewController {
                 }
             }
         }
-        unsubscribe ;
+        
         return self.category!
     }
 }

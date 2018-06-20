@@ -132,85 +132,108 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
         return isValid
     }
     
+    private func saveProduct() {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        let document = Firestore.firestore().collection("products").document()
+        var storage = Storage.storage().reference(withPath: "Product").child(document.documentID)
+        if product != nil {
+            storage = Storage.storage().reference(withPath: "Product").child(product!.id)
+        }
+        
+        let data = UIImageJPEGRepresentation((productImageView?.image)!, 0.1)
+        
+        let metadata = StorageMetadata(dictionary: ["contentType":"image/jpeg"])
+        
+        storage.putData(data!, metadata: metadata, completion: { (metadata, error) in
+            
+            if error == nil {
+                
+                storage.downloadURL(completion: { (url, errorDownload) in
+                    
+                    if errorDownload == nil {
+                        let imageURL = url
+                        let imagePathString = imageURL?.absoluteString
+                        let productName = self.productNameTextField.text!
+                        let productPrice = Double(self.productPriceTextField.text!)!
+                        let productDetail = self.productDetailTxtView.text
+                        let isProductActive = self.isProductActiveSwitch.isOn
+                        
+                        let data = ["name":productName,
+                                    "detail":productDetail!,
+                                    "price":productPrice,
+                                    "isActive":isProductActive,
+                                    "image":imagePathString!] as [String : Any]
+                        
+                        if (self.product != nil) {
+                            let documentPath = self.product?.id
+                            let document = Firestore.firestore().collection("products").document(documentPath!)
+                            document.updateData(data)
+                            
+                            var oldCategory = self.category
+                            
+                            var newCategory = self.categoryArray.filter{$0.name == self.categoryTextField.text!}.first!
+                            
+                            if oldCategory?.name != newCategory.name {
+                                let deleteCategoryDocument = Firestore.firestore().collection("category").document((oldCategory?.id)!)
+                                let index = oldCategory?.products.index(of: (self.product?.id)!)
+                                oldCategory?.products.remove(at: index!)
+                                deleteCategoryDocument.updateData(["products":oldCategory?.products as Any])
+                                
+                                let categoryDocument = Firestore.firestore().collection("category").document(newCategory.id)
+                                newCategory.products.append(document.documentID)
+                                
+                                categoryDocument.updateData(["products":newCategory.products])
+                            }
+                        } else {
+                            var category: Category?
+                            if self.category != nil {
+                                category = self.category
+                            } else {
+                                category = self.categoryArray.filter{$0.name == self.categoryTextField.text!}.first!
+                            }
+                            
+                            let document = Firestore.firestore().collection("products").document()
+                            let categoryDocument = Firestore.firestore().collection("category").document((category?.id)!)
+                            category?.products.append(document.documentID)
+                            categoryDocument.updateData(["products":category?.products as Any])
+                            document.setData(data)
+                            
+                        }
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
+                            _ = self.navigationController?.popViewController(animated: true)
+                        })
+                        self.view.makeToast("Product Updated Succesfully", duration: 1.0, position: .bottom)
+                    }
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                })
+            }
+        })
+    }
+    
     @IBAction func onProductSaveClick(_ sender: Any) {
         if isProductValid() {
             if Connectivity.isConnectedToInternet {
                 MBProgressHUD.showAdded(to: self.view, animated: true)
-                let document = Firestore.firestore().collection("products").document()
-                var storage = Storage.storage().reference(withPath: "Product").child(document.documentID)
-                if product != nil {
-                    storage = Storage.storage().reference(withPath: "Product").child(product!.id)
-                }
-                
-                let data = UIImageJPEGRepresentation((productImageView?.image)!, 0.1)
-                
-                let metadata = StorageMetadata(dictionary: ["contentType":"image/jpeg"])
-                
-                storage.putData(data!, metadata: metadata, completion: { (metadata, error) in
-                    
-                    if error == nil {
-                        
-                        storage.downloadURL(completion: { (url, errorDownload) in
-                            
-                            if errorDownload == nil {
-                                let imageURL = url
-                                let imagePathString = imageURL?.absoluteString
-                                let productName = self.productNameTextField.text!
-                                let productPrice = Double(self.productPriceTextField.text!)!
-                                let productDetail = self.productDetailTxtView.text
-                                let isProductActive = self.isProductActiveSwitch.isOn
-                                
-                                let data = ["name":productName,
-                                            "detail":productDetail!,
-                                            "price":productPrice,
-                                            "isActive":isProductActive,
-                                            "image":imagePathString!] as [String : Any]
-                                
-                                if (self.product != nil) {
-                                    let documentPath = self.product?.id
-                                    let document = Firestore.firestore().collection("products").document(documentPath!)
-                                    document.updateData(data)
-                                    
-                                    var oldCategory = self.category
-                                    
-                                    var newCategory = self.categoryArray.filter{$0.name == self.categoryTextField.text!}.first!
-                                    
-                                    if oldCategory?.name != newCategory.name {
-                                        let deleteCategoryDocument = Firestore.firestore().collection("category").document((oldCategory?.id)!)
-                                        let index = oldCategory?.products.index(of: (self.product?.id)!)
-                                        oldCategory?.products.remove(at: index!)
-                                        deleteCategoryDocument.updateData(["products":oldCategory?.products as Any])
-                                        
-                                        let categoryDocument = Firestore.firestore().collection("category").document(newCategory.id)
-                                        newCategory.products.append(document.documentID)
-                                        
-                                        categoryDocument.updateData(["products":newCategory.products])
-                                    }
-                                } else {
-                                    var category: Category?
-                                    if self.category != nil {
-                                        category = self.category
-                                    } else {
-                                        category = self.categoryArray.filter{$0.name == self.categoryTextField.text!}.first!
-                                    }
-                                    
-                                    let document = Firestore.firestore().collection("products").document()
-                                    let categoryDocument = Firestore.firestore().collection("category").document((category?.id)!)
-                                    category?.products.append(document.documentID)
-                                    categoryDocument.updateData(["products":category?.products as Any])
-                                    document.setData(data)
-                                    
-                                }
-                                MBProgressHUD.hide(for: self.view, animated: true)
-                                DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
-                                    _ = self.navigationController?.popViewController(animated: true)
-                                })
-                                self.view.makeToast("Product Updated Succesfully", duration: 1.0, position: .bottom)
+                let document = Firestore.firestore().collection("products")
+                let productName = self.productNameTextField.text!
+                if product?.name.lowercased() != productName.lowercased() {
+                    document.whereField("name", isEqualTo: productName).getDocuments(){ (querySnapshot, err) in
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                            self.showAlert("Error : \(err)")
+                        } else {
+                            if querySnapshot?.documents.count != 0 {
+                                self.showAlert("Product is already exist")
+                            } else {
+                                self.saveProduct()
                             }
-                            MBProgressHUD.hide(for: self.view, animated: true)
-                        })
+                        }
                     }
-                })
+                } else {
+                    self.saveProduct()
+                }
             } else {
                 self.view.makeToast("Please check internet connection!", duration: 1.0, position: .bottom)
             }

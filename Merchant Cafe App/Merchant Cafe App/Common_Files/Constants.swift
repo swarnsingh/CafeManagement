@@ -5,6 +5,8 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseFirestore
+import SideMenuSwift
 
 typealias ValidationResult = (error:String,isValid:Bool)
 
@@ -96,7 +98,11 @@ struct Device {
 
 class Constants: NSObject {
     
+    static var sideMenu: SideMenuController!
+    
     static var device = Device()
+    
+    static var config = Config()
     
     static let dateFormatter = DateFormatter()
     

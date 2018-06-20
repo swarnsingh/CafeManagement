@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0AD6BC20DA246700C82B28 /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AD6BB20DA246700C82B28 /* DatabaseHandler.swift */; };
+		8B0AD6C620DA24E300C82B28 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AD6BF20DA24E300C82B28 /* ChangePasswordViewController.swift */; };
+		8B0AD6C720DA24E300C82B28 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AD6C020DA24E300C82B28 /* ProfileViewController.swift */; };
+		8B0AD6C820DA24E300C82B28 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AD6C220DA24E300C82B28 /* User.swift */; };
+		8B0AD6C920DA24E300C82B28 /* ProfilePicturePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AD6C420DA24E300C82B28 /* ProfilePicturePicker.swift */; };
+		8B0AD6CA20DA24E300C82B28 /* ProfileValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AD6C520DA24E300C82B28 /* ProfileValidator.swift */; };
+		8B0AD6D020DB731500C82B28 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AD6CF20DB731500C82B28 /* Config.swift */; };
+		8B0AD6D220DBAA6400C82B28 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AD6D120DBAA6400C82B28 /* ForgotPasswordViewController.swift */; };
+		8B0AD6D520DBD1B500C82B28 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0AD6D420DBD1B500C82B28 /* placeholder.png */; };
+		8B0AD6D720DBD1C500C82B28 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8B0AD6D620DBD1C500C82B28 /* images.jpeg */; };
 		8B0D8C0220D238370098E0BF /* Reports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0D8C0120D238370098E0BF /* Reports.storyboard */; };
 		8B0D8C0620D23C9D0098E0BF /* MerchantReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D8C0520D23C9D0098E0BF /* MerchantReportViewController.swift */; };
 		8B2534A720C7FD8B00E5B3CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B2534A620C7FD8A00E5B3CB /* GoogleService-Info.plist */; };
@@ -25,7 +35,6 @@
 		8B7F975420B9E0D5006E4334 /* CategoryProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F975320B9E0D5006E4334 /* CategoryProductViewController.swift */; };
 		8B7F975620BA93E6006E4334 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7F975520BA93E4006E4334 /* placeholder.png */; };
 		8B7F975C20BAA285006E4334 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F975820BAA284006E4334 /* Constants.swift */; };
-		8B7F975E20BAA285006E4334 /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F975A20BAA284006E4334 /* DatabaseHandler.swift */; };
 		8B7F975F20BAA285006E4334 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F975B20BAA284006E4334 /* Validate.swift */; };
 		8B7F976120BABF4E006E4334 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F976020BABF4E006E4334 /* Category.swift */; };
 		8B7F976320BABF64006E4334 /* CategoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F976220BABF64006E4334 /* CategoryTableView.swift */; };
@@ -48,6 +57,17 @@
 		00CEC3F148E874CA2405AC5D /* Pods_Merchant_Cafe_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merchant_Cafe_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33284F201A044C7BAD4F6780 /* Pods-Merchant Cafe App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant Cafe App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant Cafe App/Pods-Merchant Cafe App.release.xcconfig"; sourceTree = "<group>"; };
 		4A5071F0D008BAA3D2B87A0C /* Pods-Merchant Cafe App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant Cafe App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant Cafe App/Pods-Merchant Cafe App.debug.xcconfig"; sourceTree = "<group>"; };
+		8B0AD6BB20DA246700C82B28 /* DatabaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHandler.swift; sourceTree = "<group>"; };
+		8B0AD6BF20DA24E300C82B28 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		8B0AD6C020DA24E300C82B28 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8B0AD6C220DA24E300C82B28 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8B0AD6C420DA24E300C82B28 /* ProfilePicturePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePicturePicker.swift; sourceTree = "<group>"; };
+		8B0AD6C520DA24E300C82B28 /* ProfileValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileValidator.swift; sourceTree = "<group>"; };
+		8B0AD6CB20DA68B000C82B28 /* Merchant Cafe App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Merchant Cafe App.entitlements"; sourceTree = "<group>"; };
+		8B0AD6CF20DB731500C82B28 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8B0AD6D120DBAA6400C82B28 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		8B0AD6D420DBD1B500C82B28 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		8B0AD6D620DBD1C500C82B28 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpeg; path = "Merchant Cafe App/images.jpeg"; sourceTree = SOURCE_ROOT; };
 		8B0D8C0120D238370098E0BF /* Reports.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reports.storyboard; sourceTree = "<group>"; };
 		8B0D8C0520D23C9D0098E0BF /* MerchantReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantReportViewController.swift; sourceTree = "<group>"; };
 		8B2534A620C7FD8A00E5B3CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -69,7 +89,6 @@
 		8B7F975320B9E0D5006E4334 /* CategoryProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProductViewController.swift; sourceTree = "<group>"; };
 		8B7F975520BA93E4006E4334 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		8B7F975820BAA284006E4334 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		8B7F975A20BAA284006E4334 /* DatabaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHandler.swift; sourceTree = "<group>"; };
 		8B7F975B20BAA284006E4334 /* Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		8B7F976020BABF4E006E4334 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8B7F976220BABF64006E4334 /* CategoryTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableView.swift; sourceTree = "<group>"; };
@@ -101,6 +120,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B0AD6BA20DA246700C82B28 /* DatabaseHandler */ = {
+			isa = PBXGroup;
+			children = (
+				8B0AD6BB20DA246700C82B28 /* DatabaseHandler.swift */,
+			);
+			path = DatabaseHandler;
+			sourceTree = "<group>";
+		};
+		8B0AD6BD20DA24E300C82B28 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8B0AD6BE20DA24E300C82B28 /* controller */,
+				8B0AD6C120DA24E300C82B28 /* model */,
+				8B0AD6C320DA24E300C82B28 /* view */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		8B0AD6BE20DA24E300C82B28 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B0AD6BF20DA24E300C82B28 /* ChangePasswordViewController.swift */,
+				8B0AD6C020DA24E300C82B28 /* ProfileViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		8B0AD6C120DA24E300C82B28 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8B0AD6C220DA24E300C82B28 /* User.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		8B0AD6C320DA24E300C82B28 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				8B0AD6C420DA24E300C82B28 /* ProfilePicturePicker.swift */,
+				8B0AD6C520DA24E300C82B28 /* ProfileValidator.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		8B0AD6CD20DB72BB00C82B28 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8B0AD6CF20DB731500C82B28 /* Config.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		8B0AD6D320DBD1B500C82B28 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8B0AD6D620DBD1C500C82B28 /* images.jpeg */,
+				8B0AD6D420DBD1B500C82B28 /* placeholder.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		8B0D8C0320D23C5A0098E0BF /* Reports */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +252,7 @@
 		8B4F06D620B2C6BE003B28B0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				8B0AD6CD20DB72BB00C82B28 /* model */,
 				8B4F06D720B2C6E0003B28B0 /* controller */,
 			);
 			path = Login;
@@ -180,6 +261,7 @@
 		8B4F06D720B2C6E0003B28B0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				8B0AD6D120DBAA6400C82B28 /* ForgotPasswordViewController.swift */,
 				8B4F06DA20B2C711003B28B0 /* LoginViewController.swift */,
 			);
 			path = controller;
@@ -253,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				8B7F975820BAA284006E4334 /* Constants.swift */,
-				8B7F975A20BAA284006E4334 /* DatabaseHandler.swift */,
 				8B7F975B20BAA284006E4334 /* Validate.swift */,
 			);
 			path = Common_Files;
@@ -338,6 +419,10 @@
 		C3C56D5F20ADAA6500D2B351 /* Merchant Cafe App */ = {
 			isa = PBXGroup;
 			children = (
+				8B0AD6D320DBD1B500C82B28 /* Images */,
+				8B0AD6CB20DA68B000C82B28 /* Merchant Cafe App.entitlements */,
+				8B0AD6BD20DA24E300C82B28 /* ProfileScreen */,
+				8B0AD6BA20DA246700C82B28 /* DatabaseHandler */,
 				8B0D8C0320D23C5A0098E0BF /* Reports */,
 				8B2534A820C8010A00E5B3CB /* OrderDetail */,
 				C3AD1CD620C68314005A2068 /* SideMenu */,
@@ -415,7 +500,12 @@
 				TargetAttributes = {
 					C3C56D5C20ADAA6500D2B351 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -443,9 +533,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B0D8C0220D238370098E0BF /* Reports.storyboard in Resources */,
+				8B0AD6D720DBD1C500C82B28 /* images.jpeg in Resources */,
 				C3C56D6E20ADAA6500D2B351 /* LaunchScreen.storyboard in Resources */,
 				8B2534B420C8012500E5B3CB /* OrderDetail.storyboard in Resources */,
 				C383CC9A20BF093E007E83BE /* imageBackground.jpg in Resources */,
+				8B0AD6D520DBD1B500C82B28 /* placeholder.png in Resources */,
 				C3C56D6B20ADAA6500D2B351 /* Assets.xcassets in Resources */,
 				8B649E4320C1356C00CE3EC8 /* Main.storyboard in Resources */,
 				8B7F975620BA93E6006E4334 /* placeholder.png in Resources */,
@@ -531,28 +623,35 @@
 			files = (
 				8B7F977320BB2E56006E4334 /* ProductCollection.swift in Sources */,
 				8B7F975F20BAA285006E4334 /* Validate.swift in Sources */,
+				8B0AD6D220DBAA6400C82B28 /* ForgotPasswordViewController.swift in Sources */,
 				8B55E48820B862C000289F29 /* CustomViews.swift in Sources */,
 				8B55E48F20B8641100289F29 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				C3AD1CD820C68314005A2068 /* SideMenuViewController.swift in Sources */,
 				8B4F06E320B2E976003B28B0 /* HomeViewController.swift in Sources */,
 				8B7F977120BB2E56006E4334 /* ProductViewController.swift in Sources */,
 				8B7F976320BABF64006E4334 /* CategoryTableView.swift in Sources */,
-				8B7F975E20BAA285006E4334 /* DatabaseHandler.swift in Sources */,
+				8B0AD6C820DA24E300C82B28 /* User.swift in Sources */,
 				C3C56D6320ADAA6500D2B351 /* ViewController.swift in Sources */,
 				C3C56D6920ADAA6500D2B351 /* Merchant_Cafe_App.xcdatamodeld in Sources */,
 				8B2534AF20C8010A00E5B3CB /* OrderDetailViewController.swift in Sources */,
 				8B7F976120BABF4E006E4334 /* Category.swift in Sources */,
+				8B0AD6C620DA24E300C82B28 /* ChangePasswordViewController.swift in Sources */,
+				8B0AD6C920DA24E300C82B28 /* ProfilePicturePicker.swift in Sources */,
 				8B55E49020B8641100289F29 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				8B0AD6CA20DA24E300C82B28 /* ProfileValidator.swift in Sources */,
 				8B0D8C0620D23C9D0098E0BF /* MerchantReportViewController.swift in Sources */,
 				8B7F977220BB2E56006E4334 /* Product.swift in Sources */,
 				8B4F06DB20B2C711003B28B0 /* LoginViewController.swift in Sources */,
 				8B2534B120C8010A00E5B3CB /* OrderDetailTableView.swift in Sources */,
+				8B0AD6C720DA24E300C82B28 /* ProfileViewController.swift in Sources */,
 				C383CC9620BD7F97007E83BE /* AddCategoryFormViewController.swift in Sources */,
 				8B2534B720C8031A00E5B3CB /* OrderDetail.swift in Sources */,
 				8B42B00220B5819000293A7E /* PreferenceManager.swift in Sources */,
 				C3C56D6120ADAA6500D2B351 /* AppDelegate.swift in Sources */,
 				8B7F977720BCE35F006E4334 /* ProductOperationsViewController.swift in Sources */,
 				8B7F975420B9E0D5006E4334 /* CategoryProductViewController.swift in Sources */,
+				8B0AD6BC20DA246700C82B28 /* DatabaseHandler.swift in Sources */,
+				8B0AD6D020DB731500C82B28 /* Config.swift in Sources */,
 				8B7F975C20BAA285006E4334 /* Constants.swift in Sources */,
 				8B2A3F4D20B4201900F767BF /* Connectivity.swift in Sources */,
 			);
@@ -696,12 +795,16 @@
 			baseConfigurationReference = 4A5071F0D008BAA3D2B87A0C /* Pods-Merchant Cafe App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5TBVV68K72;
+				CODE_SIGN_ENTITLEMENTS = "Merchant Cafe App/Merchant Cafe App.entitlements";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 543BQA7L5F;
 				INFOPLIST_FILE = "Merchant Cafe App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itt.cafemanagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d1e59b0a-7df7-4b91-be3c-c1c1b1204ebb";
+				PROVISIONING_PROFILE_SPECIFIER = CafeMerchantDev;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -712,12 +815,16 @@
 			baseConfigurationReference = 33284F201A044C7BAD4F6780 /* Pods-Merchant Cafe App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5TBVV68K72;
+				CODE_SIGN_ENTITLEMENTS = "Merchant Cafe App/Merchant Cafe App.entitlements";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 543BQA7L5F;
 				INFOPLIST_FILE = "Merchant Cafe App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itt.cafemanagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d1e59b0a-7df7-4b91-be3c-c1c1b1204ebb";
+				PROVISIONING_PROFILE_SPECIFIER = CafeMerchantDev;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

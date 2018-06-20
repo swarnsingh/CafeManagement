@@ -40,8 +40,8 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     func setupView(){
 
-        profilePictureButton.imageView?.contentMode = .scaleAspectFill
-        profilePictureButton.imageView?.clipsToBounds = true
+        //profilePictureButton.imageView?.contentMode = .scaleAspectFill
+        //profilePictureButton.imageView?.clipsToBounds = true
         
         imagePath = User.current.image
         
@@ -85,16 +85,16 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
                     
                     MBProgressHUD.showAdded(to: self.view, animated: true)
                     
-                    let name = User.current.firstName + ".png"
+                    let name = User.current.firstName + ".jpg"
                     
                     let storage = Storage.storage().reference(withPath: "ProfilePicture/\(name)")
                     
                     let metadata = StorageMetadata()
-                    metadata.contentType = "image/png"
+                    metadata.contentType = "image/jpeg"
                     
-                    let data = UIImagePNGRepresentation((self.profilePictureButton.imageView?.image)!)!
+                    let data = UIImageJPEGRepresentation((self.profilePictureButton.imageView?.image)!, 0.1)
                     
-                    storage.putData(data, metadata: metadata, completion: { (metadata, error) in
+                    storage.putData(data!, metadata: metadata, completion: { (metadata, error) in
                         
                         if error == nil{
                             
