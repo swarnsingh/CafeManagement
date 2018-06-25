@@ -31,7 +31,7 @@ extension OrderDetailViewController:UITableViewDelegate,UITableViewDataSource{
             
             productNameLabel.text = product.name
             productQTYLabel.text = "\(product.addedQty)x"
-            productPriceLabel.text = "₹ \(product.price)"
+            productPriceLabel.text = "\(Constants.config.currency) \(product.price)"
             
         }
 

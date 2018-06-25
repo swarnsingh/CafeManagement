@@ -45,7 +45,7 @@ extension CartViewController:UITableViewDelegate,UITableViewDataSource{
         
         labelName.text = cartProduct.name
         labelCategory.text = cartProduct.category_name
-        labelPrice.text = "₹ \(cartProduct.price)"
+        labelPrice.text = "\(Constants.config.currency) \(cartProduct.price)"
         labelCount.text = "\(cartProduct.addedQty)"
         
         guard let image = cartProduct.image else { return cell }

@@ -34,7 +34,7 @@ extension ProfileViewController{
     
     func showProfilePictureOption(){
         
-        self.showAlertController(.actionSheet, title: "Option:", text: "Select an option", options: ["Remove profile picture","Set a new one"]) { (tappedIndex) in
+        self.showAlertController(.actionSheet, title: "Option:", text: "", options: ["Remove profile picture","Set a new one"]) { (tappedIndex) in
 
             if tappedIndex == 0{
                 
@@ -53,7 +53,7 @@ extension ProfileViewController{
     
     func openImagePickerActionSheet(){
         
-        self.showAlertController(.actionSheet, title: "Option:", text: "Select an option to set profile picture", options: ["Take from camera","Choose from gallery"]) { (tappedIndex) in
+        self.showAlertController(.actionSheet, title: "Option:", text: InfoMessage.profilePhotoOption.stringValue, options: ["Take from camera","Choose from gallery"]) { (tappedIndex) in
             
             if tappedIndex < 2{
                 

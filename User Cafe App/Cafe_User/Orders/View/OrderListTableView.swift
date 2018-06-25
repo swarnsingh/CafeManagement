@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension OrderListViewController:UITableViewDelegate,UITableViewDataSource{
+extension OrderListViewController:UITableViewDelegate,UITableViewDataSource,OrderDetailDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -42,7 +42,7 @@ extension OrderListViewController:UITableViewDelegate,UITableViewDataSource{
         let orderProductCountLabel = cell.viewWithTag(105) as! UILabel
 
         orderIDLabel.text = "#" + order.id
-        orderPriceLabel.text = "₹ \(order.price)"
+        orderPriceLabel.text = "\(Constants.config.currency) \(order.price)"
         orderStatusLabel.text = order.status.rawValue
         orderDateLabel.text = order.placedAt
         orderProductCountLabel.text = "\(order.products.count) item"
@@ -58,8 +58,15 @@ extension OrderListViewController:UITableViewDelegate,UITableViewDataSource{
         
         let detailVC = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "OrderDetailViewController") as! OrderDetailViewController
         detailVC.order = orderListArray[indexPath.section]
+        detailVC.delegate = self
         
         self.navigationController?.pushViewController(detailVC, animated: true)
+        
+    }
+    
+    func updateList() {
+        
+        self.getAllOrders()
         
     }
     

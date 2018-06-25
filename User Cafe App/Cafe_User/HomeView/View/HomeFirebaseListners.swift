@@ -14,6 +14,8 @@ extension HomeViewController{
     
     func addListners(){
         
+        self.getConfiguration()
+        
         Auth.auth().addStateDidChangeListener { (auth, user) in
             
             if user != nil{
@@ -30,6 +32,37 @@ extension HomeViewController{
             
             
         }
+        
+    }
+    
+    func getConfiguration(){
+        
+        Firestore.firestore().collection(Database.Collection.admin.rawValue).document("1").addSnapshotListener({ (document, error) in
+            
+            if error == nil{
+                
+                let phone = document?.data()!["mobile"] as? String ?? ""
+                
+                Constants.config.contactPhone = phone
+                
+            }
+            
+        })
+        
+        Firestore.firestore().collection(Database.Collection.config.rawValue).addSnapshotListener({ (snapshot, error) in
+            
+            if error == nil && snapshot!.documents.count > 0{
+                
+                let document = snapshot?.documents.first!
+                
+                let currency = document?.data()["currency"] as? String ?? "₹"
+                
+                Constants.config.currency = currency
+                
+            }
+            
+        })
+        
         
     }
     

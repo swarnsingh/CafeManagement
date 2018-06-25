@@ -14,7 +14,7 @@ typealias ValidationResult = (error:String,isValid:Bool)
 
 enum SuccessMessage{
     
-    case passwordResetMail,userCreated,loginSuccessfull,orderPlaced,profileUpdated,passwordChanged
+    case passwordResetMail,userCreated,loginSuccessfull,orderPlaced,profileUpdated,passwordChanged,orderCancelled
     
     var stringValue:String{
         
@@ -37,6 +37,27 @@ enum SuccessMessage{
             
         case .passwordChanged:
             return "Password changed successfully."
+            
+        case .orderCancelled:
+            return "Order cancelled successfully."
+        }
+        
+    }
+    
+}
+
+enum InfoMessage{
+    
+    case profilePhotoOption,cancelOrderConfirm
+    
+    var stringValue:String{
+        
+        switch self {
+        case .profilePhotoOption:
+            return "Select an option to set profile picture"
+            
+        case .cancelOrderConfirm:
+            return "Are you sure to cancel this order?"
         }
         
     }
@@ -47,7 +68,8 @@ enum ErrorMessage{
     
     case emptyEmail,invalidEmail,emptyPassword,invalidPassword
     case emptyFirstName,emptyLastName,passwordNotMatch,verifyEmail
-    case incorrectPreviousPassword
+    case incorrectPreviousPassword,emptyPhoneNumber,invalidPhoneNumber
+    case profilePhotoUploadFailed,callFailed
     
     var stringValue:String{
         
@@ -71,7 +93,18 @@ enum ErrorMessage{
             
         case .incorrectPreviousPassword:
             return "You have entered incorrect previous password."
+        case .emptyPhoneNumber:
+            return "Please enter phone number."
+
+        case .invalidPhoneNumber:
+            return "Please enter valid phone number."
         
+        case .profilePhotoUploadFailed:
+            return "Error in uploading profile picture, try again."
+            
+        case .callFailed:
+            return "Device unable to make calls."
+            
         }
         
     }
@@ -111,13 +144,18 @@ enum AppStoryBoard:String{
     
 }
 
+struct Configuration {
+    var currency = "₹"
+    var contactPhone = ""
+}
+
 class Constants: NSObject {
     
     static let AppName = "ITT Cafe"
     
     static var device = Device()
     
-    static let adminPushID = "632817096151@gcm.googleapis.com"
+    static var config = Configuration()
     
     static let screenHeight = UIScreen.main.bounds.height
 

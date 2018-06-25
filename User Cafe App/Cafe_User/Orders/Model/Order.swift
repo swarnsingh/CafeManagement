@@ -12,21 +12,23 @@ import UIKit
 struct Order {
     
     enum Status:String {
-        case Placed,Accepted,Declined,Ready,Delivered
+        case Placed,Accepted,Declined,Ready,Delivered,Cancelled
         
         var sequence:Int{
             
             switch self {
             case .Placed:
                 return 1
-            case .Accepted:
+            case .Cancelled:
                 return 2
-            case .Declined:
+            case .Accepted:
                 return 3
-            case .Ready:
+            case .Declined:
                 return 4
-            case .Delivered:
+            case .Ready:
                 return 5
+            case .Delivered:
+                return 6
             }
             
         }
@@ -36,6 +38,8 @@ struct Order {
             switch self {
             case .Placed:
                 return UIColor(red: 255/255.0, green: 163/255.0, blue: 26/255.0, alpha: 1.0)
+            case .Cancelled:
+                return UIColor.lightGray
             case .Accepted:
                 return UIColor(red: 51/255.0, green: 204/255.0, blue: 0/255.0, alpha: 1.0)
             case .Declined:
@@ -57,12 +61,14 @@ struct Order {
     var buyer:User!
     var statusInfo = [String:Any]()
     var otp = ""
+    var contactDetail = ""
     
     init(info:[String:Any]) {
         
         self.id = info["order_id"] as? String ?? ""
         self.price = info["order_price"] as? Double ?? 0.0
         self.otp = info["otp"] as? String ?? ""
+        self.contactDetail = info["contact_detail"] as? String ?? ""
         
         for productInfo in info["products"] as? [[String:Any]] ?? [[:]]{
             

@@ -43,7 +43,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             imageCell.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: .main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: nil)
             
         }
-
+        
         cell?.selectionStyle = .none
         
         return cell!
@@ -52,10 +52,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
         return UIView()
-//        let view = UIView()
-//        view.backgroundColor = UIColor.init(red: 51/255.0, green: 58/255.0, blue: 83/255.0, alpha: 1.0)
-//        return view
-        
+
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -71,19 +68,12 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let category = categoryArray[indexPath.section]
-
-        if category.products.count > 0{
-            
-            let productVC = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "Product") as! ProductViewController
-            
-            productVC.cateogry = category
-            
-            self.navigationController?.pushViewController(productVC, animated: true)
-            
-        }else{
-            
-            self.showAlert("This category don't have products")
-        }
+        
+        let productVC = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "Product") as! ProductViewController
+        
+        productVC.cateogry = category
+        
+        self.navigationController?.pushViewController(productVC, animated: true)
         
     }
     

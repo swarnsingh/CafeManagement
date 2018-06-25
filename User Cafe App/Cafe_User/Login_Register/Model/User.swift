@@ -23,6 +23,7 @@ struct User:Codable {
     var image = ""
     var email = ""
     var id = ""
+    var phone = ""
     var state = State.loggedOut
     
     enum CodingKeys: String, CodingKey{
@@ -30,6 +31,7 @@ struct User:Codable {
         case firstName
         case lastName
         case email
+        case phone
         case id
     
     }
@@ -58,6 +60,7 @@ extension User{
         try container.encode(firstName, forKey: .firstName)
         try container.encode(lastName, forKey: .lastName)
         try container.encode(email, forKey: .email)
+        try container.encode(phone, forKey: .phone)
         try container.encode(id, forKey: .id)
 
     }
@@ -73,7 +76,8 @@ extension User{
         lastName = try values.decode(String.self, forKey: .lastName)
         email = try values.decode(String.self, forKey: .email)
         id = try values.decode(String.self, forKey: .id)
-
+        phone = try values.decode(String.self, forKey: .phone)
+        
     }
     
 }
@@ -85,7 +89,8 @@ extension User{
         return ["id":id,
                 "first_name":firstName,
                 "last_name":lastName,
-                "image":image]
+                "image":image,
+                "mobile":phone]
     }
     
     func updateDeviceInfo(){
@@ -115,6 +120,7 @@ extension User{
         lastName = info["last_name"] as? String ?? ""
         image = info["image"] as? String ?? ""
         id = info["id"] as? String ?? ""
+        phone = info["mobile"] as? String ?? ""
 
     }
     
@@ -142,6 +148,7 @@ extension User{
         self.lastName = info["last_name"] as? String ?? ""
         self.email = info["email"] as? String ?? ""
         self.image = info["image"] as? String ?? ""
+        self.phone = info["mobile"] as? String ?? ""
         self.id = id
         self.state = .loggedIn
         
