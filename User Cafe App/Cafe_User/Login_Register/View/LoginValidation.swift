@@ -23,7 +23,9 @@ extension LoginViewController{
 
         }
         
-        if !emailTextField.isValidEmail(){
+        let email = emailTextField.text! + (buttonAllowedDomain.titleLabel?.text!)!
+        
+        if !email.isValidEmail(){
             
             emailTextField.becomeFirstResponder()
             

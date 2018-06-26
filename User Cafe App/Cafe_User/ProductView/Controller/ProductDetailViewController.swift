@@ -52,7 +52,7 @@ class ProductDetailViewController: UIViewController {
         
         productNameLabel.text = product.name
         
-        productPriceLabel.text = "₹ \(product.price)"
+        productPriceLabel.text = "\(Constants.config.currency) \(product.price)"
         
         productDetailLabel.text = product.detail
         

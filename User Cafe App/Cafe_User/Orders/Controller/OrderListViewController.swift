@@ -40,6 +40,8 @@ class OrderListViewController: UIViewController {
             
             if error == nil{
                 
+                self.orderListArray.removeAll()
+                
                 for document in (snapshot?.documents)!{
                     
                     self.orderListArray.append( Order(info: document.data()))

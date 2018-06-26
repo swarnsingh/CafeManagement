@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FirebaseFirestore
 import FirebaseMessaging
+import MBProgressHUD
 
 extension CartViewController{
     
@@ -43,13 +44,15 @@ extension CartViewController{
         
         let totalPrice = cartProductArray.map{$0.price*Double($0.addedQty)}.reduce(0.0, +)
         
-        totalPriceLabel.text = "₹ \(totalPrice)"
+        totalPriceLabel.text = "\(Constants.config.currency) \(totalPrice)"
         
         totalItemLabel.text = "\(cartProductArray.count) Item"
         
     }
     
     func placeOrder(){
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         let totalPrice = cartProductArray.map{$0.price*Double($0.addedQty)}.reduce(0.0, +)
         
@@ -64,24 +67,53 @@ extension CartViewController{
                            "products":cartProductArray.map{$0.jsonRepresentation},
                            "user_info":User.current.jsonRepresentation,
                            "status":status,
-                           "otp":Constants.generateOTP()] as [String : Any]
+                           "otp":Constants.generateOTP(),
+                           "contact_detail":Constants.config.contactPhone] as [String : Any]
         
-        orderObject.setData(orderValue)
-        
-        for product in cartProductArray{
-            product.remove()
-        }
-        
-        NotificationCenter.default.post(AppNotifications.productQtyChange.instance)
-        
-        self.fetchSavedCartProducts()
+        orderObject.setData(orderValue) { (error) in
+            
+            if error == nil{
+                
+                for product in self.cartProductArray{
+                    product.remove()
+                }
+                
+                NotificationCenter.default.post(AppNotifications.productQtyChange.instance)
+                
+                self.fetchSavedCartProducts()
+                
+                self.showAlert(SuccessMessage.orderPlaced.stringValue)
+                
+                let ref = Firestore.firestore().collection(Database.Collection.order.rawValue).document(objectID)
+                
+                ref.getDocument(completion: { (document, error) in
+                    
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    
+                    let order = Order(info: document!.data()!)
+                    
+                    let orderDetailVC = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: "OrderDetailViewController") as! OrderDetailViewController
+                    
+                    orderDetailVC.order = order
+                    
+                    Constants.sideMenuController.toggle(swipeDirection: SwipeDirection.left.rawValue)
+                    
+                    let navController = Constants.sideMenuController.mainView as! UINavigationController
+                    
+                    navController.pushViewController(orderDetailVC, animated: true)
+                    
+                })
+                
+            }else{
+                
+                MBProgressHUD.hide(for: self.view, animated: true)
 
-        self.showAlert(SuccessMessage.orderPlaced.stringValue)
-        
-        let pushID = UUID().uuidString
-        
-        Messaging.messaging().sendMessage(["title":"hello","message":"kaiso ho"], to: Constants.adminPushID, withMessageID: pushID, timeToLive: Int64.max)
-        
+                self.showAlert(error!.localizedDescription)
+                
+            }
+            
+        }
+
     }
     
 }

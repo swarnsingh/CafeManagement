@@ -14,7 +14,7 @@ extension RegisterViewController:UITextFieldDelegate{
     // MARK : Textfield Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        let arrOfTextfield = [firstNameTextField,lastNameTextField,emailTextField,passwordTextField,confirmPasswordTextField]
+        let arrOfTextfield = [firstNameTextField,lastNameTextField,emailTextField,phoneNumberTextField,passwordTextField,confirmPasswordTextField]
         
         let indexOfTextField = arrOfTextfield.index{ $0 == textField }
         
@@ -66,14 +66,35 @@ extension RegisterViewController:UITextFieldDelegate{
             return
 
         }
+
+        let email = emailTextField.text! + (buttonAllowedDomain.titleLabel?.text!)!
         
-        if !emailTextField.isValidEmail(){
+        if !email.isValidEmail(){
             
             emailTextField.becomeFirstResponder()
 
             result(ValidationResult(ErrorMessage.invalidEmail.stringValue,false))
             return
 
+        }
+        
+        if phoneNumberTextField.text?.count == 0{
+            
+            phoneNumberTextField.becomeFirstResponder()
+            
+            result(ValidationResult(ErrorMessage.invalidPhoneNumber.stringValue,false))
+            
+            return
+        }
+        
+        if phoneNumberTextField.text?.count != 10{
+            
+            phoneNumberTextField.becomeFirstResponder()
+            
+            result(ValidationResult(ErrorMessage.emptyPhoneNumber.stringValue,false))
+            
+            return
+            
         }
         
         if passwordTextField.text?.count == 0{

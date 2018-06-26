@@ -110,7 +110,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
                                     
                                 }else{
 
-                                    self.showAlert("Error in uploading profile picture, try again.")
+                                    self.showAlert(ErrorMessage.profilePhotoUploadFailed.stringValue)
                                     
                                 }
                                 
@@ -120,7 +120,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
                             
                             MBProgressHUD.hide(for: self.view, animated: true)
                             
-                            self.showAlert("Error in uploading profile picture, try again.")
+                            self.showAlert(ErrorMessage.profilePhotoUploadFailed.stringValue)
                             
                         }
                         
