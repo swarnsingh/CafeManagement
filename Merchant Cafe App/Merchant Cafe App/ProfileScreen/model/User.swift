@@ -89,19 +89,6 @@ extension User{
                 "mobile":mobile]
     }
     
-//    func updateDeviceInfo(){
-//
-//        let device = ["device":["id":Constants.device.id ?? "",
-//                                "model":Constants.device.type,
-//                                "os_version":Constants.device.osVersion,
-//                                "token":Constants.device.token]]
-//
-//        let database = Firestore.firestore().collection(Database.Collection.user.rawValue).document(self.id)
-//
-//        database.setData(device, merge: true)
-//
-//    }
-    
     mutating func logout(){
         
         self.state = .loggedOut
@@ -117,12 +104,12 @@ extension User{
         image = info["image"] as? String ?? ""
         id = info["id"] as? String ?? ""
         mobile = info["mobile"] as? String ?? ""
-
+        
     }
     
     mutating func syncWithFirebase(completionHandler:@escaping ()->Void){
         
-        Firestore.firestore().collection("config").getDocuments { (snapshot, error) in
+        Firestore.firestore().collection(Database.Collection.config.rawValue).getDocuments { (snapshot, error) in
             
             if error == nil{
                 
@@ -139,11 +126,11 @@ extension User{
                 UserDefaults.standard.set(userData, forKey: "CafeUser")
                 
                 completionHandler()
-
+                
             }
             
         }
-
+        
     }
     
     mutating func update(info:[String:Any], id:String){

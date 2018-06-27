@@ -74,12 +74,14 @@ struct OrderDetail {
         var lastName = ""
         var id = ""
         var profileImage = ""
+        var mobile = ""
         
         init(info:[String:Any]) {
             self.firstName = info["first_name"] as? String ?? ""
             self.lastName = info["last_name"] as? String ?? ""
             self.id = info["id"] as? String ?? ""
             self.profileImage = info["image"] as? String ?? ""
+            self.mobile = info["mobile"] as? String ?? ""
         }
     }
     

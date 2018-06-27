@@ -29,7 +29,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         if (PreferenceManager.isUserLogin()) {
-            Constants.db.collection("admin").document("1").addSnapshotListener(
+            Constants.db.collection(Database.Collection.admin.rawValue).document("1").addSnapshotListener(
             includeMetadataChanges: true) { querySnapshot, error in
                 
                 let accountData = querySnapshot?.data()!["account_info"] as? [String:Any] ?? [:]
@@ -51,7 +51,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func goToController(controller: String, nextViewController : AnyClass) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let storyBoard : UIStoryboard = UIStoryboard(name: AppStoryBoard.Main.rawValue, bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: controller)
         self.present(nextViewController, animated:true, completion:nil)
     }
@@ -70,7 +70,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.getOrders()
             
         } else {
-            self.view.makeToast("Please check your internet connection!", duration: 1.0, position: .bottom)
+            self.view.makeToast(ErrorMessage.internetConnection.stringValue, duration: 1.0, position: .bottom)
         }
     }
  
@@ -99,7 +99,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let OrderId = cell?.viewWithTag(101) as! UILabel
         let OrderPrice = cell?.viewWithTag(102) as! UILabel
-        //let OrderItems = cell?.viewWithTag(103) as! UILabel
         let OrderPlacedAt = cell?.viewWithTag(104) as! UILabel
         let OrderPlacedBy = cell?.viewWithTag(105) as! UILabel
         let OrderStatus = cell?.viewWithTag(106) as! UILabel
@@ -114,8 +113,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         OrderId.text = "#\(order.orderId)"
-        OrderPrice.text = "₹\(order.orderPrice)"
-        // OrderItems.text = "\(order.products.count)"
+        OrderPrice.text = "\(Constants.config.currency)\(order.orderPrice)"
 
         if order.states.keys.contains(OrderDetail.OrderStatus.Placed) {
             let placedAt = order.states[.Placed]
@@ -166,7 +164,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func getOrders() {
         
-        Firestore.firestore().collection("order").order(by: "status", descending: true).addSnapshotListener{ (snapshot, error) in
+        Firestore.firestore().collection(Database.Collection.order.rawValue).order(by: "status", descending: true).addSnapshotListener{ (snapshot, error) in
             
             if error == nil {
                 
@@ -201,7 +199,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let totalDeliveredPrice = self.deliveredOrderArray.map{$0.orderPrice}.reduce(0.0,+)
                 print(totalDeliveredPrice)
                 self.totalOrders.text = "Total Orders: \n \(self.deliveredOrderArray.count)"
-                self.TotalSales.text = "Total Sales: \n ₹\(totalDeliveredPrice)"
+                self.TotalSales.text = "Total Sales: \n \(Constants.config.currency)\(totalDeliveredPrice)"
                 self.orderArray = self.orderArray.filter{ return !$0.states.keys.contains(.Delivered) && !$0.states.keys.contains(.Declined) && !$0.states.keys.contains(.Cancelled) }
                 
                 self.orderArray = self.orderArray.sorted(by: { (order1, order2) -> Bool in

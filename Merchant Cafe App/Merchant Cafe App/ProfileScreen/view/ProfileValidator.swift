@@ -10,35 +10,33 @@ import Foundation
 import UIKit
 import FirebaseFirestore
 
-extension ProfileViewController{
+extension ProfileViewController {
     
     typealias ValidationResult = (isValid:Bool,error:String)
     
     func validate(completionHadler:(ValidationResult)->Void){
         
-        if firstNameTextField.text?.count == 0{
+        if firstNameTextField.text?.count == 0 {
             
             completionHadler((false,ErrorMessage.emptyFirstName.stringValue))
             
-        }else if lastNameTextField.text?.count == 0{
+        } else if lastNameTextField.text?.count == 0 {
             
             completionHadler((false,ErrorMessage.emptyLastName.stringValue))
             
-        }else{
-            
+        } else{
             completionHadler((true,""))
-            
         }
         
     }
     
     func updateData(){
-
+        
         let dbRef = Firestore.firestore().collection(Database.Collection.config.rawValue)
         
         dbRef.getDocuments { (snapshot, error) in
             
-            if error == nil{
+            if error == nil {
                 
                 let document = snapshot?.documents.first
                 
@@ -62,7 +60,7 @@ extension ProfileViewController{
                 
                 document?.reference.setData(data!, merge: true)
                 
-                self.showAlert("profile Updated Successfully", callback: {
+                self.showAlert("Profile Updated Successfully", callback: {
                     
                     User.current.syncWithFirebase {}
                     

@@ -46,6 +46,8 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
         
         let categories = categoryArray.map { $0.name }
         
+        self.view.endEditing(true)
+        
         ActionSheetStringPicker.show(withTitle: "Choose Category", rows: categories, initialSelection: 0, doneBlock: { (picker, selectedIndex, value) in
             
             self.categoryTextField.text = categories[selectedIndex]
@@ -83,7 +85,7 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
         alertController.addAction(cancelAction )
         
         present(alertController, animated: true, completion: nil)
-        // Your action
+
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -118,6 +120,9 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
         } else if !isNumeric(a: productPrice!) {
             showAlert("Please add price only")
             isValid = false
+        } else if ((productPrice?.count)! > 4) {
+            showAlert("More than 4 digit price is not allowed")
+            isValid = false
         } else if (category == Constants.BLANK) {
             showAlert("Please add category of product")
             isValid = false
@@ -134,7 +139,7 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
     
     private func saveProduct() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        let document = Firestore.firestore().collection("products").document()
+        let document = Firestore.firestore().collection(Database.Collection.products.rawValue).document()
         var storage = Storage.storage().reference(withPath: "Product").child(document.documentID)
         if product != nil {
             storage = Storage.storage().reference(withPath: "Product").child(product!.id)
@@ -166,7 +171,7 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
                         
                         if (self.product != nil) {
                             let documentPath = self.product?.id
-                            let document = Firestore.firestore().collection("products").document(documentPath!)
+                            let document = Firestore.firestore().collection(Database.Collection.products.rawValue).document(documentPath!)
                             document.updateData(data)
                             
                             var oldCategory = self.category
@@ -174,12 +179,12 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
                             var newCategory = self.categoryArray.filter{$0.name == self.categoryTextField.text!}.first!
                             
                             if oldCategory?.name != newCategory.name {
-                                let deleteCategoryDocument = Firestore.firestore().collection("category").document((oldCategory?.id)!)
+                                let deleteCategoryDocument = Firestore.firestore().collection(Database.Collection.category.rawValue).document((oldCategory?.id)!)
                                 let index = oldCategory?.products.index(of: (self.product?.id)!)
                                 oldCategory?.products.remove(at: index!)
                                 deleteCategoryDocument.updateData(["products":oldCategory?.products as Any])
                                 
-                                let categoryDocument = Firestore.firestore().collection("category").document(newCategory.id)
+                                let categoryDocument = Firestore.firestore().collection(Database.Collection.category.rawValue).document(newCategory.id)
                                 newCategory.products.append(document.documentID)
                                 
                                 categoryDocument.updateData(["products":newCategory.products])
@@ -192,8 +197,8 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
                                 category = self.categoryArray.filter{$0.name == self.categoryTextField.text!}.first!
                             }
                             
-                            let document = Firestore.firestore().collection("products").document()
-                            let categoryDocument = Firestore.firestore().collection("category").document((category?.id)!)
+                            let document = Firestore.firestore().collection(Database.Collection.products.rawValue).document()
+                            let categoryDocument = Firestore.firestore().collection(Database.Collection.category.rawValue).document((category?.id)!)
                             category?.products.append(document.documentID)
                             categoryDocument.updateData(["products":category?.products as Any])
                             document.setData(data)
@@ -203,7 +208,7 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
                         DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
                             _ = self.navigationController?.popViewController(animated: true)
                         })
-                        self.view.makeToast("Product Updated Succesfully", duration: 1.0, position: .bottom)
+                        self.view.makeToast(SuccessMessage.productUpdated.stringValue, duration: 1.0, position: .bottom)
                     }
                     MBProgressHUD.hide(for: self.view, animated: true)
                 })
@@ -215,7 +220,7 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
         if isProductValid() {
             if Connectivity.isConnectedToInternet {
                 MBProgressHUD.showAdded(to: self.view, animated: true)
-                let document = Firestore.firestore().collection("products")
+                let document = Firestore.firestore().collection(Database.Collection.products.rawValue)
                 let productName = self.productNameTextField.text!
                 if product?.name.lowercased() != productName.lowercased() {
                     document.whereField("name", isEqualTo: productName).getDocuments(){ (querySnapshot, err) in
@@ -235,7 +240,7 @@ class ProductOperationsViewController: UIViewController, UITextFieldDelegate, UI
                     self.saveProduct()
                 }
             } else {
-                self.view.makeToast("Please check internet connection!", duration: 1.0, position: .bottom)
+                self.view.makeToast(ErrorMessage.internetConnection.stringValue, duration: 1.0, position: .bottom)
             }
         }
     }

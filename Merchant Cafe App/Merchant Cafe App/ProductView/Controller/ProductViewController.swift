@@ -13,20 +13,20 @@ class ProductViewController: UIViewController {
     var categoryArray = [Category]()
     var productArray = [Product]()
     var productSnapShot: FirebaseFirestore.ListenerRegistration?
-
+    
     @IBOutlet weak var productCollectionView:UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
-    
+        
         if Connectivity.isConnectedToInternet {
             MBProgressHUD.showAdded(to: self.view, animated: true)
             category = getProduct()
             MBProgressHUD.hide(for: self.view, animated: true)
             if (category?.products.count)! == 0 {
-                self.view.makeToast("Category : \(category?.name ?? "") dont' have any products. Please add new products by click on add button ", duration: 3.0, position: .center)
+                self.view.makeToast("Category : \(category?.name ?? "") \(ErrorMessage.emptyProducts.stringValue)", duration: 3.0, position: .center)
             }
         } else {
-            self.view.makeToast("Please check your internet connection!", duration: 1.0, position: .bottom)
+            self.view.makeToast(ErrorMessage.internetConnection.stringValue, duration: 1.0, position: .bottom)
         }
     }
     
@@ -50,12 +50,10 @@ class ProductViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         productSnapShot?.remove()
-        print("Product SnapShot removed")
     }
     
     //MARK: WebApi Method
@@ -63,13 +61,13 @@ class ProductViewController: UIViewController {
     func getProduct() -> Category {
         self.productArray.removeAll()
         
-        productSnapShot = Firestore.firestore().collection("category").addSnapshotListener { (snapshot, error) in
+        productSnapShot = Firestore.firestore().collection(Database.Collection.category.rawValue).addSnapshotListener { (snapshot, error) in
             if error == nil {
                 for document in (snapshot?.documents)!{
                     let category = Category(info: document.data(), id: document.documentID)
                     if category.name == self.category?.name {
                         self.category = category
-                        Firestore.firestore().collection("products").addSnapshotListener { (snapshot, error) in
+                        Firestore.firestore().collection(Database.Collection.products.rawValue).addSnapshotListener { (snapshot, error) in
                             
                             if error == nil {
                                 
@@ -79,6 +77,7 @@ class ProductViewController: UIViewController {
                                         self.productArray.append(product)
                                     }
                                 }
+                                self.productArray = self.productArray.sorted(by: { $0.name < $1.name })
                                 self.productCollectionView.reloadData()
                             }
                         }

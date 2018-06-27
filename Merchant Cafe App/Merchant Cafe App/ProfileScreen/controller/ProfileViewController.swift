@@ -11,7 +11,7 @@ import AlamofireImage
 import FirebaseStorage
 import MBProgressHUD
 
-class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField:UITextField!
     @IBOutlet weak var firstNameTextField:UITextField!
@@ -22,130 +22,109 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
     var imagePath:String?
     
     var isProfilePictureChanged = false
+    var isUpdated = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Account"
+        self.title = "My Profile"
         
         self.setupView()
         
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    func setupView(){
-
-        //profilePictureButton.imageView?.contentMode = .scaleAspectFill
-        //profilePictureButton.imageView?.clipsToBounds = true
-        
+    func setupView() {
         imagePath = User.current.image
         
-        if imagePath?.count ?? 0 > 0{
+        if imagePath?.count ?? 0 > 0 {
             
             let url = URL(string:imagePath ?? "")
             
             profilePictureButton.af_setImage(for: .normal, url: url!)
             
         }
-    //    print(User.current)
         firstNameTextField.text = User.current.firstName
         lastNameTextField.text = User.current.lastName
         emailTextField.text = User.current.email
-
+        
     }
     
     //MARK: Button Methods
     
-    @IBAction func profileButtonPressed(_ sender:UIButton){
-        
-        if profilePictureButton.imageView?.image != nil{
-            
-            self.showProfilePictureOption()
-            
-        }else{
-            
-            self.openImagePickerActionSheet()
-            
-        }
-        
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        isUpdated = true
+        return true
     }
     
-    @IBAction func updateButtonPressed(_ sender:UIButton){
+    @IBAction func profileButtonPressed(_ sender:UIButton) {
+        if profilePictureButton.image(for: .normal) != nil {
+            self.showProfilePictureOption()
+        } else {
+            self.openImagePickerActionSheet()
+        }
+    }
+    
+    @IBAction func updateButtonPressed(_ sender:UIButton) {
         
-        self.validate { result in
+        if isUpdated {
             
-            if result.isValid{
+            self.validate { result in
                 
-                if self.isProfilePictureChanged{
+                if result.isValid {
                     
-                    MBProgressHUD.showAdded(to: self.view, animated: true)
-                    
-                    let name = User.current.firstName + ".jpg"
-                    
-                    let storage = Storage.storage().reference(withPath: "ProfilePicture/\(name)")
-                    
-                    let metadata = StorageMetadata()
-                    metadata.contentType = "image/jpeg"
-                    
-                    let data = UIImageJPEGRepresentation((self.profilePictureButton.imageView?.image)!, 0.1)
-                    
-                    storage.putData(data!, metadata: metadata, completion: { (metadata, error) in
+                    if self.isProfilePictureChanged {
                         
-                        if error == nil{
+                        MBProgressHUD.showAdded(to: self.view, animated: true)
+                        
+                        let name = User.current.firstName + ".jpg"
+                        
+                        let storage = Storage.storage().reference(withPath: "ProfilePicture/\(name)")
+                        
+                        let metadata = StorageMetadata()
+                        metadata.contentType = "image/jpeg"
+                        
+                        let data = UIImageJPEGRepresentation((self.profilePictureButton.imageView?.image)!, 0.1)
+                        
+                        storage.putData(data!, metadata: metadata, completion: { (metadata, error) in
                             
-                            storage.downloadURL(completion: { (url, error) in
-                                
+                            if error == nil {
+                                storage.downloadURL(completion: { (url, error) in
+                                    
+                                    MBProgressHUD.hide(for: self.view, animated: true)
+                                    
+                                    if error == nil {
+                                        self.imagePath = url?.absoluteString
+                                        self.updateData()
+                                        self.isUpdated = false
+                                    } else {
+                                        self.showAlert("Error in uploading profile picture, try again.")
+                                    }
+                                })
+                            } else {
                                 MBProgressHUD.hide(for: self.view, animated: true)
-                                
-                                if error == nil{
-                                    
-                                    self.imagePath = url?.absoluteString
-                                    
-                                    self.updateData()
-                                    
-                                }else{
-                                    
-                                    self.showAlert("Error in uploading profile picture, try again.")
-                                    
-                                }
-                                
-                            })
-                            
-                        }else{
-                            
-                            MBProgressHUD.hide(for: self.view, animated: true)
-                            
-                            self.showAlert("Error in uploading profile picture, try again.")
-                            
-                        }
-                        
-                    })
-                    
-                }else{
-                    
-                    self.updateData()
-                    
+                                self.showAlert("Error in uploading profile picture, try again.")
+                            }
+                        })
+                    } else {
+                        self.updateData()
+                        self.isUpdated = false
+                    }
+                } else {
+                    self.showAlert(result.error)
                 }
-                
-            }else{
-                
-                self.showAlert(result.error)
-                
             }
             
+        } else {
+            self.showAlert("No edit found in your profile")
         }
-        
+
     }
     
-    @IBAction func changePasswordButtonPressed(_ sender:UIButton){
-        
-        
-    }
+    @IBAction func changePasswordButtonPressed(_ sender:UIButton) {}
     
 }
 

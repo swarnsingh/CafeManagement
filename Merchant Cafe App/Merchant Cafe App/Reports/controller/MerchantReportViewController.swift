@@ -14,14 +14,14 @@ class MerchantReportViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Order Reports"
+        self.navigationItem.title = "Order History"
         self.navigationItem.backBarButtonItem?.title = ""
         if Connectivity.isConnectedToInternet {
             MBProgressHUD.showAdded(to: self.view, animated: true)
             getReports()
             MBProgressHUD.hide(for: self.view, animated: true)
         } else {
-            self.view.makeToast("Please check internet connection!", duration: 1.0, position: .center)
+            self.view.makeToast(ErrorMessage.internetConnection.stringValue, duration: 1.0, position: .center)
         }
     }
     
@@ -62,7 +62,7 @@ class MerchantReportViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         orderId.text = "#\(order.orderId)"
-        orderPrice.text = "₹\(order.orderPrice)"
+        orderPrice.text = "\(Constants.config.currency)\(order.orderPrice)"
         
         Constants.dateFormatter.dateFormat = "dd MMM yy h:mm a"
         
@@ -101,7 +101,6 @@ class MerchantReportViewController: UIViewController, UITableViewDelegate, UITab
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -116,7 +115,7 @@ class MerchantReportViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     private func getReports() {
-        Firestore.firestore().collection("order").order(by: "status", descending: true).addSnapshotListener{ (snapshot, error) in
+        Firestore.firestore().collection(Database.Collection.order.rawValue).order(by: "status", descending: true).addSnapshotListener{ (snapshot, error) in
             
             if error == nil {
                 
@@ -133,8 +132,8 @@ class MerchantReportViewController: UIViewController, UITableViewDelegate, UITab
                 
                 self.orderArray = self.orderArray.sorted(by: { (order1, order2) -> Bool in
                     
-                    let orderPlaced1Date = order1.states[.Delivered] != nil ? order1.states[.Delivered] : order1.states[.Declined]
-                    let orderPlaced2Date = order2.states[.Delivered] != nil ? order2.states[.Delivered] : order2.states[.Declined]
+                    let orderPlaced1Date = order1.states[.Placed]
+                    let orderPlaced2Date = order2.states[.Placed]
                     
                     guard let date1 = orderPlaced1Date, let date2 = orderPlaced2Date else {return false}
                     

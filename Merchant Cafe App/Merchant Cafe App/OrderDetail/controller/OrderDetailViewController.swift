@@ -34,13 +34,17 @@ class OrderDetailViewController: UIViewController {
     
     var otp: String?
     
+    var orderStatusObserver:ListenerRegistration?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if orderDetail != nil {
             self.priceLabel.text = String(format:"%.1f", (orderDetail?.orderPrice)!)
             self.quantityLabel.text = "\(orderDetail?.products.count ?? 0) Items"
-            self.userMobileText.text = "Contact : \(orderDetail?.contactDetail ?? "")"
+            if orderDetail?.user.mobile != "" {
+                self.userMobileText.text = "Contact : \(orderDetail?.user.mobile ?? "")"
+            }
             
             Constants.dateFormatter.dateFormat = "dd MMM yyyy"
             self.orderDateLabel.text = Constants.dateFormatter.string(from: (orderDetail?.states[.Placed])!)
@@ -85,14 +89,43 @@ class OrderDetailViewController: UIViewController {
             let tap = UITapGestureRecognizer(target: self, action: #selector(OrderDetailViewController.tapFunction))
             userMobileText.isUserInteractionEnabled = true
             userMobileText.addGestureRecognizer(tap)
+            
+            observeOrderStatus()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        guard let orderObserver = orderStatusObserver else {return}
+        
+        orderObserver.remove()
+        
+    }
+    
+    private func observeOrderStatus() {
+        
+        if orderDetail?.states.count == 1 {
+            
+            orderStatusObserver = Firestore.firestore().collection(Database.Collection.order.rawValue).document(orderDetail!.orderId).addSnapshotListener { (snapshot, error) in
+                
+                if error == nil && (snapshot?.exists)! {
+                    
+                    let order = OrderDetail(info: snapshot!.data()!, id: snapshot!.documentID)
+                    
+                    if order.states[.Cancelled] != nil {
+                        self.showAlert("This order has been cancelled by \(order.user.firstName)", callback: {
+                            self.navigationController?.popViewController(animated: true)
+                        })
+                    }
+                }
+            }
         }
     }
     
     @objc
     func tapFunction(sender:UITapGestureRecognizer) {
         
-        let phone = orderDetail?.contactDetail
-        print(phone!)
+        let phone = orderDetail?.user.mobile
         
         let url = URL(string: "tel://\(phone ?? "")")
         
@@ -107,9 +140,7 @@ class OrderDetailViewController: UIViewController {
         if Connectivity.isConnectedToInternet {
             MBProgressHUD.showAdded(to: self.view, animated: true)
             
-            print("Ready Order")
-            
-            let document = Firestore.firestore().collection("order").document(orderDetail!.documentID)
+            let document = Firestore.firestore().collection(Database.Collection.order.rawValue).document(orderDetail!.documentID)
             
             document.setData(["status":[OrderDetail.OrderStatus.Ready.rawValue:FieldValue.serverTimestamp()]], merge: true)
             
@@ -117,10 +148,10 @@ class OrderDetailViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
                 _ = self.navigationController?.popViewController(animated: true)
             })
-            self.view.makeToast("Order Ready message sent Succesfully", duration: 1.0, position: .bottom)
+            self.view.makeToast(SuccessMessage.orderReady.stringValue, duration: 1.0, position: .bottom)
             
         } else {
-            self.view.makeToast("Please check internet connection!", duration: 1.0, position: .bottom)
+            self.view.makeToast(ErrorMessage.internetConnection.stringValue, duration: 1.0, position: .bottom)
         }
     }
     
@@ -139,14 +170,14 @@ class OrderDetailViewController: UIViewController {
             
             if self.otp ==  self.orderDetail?.otp {
                 MBProgressHUD.showAdded(to: self.view, animated: true)
-                let document = Firestore.firestore().collection("order").document(self.orderDetail!.documentID)
+                let document = Firestore.firestore().collection(Database.Collection.order.rawValue).document(self.orderDetail!.documentID)
                 
                 document.setData(["status":[OrderDetail.OrderStatus.Delivered.rawValue:FieldValue.serverTimestamp()]], merge: true)
                 MBProgressHUD.hide(for: self.view, animated: true)
                 DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
                     _ = self.navigationController?.popViewController(animated: true)
                 })
-                self.view.makeToast("Order Picked up Succesfully", duration: 1.0, position: .bottom)
+                self.view.makeToast(SuccessMessage.orderPicked.stringValue, duration: 1.0, position: .bottom)
             }
             else {
                 self.showAlert("OTP Doesn't Match!")
@@ -176,9 +207,7 @@ class OrderDetailViewController: UIViewController {
                 if Connectivity.isConnectedToInternet {
                     MBProgressHUD.showAdded(to: self.view, animated: true)
                     
-                    print("Accept Order")
-                    
-                    let document = Firestore.firestore().collection("order").document(self.orderDetail!.documentID)
+                    let document = Firestore.firestore().collection(Database.Collection.order.rawValue).document(self.orderDetail!.documentID)
                     
                     document.setData(["status":[OrderDetail.OrderStatus.Accepted.rawValue:FieldValue.serverTimestamp()]], merge: true)
                     
@@ -186,9 +215,9 @@ class OrderDetailViewController: UIViewController {
                     DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
                         _ = self.navigationController?.popViewController(animated: true)
                     })
-                    self.view.makeToast("Order Accepted Succesfully", duration: 1.0, position: .bottom)
+                    self.view.makeToast(SuccessMessage.orderAccepted.stringValue, duration: 1.0, position: .bottom)
                 } else {
-                    self.view.makeToast("Please check internet connection!", duration: 1.0, position: .bottom)
+                    self.view.makeToast(ErrorMessage.internetConnection.stringValue, duration: 1.0, position: .bottom)
                 }
             }
         }
@@ -202,9 +231,7 @@ class OrderDetailViewController: UIViewController {
                 if Connectivity.isConnectedToInternet {
                     MBProgressHUD.showAdded(to: self.view, animated: true)
                     
-                    print("Decline Order")
-                    
-                    let document = Firestore.firestore().collection("order").document(self.orderDetail!.documentID)
+                    let document = Firestore.firestore().collection(Database.Collection.order.rawValue).document(self.orderDetail!.documentID)
                     
                     document.setData(["status":[OrderDetail.OrderStatus.Declined.rawValue:FieldValue.serverTimestamp()]], merge: true)
                     
@@ -213,9 +240,9 @@ class OrderDetailViewController: UIViewController {
                         _ = self.navigationController?.popViewController(animated: true)
                     })
                     
-                    self.view.makeToast("Order Declined Succesfully", duration: 1.0, position: .bottom)
+                    self.view.makeToast(ErrorMessage.orderDeclined.stringValue, duration: 1.0, position: .bottom)
                 } else {
-                    self.view.makeToast("Please check internet connection!", duration: 1.0, position: .bottom)
+                    self.view.makeToast(ErrorMessage.internetConnection.stringValue, duration: 1.0, position: .bottom)
                 }
             }
         }

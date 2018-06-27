@@ -53,29 +53,29 @@ class LoginViewController: UIViewController {
     private func isLoginFieldValid(email:String?, password:String?) -> Bool {
         var isFieldsValid = true
         if (email == nil || email == "") {
-            showAlert(message: "Please add E-mail id")
+            showAlert(message: ErrorMessage.emptyEmail.stringValue)
             isFieldsValid = false
         } else {
             if (!isValidEmail(email: email)) {
-                showAlert(message: "Please add valid E-mail id")
+                showAlert(message: ErrorMessage.invalidEmail.stringValue)
                 isFieldsValid = false
             }
         }
         
         if (password == nil || password == "") {
-            showAlert(message: "Please add password")
+            showAlert(message: ErrorMessage.emptyPassword.stringValue)
             isFieldsValid = false
         } else {
             if (!isValidPassword(password: password)) {
                 isFieldsValid = false
-                showAlert(message: "Password should have minimum one upper case, one lower case, one digit and minimum 6 digit characters.")
+                showAlert(message: ErrorMessage.invalidPassword.stringValue)
             }
         }
         return isFieldsValid
     }
     
     @IBAction func onResetPassword(_ sender: Any) {
-        print("Oops I forgot my password")
+        
     }
     
     private func isMerchantUser(email: String?) -> Bool {
@@ -107,29 +107,31 @@ class LoginViewController: UIViewController {
                             var userInfo = Constants.config.admins.filter{$0.email == email!}.first!.jsonRepresentation as [String:Any]
                             userInfo["account_info"] = device
                             
-                            Constants.db.collection("admin").document("1").setData(userInfo, merge: true, completion: { (error) in
+                            Constants.db.collection(Database.Collection.admin.rawValue).document("1").setData(userInfo, merge: true, completion: { (error) in
                                 
-                                if error == nil{
+                                if error == nil {
                                     
                                     PreferenceManager.setUserLogin(isUserLogin: true)
-                                    
-                                    Firestore.firestore().collection("admin").document("1").getDocument(completion: { (snapshot, error) in
+                                    Firestore.firestore().collection(Database.Collection.admin.rawValue).document("1").getDocument(completion: { (snapshot, error) in
                                         
-                                        if error == nil{
+                                        if error == nil {
                                             
                                             User.current.email = email!
                                             
                                             User.current.syncWithFirebase {
-                                                
+                                                MBProgressHUD.hide(for: self.view, animated: true)
                                                 self.dismiss(animated: true, completion: nil)
                                             }
+                                        }  else {
+                                            MBProgressHUD.hide(for: self.view, animated: true)
                                         }
                                     })
-                                    
+                                } else {
+                                   MBProgressHUD.hide(for: self.view, animated: true)
                                 }
                             })
-                            MBProgressHUD.hide(for: self.view, animated: true)
                         } else {
+                            MBProgressHUD.hide(for: self.view, animated: true)
                             PreferenceManager.setUserLogin(isUserLogin: false)
                             let errorMsg = (error?.localizedDescription ?? "Username or Password is invalid!")
                             self.showAlert(errorMsg)
@@ -137,10 +139,11 @@ class LoginViewController: UIViewController {
                         }
                     }
                 } else {
-                    showAlert(message: "You are not authorized merchant user!")
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    showAlert(message: "You are not an authorized merchant user!")
                 }
             } else {
-                showAlert(message: "Please check your internet connection!")
+                showAlert(message: ErrorMessage.internetConnection.stringValue)
             }
         }
     }

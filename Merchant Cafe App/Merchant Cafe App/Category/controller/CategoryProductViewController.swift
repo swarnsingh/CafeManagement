@@ -25,26 +25,22 @@ class CategoryProductViewController: UIViewController {
         } else {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CategoryProductViewController.btnAddProductPressed))
         }
-        
-        if Connectivity.isConnectedToInternet {
-            self.getCategories()
-        } else {
-            self.view.makeToast("Please check your internet connection!", duration: 1.0, position: .bottom)
-        }
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        if Connectivity.isConnectedToInternet {
+            self.getCategories()
+        } else {
+            self.view.makeToast(ErrorMessage.internetConnection.stringValue, duration: 1.0, position: .bottom)
+        }
     }
     
-    @objc func btnAddPressed(){
+    @objc func btnAddPressed() {
         let AddCategoryVC = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: Constants.Category_OP_VIEW_SEGUE) as! AddCategoryFormViewController
             AddCategoryVC.categoryArray = categoryArray
         self.navigationController?.pushViewController(AddCategoryVC, animated: true)
@@ -63,15 +59,13 @@ class CategoryProductViewController: UIViewController {
     }
 }
 
-
-
 extension CategoryProductViewController {
     
     //MARK: WebAPI Method
     
     func getCategories() {
         
-        categorySnapShot = Firestore.firestore().collection("category").addSnapshotListener { (snapshot, error) in
+        categorySnapShot = Firestore.firestore().collection(Database.Collection.category.rawValue).addSnapshotListener { (snapshot, error) in
             
             if error == nil {
                 
@@ -81,6 +75,7 @@ extension CategoryProductViewController {
                     let category = Category(info: document.data(), id: document.documentID)
                     self.categoryArray.append(category)
                 }
+                self.categoryArray = self.categoryArray.sorted(by: { $0.name < $1.name })
                 self.categoryListTableView.reloadData()
             }
         }

@@ -26,7 +26,7 @@ extension OrderDetailViewController: UITableViewDelegate, UITableViewDataSource 
         productQuantity.text = "\(order?.quantity ?? 0)x"
         productItem.text = order?.name
         let total = Double((order?.quantity)!) * (order?.price)!
-        productPrice.text = "\(total)"
+        productPrice.text = "\(Constants.config.currency)\(total)"
         
         cell?.selectionStyle = .none
         return cell!
