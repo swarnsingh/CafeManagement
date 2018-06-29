@@ -7,19 +7,25 @@ import UIKit
 class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: AppStoryBoard.Main.rawValue, bundle:nil)
         
         var nextViewController: UIViewController
         
         if PreferenceManager.isUserLogin() {
-            nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+
+            nextViewController = storyBoard.instantiateViewController(withIdentifier: Constants.HOME_SEGUE) as! HomeViewController
             
             self.navigationController?.pushViewController(nextViewController, animated: true)
         
         } else {
-            nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+
+            nextViewController = storyBoard.instantiateViewController(withIdentifier: Constants.LOGIN_SEGUE) as! LoginViewController
+            
+            self.present(nextViewController, animated:true, completion:nil)
+
         }
-        self.present(nextViewController, animated:true, completion:nil)
+        
     }
     
     private func showAlert(message:String?) {

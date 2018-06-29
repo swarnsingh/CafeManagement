@@ -30,7 +30,6 @@ extension HomeViewController{
                 
             }
             
-            
         }
         
     }
@@ -78,6 +77,7 @@ extension HomeViewController{
                     
                     let category = Category(info: document.data(), id: document.documentID)
                     self.categoryArray.append(category)
+                    
                 }
                 
                 self.categoryArray = self.categoryArray.filter{$0.products.count > 0}

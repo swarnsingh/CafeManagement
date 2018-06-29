@@ -70,6 +70,7 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UIPickerView
     
     @IBAction func allowedEmailButtonPressed(_ sender:UIButton){
         
+        view.endEditing(true)
         pickerContainerView.isHidden = false
         pickerView.reloadComponent(0)
         

@@ -48,7 +48,7 @@ enum SuccessMessage{
 
 enum InfoMessage{
     
-    case profilePhotoOption,cancelOrderConfirm
+    case profilePhotoOption,cancelOrderConfirm,orderPriceLimitReached
     
     var stringValue:String{
         
@@ -58,6 +58,9 @@ enum InfoMessage{
             
         case .cancelOrderConfirm:
             return "Are you sure to cancel this order?"
+            
+        case .orderPriceLimitReached:
+            return "Maximum allowed order limit is \(Constants.config.currency)10,000, Please contact merchant for bulk ordering."
         }
         
     }

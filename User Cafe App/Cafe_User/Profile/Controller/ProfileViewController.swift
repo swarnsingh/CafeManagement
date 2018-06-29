@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     @IBAction func profileButtonPressed(_ sender:UIButton){
         
-        if profilePictureButton.imageView?.image != nil{
+        if profilePictureButton.image(for: .normal) != nil{
             
             self.showProfilePictureOption()
             

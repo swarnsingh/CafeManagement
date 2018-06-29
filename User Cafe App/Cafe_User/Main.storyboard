@@ -1086,6 +1086,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="Qhc-JM-ZlG" secondAttribute="trailing" constant="8" id="IIW-UZ-3Km"/>
                                                                         <constraint firstItem="FX4-Ap-lyW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Snv-sb-Spe" secondAttribute="trailing" constant="8" id="MF0-B1-w6w"/>
@@ -1096,6 +1097,7 @@
                                                                         <constraint firstItem="FX4-Ap-lyW" firstAttribute="centerY" secondItem="uah-rm-xVl" secondAttribute="centerY" id="p1f-9E-3n9"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableViewCell>
                                                         </prototypes>
                                                         <connections>

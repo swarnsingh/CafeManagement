@@ -55,28 +55,27 @@ class ProductViewController: UIViewController {
     //MARK: WebApi Method
     
     func getProduct(){
-        Firestore.firestore().collection(Database.Collection.products.rawValue).addSnapshotListener { (snapshot, error) in
+        
+        let query = Firestore.firestore().collection(Database.Collection.products.rawValue).whereField("isActive", isEqualTo: true)
             
-            if error == nil{
+        query.getDocuments(completion: { (snapshot, error) in
             
-                self.productArray.removeAll()
+            self.productArray.removeAll()
+            
+            for document in (snapshot?.documents)!{
                 
-                for document in (snapshot?.documents)!{
+                if (self.cateogry.products.contains(document.documentID)){
                     
-                    if (self.cateogry.products.contains(document.documentID)){
-                        
-                        let product = Product(info: document.data(), id: document.documentID)
-                        self.productArray.append(product)
-                        
-                    }
+                    let product = Product(info: document.data(), id: document.documentID)
+                    self.productArray.append(product)
                     
                 }
                 
-                self.productCollectionView.reloadData()
-                
             }
             
-        }
+            self.productCollectionView.reloadData()
+            
+        })
         
         
     }
