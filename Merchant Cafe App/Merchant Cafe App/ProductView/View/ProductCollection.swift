@@ -34,7 +34,7 @@ extension ProductViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         
         labelCell.text = prodcut.name
-        priceCell.text = "₹ \(prodcut.price)"
+        priceCell.text = "\(Constants.config.currency)\(prodcut.price)"
         
         cell.layer.masksToBounds = true
         cell.layer.borderWidth = 1

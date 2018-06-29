@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mR4-bE-6ch">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mR4-bE-6ch">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -179,9 +179,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="107" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Order            20" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mio-Z7-ILo" customClass="CustomLabel" customModule="Merchant_Cafe_App" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="107" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Order            0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mio-Z7-ILo" customClass="CustomLabel" customModule="Merchant_Cafe_App" customModuleProvider="target">
                                 <rect key="frame" x="16" y="118" width="168.66666666666666" height="120"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.32941176470588235" green="0.30980392156862746" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="jsb-tg-kSx"/>
                                 </constraints>
@@ -202,19 +202,19 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OCQ-BF-blR">
-                                <rect key="frame" x="0.0" y="317" width="375" height="461"/>
+                                <rect key="frame" x="16" y="319" width="343" height="449"/>
                                 <color key="backgroundColor" red="0.94142218769999997" green="0.94635109969999998" blue="0.94635109969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="101" id="WjV-YQ-iwg">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="101"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WjV-YQ-iwg" id="Qwl-ec-76W">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="100.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accepted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v12-Ig-lHT" customClass="CustomLabel" customModule="Merchant_Cafe_App" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="58.999999999999993" width="79.333333333333329" height="21.666666666666664"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="210" verticalHuggingPriority="251" horizontalCompressionResistancePriority="710" text="Accepted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="v12-Ig-lHT" customClass="CustomLabel" customModule="Merchant_Cafe_App" customModuleProvider="target">
+                                                    <rect key="frame" x="253" y="5" width="80" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -225,44 +225,56 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="order id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-X7-pU5">
-                                                    <rect key="frame" x="8" y="8" width="69" height="23"/>
+                                                    <rect key="frame" x="264" y="73.333333333333329" width="69" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bx-IT-XEx">
-                                                    <rect key="frame" x="149" y="8" width="77" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDK-v1-LrV">
-                                                    <rect key="frame" x="333.66666666666669" y="7.9999999999999982" width="33.333333333333314" height="20.333333333333329"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="pBS-5E-ass"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="8.0000000000000018" y="77" width="26.666666666666671" height="15.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-wD-qyt">
+                                                    <rect key="frame" x="74" y="11.999999999999998" width="42.333333333333343" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-wD-qyt">
-                                                    <rect key="frame" x="324.66666666666669" y="60.333333333333336" width="42.333333333333314" height="20.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <imageView userInteractionEnabled="NO" tag="107" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SRv-em-0VM" customClass="CustomImageView" customModule="Merchant_Cafe_App">
+                                                    <rect key="frame" x="4" y="4" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="dSP-NN-ygz"/>
+                                                        <constraint firstAttribute="width" constant="60" id="jUn-4Q-9ka"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bx-IT-XEx">
+                                                    <rect key="frame" x="74" y="37.333333333333336" width="69" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="iT0-wD-qyt" secondAttribute="bottom" constant="20" id="8x1-MR-KHE"/>
-                                                <constraint firstAttribute="trailing" secondItem="iT0-wD-qyt" secondAttribute="trailing" constant="8" id="Ijz-rE-Sg8"/>
-                                                <constraint firstItem="v12-Ig-lHT" firstAttribute="leading" secondItem="Qwl-ec-76W" secondAttribute="leading" constant="8" id="UcZ-ig-2Ji"/>
-                                                <constraint firstItem="JDK-v1-LrV" firstAttribute="top" secondItem="Qwl-ec-76W" secondAttribute="top" constant="8" id="eLw-y0-eud"/>
-                                                <constraint firstAttribute="bottom" secondItem="v12-Ig-lHT" secondAttribute="bottom" constant="20" id="klL-8L-Vln"/>
-                                                <constraint firstAttribute="trailing" secondItem="JDK-v1-LrV" secondAttribute="trailing" constant="8" id="loB-FK-1CN"/>
-                                                <constraint firstItem="T8A-X7-pU5" firstAttribute="leading" secondItem="Qwl-ec-76W" secondAttribute="leading" constant="8" id="nCD-Ya-Ldo"/>
-                                                <constraint firstItem="6Bx-IT-XEx" firstAttribute="centerX" secondItem="Qwl-ec-76W" secondAttribute="centerX" id="wXb-5x-4cr"/>
-                                                <constraint firstItem="T8A-X7-pU5" firstAttribute="top" secondItem="Qwl-ec-76W" secondAttribute="top" constant="8" id="yH9-CM-XID"/>
-                                                <constraint firstItem="6Bx-IT-XEx" firstAttribute="top" secondItem="Qwl-ec-76W" secondAttribute="top" constant="8" id="yMc-e8-UXW"/>
+                                                <constraint firstItem="T8A-X7-pU5" firstAttribute="centerY" secondItem="JDK-v1-LrV" secondAttribute="centerY" id="8on-Tb-3IH"/>
+                                                <constraint firstItem="v12-Ig-lHT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iT0-wD-qyt" secondAttribute="trailing" constant="8" id="DDQ-uZ-2zq"/>
+                                                <constraint firstItem="6Bx-IT-XEx" firstAttribute="top" secondItem="iT0-wD-qyt" secondAttribute="bottom" constant="5" id="Jh7-wQ-Od3"/>
+                                                <constraint firstItem="iT0-wD-qyt" firstAttribute="top" secondItem="Qwl-ec-76W" secondAttribute="top" constant="12" id="LrY-Fz-gLz"/>
+                                                <constraint firstItem="6Bx-IT-XEx" firstAttribute="leading" secondItem="SRv-em-0VM" secondAttribute="trailing" constant="10" id="Nhf-xU-XLp"/>
+                                                <constraint firstAttribute="trailing" secondItem="T8A-X7-pU5" secondAttribute="trailing" constant="10" id="Sma-qF-RaH"/>
+                                                <constraint firstItem="iT0-wD-qyt" firstAttribute="leading" secondItem="SRv-em-0VM" secondAttribute="trailing" constant="10" id="Xun-tr-LCv"/>
+                                                <constraint firstAttribute="trailing" secondItem="v12-Ig-lHT" secondAttribute="trailing" constant="10" id="YZl-ay-kFB"/>
+                                                <constraint firstItem="JDK-v1-LrV" firstAttribute="leading" secondItem="Qwl-ec-76W" secondAttribute="leading" constant="8" id="byK-eq-xqU"/>
+                                                <constraint firstItem="v12-Ig-lHT" firstAttribute="top" secondItem="Qwl-ec-76W" secondAttribute="top" constant="5" id="ePA-SW-Sa7"/>
+                                                <constraint firstItem="SRv-em-0VM" firstAttribute="leading" secondItem="Qwl-ec-76W" secondAttribute="leading" constant="4" id="iZA-TF-OJs"/>
+                                                <constraint firstItem="SRv-em-0VM" firstAttribute="top" secondItem="Qwl-ec-76W" secondAttribute="top" constant="4" id="odZ-zt-cq6"/>
+                                                <constraint firstAttribute="bottom" secondItem="JDK-v1-LrV" secondAttribute="bottom" constant="8" id="qHH-vO-Cea"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -282,9 +294,9 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="108" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Sales: 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrv-NZ-Zza" customClass="CustomLabel" customModule="Merchant_Cafe_App" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="108" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Sales: 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrv-NZ-Zza" customClass="CustomLabel" customModule="Merchant_Cafe_App" customModuleProvider="target">
                                 <rect key="frame" x="191" y="118" width="168.66666666666663" height="120"/>
-                                <color key="backgroundColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.792156862745098" green="0.30980392156862746" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -295,10 +307,10 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.94142218769999997" green="0.94635109969999998" blue="0.94635109969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bus-oc-OZw" firstAttribute="trailing" secondItem="fRG-iy-kCR" secondAttribute="trailing" id="0eL-7L-RzM"/>
-                            <constraint firstItem="OCQ-BF-blR" firstAttribute="top" secondItem="BCt-im-esY" secondAttribute="bottom" constant="8" id="3Bp-rU-26G"/>
+                            <constraint firstItem="OCQ-BF-blR" firstAttribute="top" secondItem="BCt-im-esY" secondAttribute="bottom" constant="10" id="3Bp-rU-26G"/>
                             <constraint firstItem="Mio-Z7-ILo" firstAttribute="leading" secondItem="bus-oc-OZw" secondAttribute="leading" constant="16" id="574-4b-jlx"/>
                             <constraint firstItem="lrv-NZ-Zza" firstAttribute="top" secondItem="bus-oc-OZw" secondAttribute="top" constant="30" id="6bP-6m-HEW"/>
                             <constraint firstItem="BCt-im-esY" firstAttribute="top" secondItem="fRG-iy-kCR" secondAttribute="bottom" id="BJe-5b-kp2"/>
@@ -307,11 +319,11 @@
                             <constraint firstItem="Mio-Z7-ILo" firstAttribute="top" secondItem="bus-oc-OZw" secondAttribute="top" constant="30" id="OYS-lK-Vaw"/>
                             <constraint firstItem="fRG-iy-kCR" firstAttribute="leading" secondItem="bus-oc-OZw" secondAttribute="leading" id="Q3c-RB-KE4"/>
                             <constraint firstItem="lrv-NZ-Zza" firstAttribute="height" secondItem="Mio-Z7-ILo" secondAttribute="height" id="Rk8-d0-JWJ"/>
-                            <constraint firstItem="OCQ-BF-blR" firstAttribute="leading" secondItem="bus-oc-OZw" secondAttribute="leading" id="TK8-Ms-BfH"/>
+                            <constraint firstItem="OCQ-BF-blR" firstAttribute="leading" secondItem="bus-oc-OZw" secondAttribute="leading" constant="16" id="TK8-Ms-BfH"/>
                             <constraint firstItem="BCt-im-esY" firstAttribute="leading" secondItem="bus-oc-OZw" secondAttribute="leading" id="ZRj-5a-2nN"/>
-                            <constraint firstItem="bus-oc-OZw" firstAttribute="bottom" secondItem="OCQ-BF-blR" secondAttribute="bottom" id="bKO-4I-ekv"/>
+                            <constraint firstItem="bus-oc-OZw" firstAttribute="bottom" secondItem="OCQ-BF-blR" secondAttribute="bottom" constant="10" id="bKO-4I-ekv"/>
                             <constraint firstItem="bus-oc-OZw" firstAttribute="trailing" secondItem="lrv-NZ-Zza" secondAttribute="trailing" constant="16" id="fWV-w1-qkC"/>
-                            <constraint firstItem="bus-oc-OZw" firstAttribute="trailing" secondItem="OCQ-BF-blR" secondAttribute="trailing" id="qND-1z-om3"/>
+                            <constraint firstItem="bus-oc-OZw" firstAttribute="trailing" secondItem="OCQ-BF-blR" secondAttribute="trailing" constant="16" id="qND-1z-om3"/>
                             <constraint firstItem="BCt-im-esY" firstAttribute="trailing" secondItem="bus-oc-OZw" secondAttribute="trailing" id="wdh-DR-9P5"/>
                             <constraint firstItem="fRG-iy-kCR" firstAttribute="top" secondItem="Mio-Z7-ILo" secondAttribute="bottom" constant="20" id="zmO-Xy-V0T"/>
                         </constraints>
@@ -339,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJH-Fk-emS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="132"/>
+            <point key="canvasLocation" x="1516" y="131.52709359605913"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gnc-Fy-jpF">
@@ -950,7 +962,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="HYT-E4-zpD" customClass="CustomImageView" customModule="Merchant_Cafe_App" customModuleProvider="target">
-                                <rect key="frame" x="100" y="64" width="140" height="140"/>
+                                <rect key="frame" x="147" y="64" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="7KQ-1Y-E6J"/>
                                     <constraint firstAttribute="height" constant="140" id="I0R-wB-HO2"/>
@@ -967,14 +979,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Divyanshu Sharma" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFH-ha-TPp">
-                                <rect key="frame" x="260" y="111.33333333333333" width="100" height="45.666666666666671"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       © All Rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70b-Ot-FRa">
-                                <rect key="frame" x="100" y="720" width="275" height="50"/>
+                                <rect key="frame" x="60" y="720" width="315" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="BWX-qQ-vTg"/>
                                 </constraints>
@@ -1027,23 +1033,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.2274509804" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="HYT-E4-zpD" firstAttribute="trailing" secondItem="9AH-al-RBr" secondAttribute="trailing" constant="-80" id="58c-jb-Tqf"/>
                             <constraint firstItem="whf-oJ-8ve" firstAttribute="leading" secondItem="Exr-QW-1SJ" secondAttribute="leading" constant="8" id="CFu-jB-l67"/>
                             <constraint firstItem="Exr-QW-1SJ" firstAttribute="trailing" secondItem="FTP-Az-rBx" secondAttribute="trailing" constant="8" id="E57-Rb-8uA"/>
                             <constraint firstItem="9AH-al-RBr" firstAttribute="top" secondItem="HYT-E4-zpD" secondAttribute="bottom" constant="20" id="G8Y-yZ-3Cv"/>
-                            <constraint firstItem="HYT-E4-zpD" firstAttribute="leading" secondItem="Exr-QW-1SJ" secondAttribute="leading" constant="100" id="MC4-uC-gVz"/>
                             <constraint firstItem="9AH-al-RBr" firstAttribute="top" secondItem="HYT-E4-zpD" secondAttribute="bottom" constant="30" id="QnU-Ee-xgF"/>
                             <constraint firstItem="whf-oJ-8ve" firstAttribute="top" secondItem="FTP-Az-rBx" secondAttribute="bottom" constant="8" id="VqF-3m-z5v"/>
                             <constraint firstItem="9AH-al-RBr" firstAttribute="leading" secondItem="Exr-QW-1SJ" secondAttribute="leading" constant="8" id="YLa-3P-mim"/>
-                            <constraint firstItem="Exr-QW-1SJ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WFH-ha-TPp" secondAttribute="trailing" constant="8" id="Z7m-Ha-UCT"/>
                             <constraint firstItem="Exr-QW-1SJ" firstAttribute="trailing" secondItem="whf-oJ-8ve" secondAttribute="trailing" constant="8" id="Ztx-hG-slF"/>
-                            <constraint firstItem="WFH-ha-TPp" firstAttribute="centerY" secondItem="HYT-E4-zpD" secondAttribute="centerY" id="alY-H2-FP0"/>
                             <constraint firstItem="70b-Ot-FRa" firstAttribute="trailing" secondItem="Exr-QW-1SJ" secondAttribute="trailing" id="dnr-cy-bfb"/>
                             <constraint firstItem="Exr-QW-1SJ" firstAttribute="bottom" secondItem="70b-Ot-FRa" secondAttribute="bottom" constant="8" id="hX8-do-gNV"/>
-                            <constraint firstItem="WFH-ha-TPp" firstAttribute="leading" secondItem="HYT-E4-zpD" secondAttribute="trailing" constant="20" id="iRZ-rZ-03I"/>
                             <constraint firstItem="uiM-jX-V3X" firstAttribute="top" secondItem="8em-Hb-pIk" secondAttribute="bottom" constant="8" id="l27-MF-J24"/>
                             <constraint firstItem="uiM-jX-V3X" firstAttribute="leading" secondItem="Exr-QW-1SJ" secondAttribute="leading" constant="8" id="my5-Pv-SuW"/>
                             <constraint firstAttribute="trailing" secondItem="uiM-jX-V3X" secondAttribute="trailing" constant="8" id="nW8-VO-KT6"/>
-                            <constraint firstItem="70b-Ot-FRa" firstAttribute="leading" secondItem="Exr-QW-1SJ" secondAttribute="leading" constant="100" id="qes-Zu-uuP"/>
+                            <constraint firstItem="70b-Ot-FRa" firstAttribute="leading" secondItem="Exr-QW-1SJ" secondAttribute="leading" constant="60" id="qes-Zu-uuP"/>
                             <constraint firstItem="Exr-QW-1SJ" firstAttribute="trailing" secondItem="8em-Hb-pIk" secondAttribute="trailing" constant="8" id="rpr-li-cL3"/>
                             <constraint firstItem="FTP-Az-rBx" firstAttribute="top" secondItem="uiM-jX-V3X" secondAttribute="bottom" constant="8" id="s5P-To-I0c"/>
                             <constraint firstItem="HYT-E4-zpD" firstAttribute="top" secondItem="Exr-QW-1SJ" secondAttribute="top" constant="20" id="sHW-7x-zWq"/>
@@ -1098,7 +1101,7 @@
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GN1-eN-3Mn" customClass="CustomTextField" customModule="Merchant_Cafe_App" customModuleProvider="target">
-                                                <rect key="frame" x="39.999999999999993" y="324.66666666666669" width="99.333333333333314" height="40"/>
+                                                <rect key="frame" x="40" y="365" width="294" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="naT-ZZ-xqt"/>
                                                 </constraints>
@@ -1124,7 +1127,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6p-bU-uk5" customClass="CustomButton" customModule="Merchant_Cafe_App" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="384.66666666666669" width="294" height="40"/>
+                                                <rect key="frame" x="40" y="425" width="294" height="40"/>
                                                 <color key="backgroundColor" red="0.72156862749999995" green="0.090196078430000007" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="MZU-A5-iIF"/>
@@ -1157,8 +1160,9 @@
                                         <constraints>
                                             <constraint firstItem="UPU-Tv-pA9" firstAttribute="top" secondItem="CBk-Lo-gZN" secondAttribute="top" constant="30" id="Hhy-Ud-Wey"/>
                                             <constraint firstItem="p3e-WS-5va" firstAttribute="top" secondItem="CBk-Lo-gZN" secondAttribute="top" constant="8" id="NOI-Wq-bkh"/>
-                                            <constraint firstItem="GN1-eN-3Mn" firstAttribute="centerY" secondItem="CBk-Lo-gZN" secondAttribute="centerY" id="ONE-SY-KLK"/>
+                                            <constraint firstItem="GN1-eN-3Mn" firstAttribute="centerY" secondItem="CBk-Lo-gZN" secondAttribute="centerY" constant="40" id="ONE-SY-KLK"/>
                                             <constraint firstItem="x6p-bU-uk5" firstAttribute="leading" secondItem="CBk-Lo-gZN" secondAttribute="leading" constant="40" id="Ws0-x6-P8B"/>
+                                            <constraint firstAttribute="trailing" secondItem="GN1-eN-3Mn" secondAttribute="trailing" constant="40" id="c3H-g9-Urp"/>
                                             <constraint firstItem="x6p-bU-uk5" firstAttribute="top" secondItem="GN1-eN-3Mn" secondAttribute="bottom" constant="20" id="dmd-4F-nlb"/>
                                             <constraint firstItem="UPU-Tv-pA9" firstAttribute="centerX" secondItem="CBk-Lo-gZN" secondAttribute="centerX" id="enP-5m-6sw"/>
                                             <constraint firstItem="p3e-WS-5va" firstAttribute="leading" secondItem="CBk-Lo-gZN" secondAttribute="leading" constant="8" id="hoj-9s-mgE"/>
@@ -1248,11 +1252,11 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-LD-mUH" customClass="CustomButton" customModule="Merchant_Cafe_App" customModuleProvider="target">
                                                 <rect key="frame" x="117" y="40" width="140" height="140"/>
-                                                <color key="backgroundColor" red="0.72156862749999995" green="0.090196078430000007" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="140" id="4rV-C8-W2n"/>
                                                     <constraint firstAttribute="height" constant="140" id="SZg-0C-FcP"/>
                                                 </constraints>
+                                                <state key="normal" backgroundImage="images.jpeg"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="70"/>
@@ -1422,7 +1426,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dB0-QL-3gE">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EE3-Y5-alg" customClass="CustomTextField" customModule="Merchant_Cafe_App" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EE3-Y5-alg" customClass="CustomTextField" customModule="Merchant_Cafe_App" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="220" width="295" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="tUm-ae-VgG"/>
@@ -1474,7 +1478,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm new password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LPs-Va-C7F" customClass="CustomTextField" customModule="Merchant_Cafe_App" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LPs-Va-C7F" customClass="CustomTextField" customModule="Merchant_Cafe_App" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="320" width="295" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="P4y-ac-dt7"/>
@@ -2140,6 +2144,7 @@ Vm5YblpuY25obm5udm54bnpufG5+boNui3/3f/l//oAMgBCAF4AcgCmALIA5gD6ARoBJgE6AVoBZgGuA
 boBzAAAAAAAAAgEAAAAAAAAAWQAAAAAAAAAAAAAAAAAAgHU
 </mutableData>
         </image>
+        <image name="images.jpeg" width="218" height="231"/>
         <image name="logo" width="200" height="200"/>
         <image name="placeholder.png" width="80" height="80"/>
     </resources>

@@ -32,7 +32,6 @@ class AddCategoryFormViewController: UIViewController,UIImagePickerControllerDel
         customImagePickerButton.imageView?.clipsToBounds = true
         CustomAddButton.backgroundColor = UIColor.init(red: 184/255.0, green: 23/255.0, blue: 72/255.0, alpha: 1.0)
         self.title = "Add Category"
-        //var categoryId = category?.id
         
         if category != nil {
             self.title = "Edit"
@@ -43,13 +42,11 @@ class AddCategoryFormViewController: UIViewController,UIImagePickerControllerDel
             
             let url = URL(string:category!.image)!
             
-            //customImagePickerButton.af_setImage(for: .normal, url: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: .main, completion: nil)
             CategoryImageView.af_setImage(withURL: url)
             
             CustomAddButton.addTarget(self, action: #selector(self.updateButton), for: .touchUpInside)
             
-        }else{
-            //customImagePickerButton.setImage(#imageLiteral(resourceName: "imageBackground.jpg"), for: .normal)
+        } else{
             
             CustomAddButton.addTarget(self, action: #selector(self.submitButton), for: .touchUpInside)
         }
@@ -58,19 +55,14 @@ class AddCategoryFormViewController: UIViewController,UIImagePickerControllerDel
         
         customImagePickerButton.addTarget(self, action: #selector(self.selectImagePicker), for: .touchUpInside)
         
-        
-        
-        // Do any additional setup after loading the view.
     }
+    
     //MARK: Defination for switch ON/Off button action
     @objc func actionSwitch(sender: AnyObject) {
         if UICustomSwitch.isOn {
             UICustomSwitch.setOn(false, animated: true)
-            //print("ON")
-            
         } else {
             UICustomSwitch.setOn(true, animated: true)
-            //print("OFF")
         }
     }
     
@@ -84,18 +76,16 @@ class AddCategoryFormViewController: UIViewController,UIImagePickerControllerDel
     }
     
     @objc func updateButton(){
-       
+        
         let names = categoryArray.map{$0.name.lowercased()}
         if CategoryNameField.text?.isEmpty ?? true {
             showAlert(message: "Please enter category name!")
-            print("error")
             return
         }
         else if CategoryNameField.text != category?.name && names.contains((CategoryNameField.text?.lowercased())!){
             
             showAlert(message: "Category Already exist! choose another name")
             return
-            
         }
         else {
             MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -121,7 +111,7 @@ class AddCategoryFormViewController: UIViewController,UIImagePickerControllerDel
                             let data = ["name":categoryName,
                                         "is_active":switchValue,
                                         "image":imagePathString!] as [String : Any]
-                            let document = Firestore.firestore().collection("category").document(self.category!.id)
+                            let document = Firestore.firestore().collection(Database.Collection.category.rawValue).document(self.category!.id)
                             document.updateData(data)
                             MBProgressHUD.hide(for: self.view, animated: true)
                             self.showAlert("Category Updated Successfully", callback: {
@@ -129,7 +119,6 @@ class AddCategoryFormViewController: UIViewController,UIImagePickerControllerDel
                                 let vc = self.navigationController?.viewControllers[1]
                                 self.navigationController?.popToViewController(vc!, animated: true)
                             })
-                            
                             
                         }
                         
@@ -149,23 +138,17 @@ class AddCategoryFormViewController: UIViewController,UIImagePickerControllerDel
         
         if CategoryNameField.text?.isEmpty ?? true {
             showAlert(message: "Please enter category name!")
-            print("error")
             return
-        }
-        else if CategoryImageView.image == nil {
+        } else if CategoryImageView.image == nil {
             showAlert(message: "Please add an image!")
-            print("error")
             return
             
-        }else if names.contains((CategoryNameField.text?.lowercased())!){
+        } else if names.contains((CategoryNameField.text?.lowercased())!){
             showAlert(message: "Category Already exist! choose another name")
-            
             return
-            
-        }
-        else {
+        } else {
             MBProgressHUD.showAdded(to: self.view, animated: true)
-            let document = Firestore.firestore().collection("category").document()
+            let document = Firestore.firestore().collection(Database.Collection.category.rawValue).document()
             
             let storage = Storage.storage().reference(withPath: "Category").child(document.documentID)
             
@@ -197,14 +180,9 @@ class AddCategoryFormViewController: UIViewController,UIImagePickerControllerDel
                                 let vc = self.navigationController?.viewControllers[1]
                                 self.navigationController?.popToViewController(vc!, animated: true)
                             })
-                            
-                            
                         }
-                        
                     })
-                    
                 }
-                
             })
         }
     }
@@ -218,7 +196,6 @@ class AddCategoryFormViewController: UIViewController,UIImagePickerControllerDel
         customImagePickerButton.setTitle("", for: .normal)
         
         picker.dismiss(animated: true, completion: nil)
-        
     }
     
     
@@ -238,16 +215,5 @@ class AddCategoryFormViewController: UIViewController,UIImagePickerControllerDel
         
         self.present(alert, animated: true)
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

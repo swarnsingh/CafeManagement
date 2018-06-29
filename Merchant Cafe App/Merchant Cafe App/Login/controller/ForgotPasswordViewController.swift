@@ -33,17 +33,14 @@ class ForgotPasswordViewController: UIViewController {
     }
     @IBAction func submitButtonPressed(_ sender: CustomButton) {
        
-        print("submit")
         if emailTextField.text?.count == 0{
             
-            //self.showAlert(ErrorMessage.emptyEmail.stringValue)
             self.showAlert("Empty Email", ErrorMessage.emptyEmail.stringValue)
             return
         }
         
         if !emailTextField.isValidEmail(){
             self.showAlert("Invalid Email", ErrorMessage.invalidEmail.stringValue)
-            //self.showAlert(ErrorMessage.invalidEmail.stringValue)
             return
         }
         
@@ -56,28 +53,14 @@ class ForgotPasswordViewController: UIViewController {
             guard let errorOfPasswordReset = error else {
                 
                 self.showAlert(SuccessMessage.passwordResetMail.stringValue, callback: {
-                    print("Here")
                     self.dismiss(animated: true, completion: nil)
                 })
                 return
             }
-            
-           // self.showAlert(errorOfPasswordReset.localizedDescription)
             
             self.showAlert("Error!", errorOfPasswordReset.localizedDescription)
             
         })
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

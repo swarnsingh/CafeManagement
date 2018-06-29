@@ -313,9 +313,7 @@ extension UIViewController{
         
         let alertController = UIAlertController.init(title: title, message: text, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Ok", style: .default, handler: { (action) in
-            print("ok pressed")
-        })
+        let action = UIAlertAction(title: "Ok", style: .default, handler: { (action) in })
         
         alertController.addAction(action)
         

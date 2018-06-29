@@ -22,7 +22,8 @@ extension ProfileViewController{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         isProfilePictureChanged = true
-
+        isUpdated = true
+        
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         profilePictureButton.setImage(image, for: .normal)
@@ -36,33 +37,30 @@ extension ProfileViewController{
     func showProfilePictureOption(){
         
         self.showAlertController(.actionSheet, title: "Option:", text: "Select an option", options: ["Remove profile picture","Set a new one"]) { (tappedIndex) in
-
-            if tappedIndex == 0{
+            
+            if tappedIndex == 0 {
                 
                 self.imagePath = ""
+                self.isUpdated = true
                 self.profilePictureButton.setImage(nil, for: .normal)
                 
-            }else if tappedIndex == 1{
-                
+            } else if tappedIndex == 1 {
                 self.openImagePickerActionSheet()
-                
             }
-            
         }
-        
     }
     
     func openImagePickerActionSheet(){
         
         self.showAlertController(.actionSheet, title: "Option:", text: "Select an option to set profile picture", options: ["Take from camera","Choose from gallery"]) { (tappedIndex) in
             
-            if tappedIndex < 2{
+            if tappedIndex < 2 {
                 
                 let imagepicker = UIImagePickerController()
                 imagepicker.delegate = self
                 imagepicker.allowsEditing = true
                 imagepicker.sourceType = (tappedIndex == 0) ? .camera : .photoLibrary
-
+                
                 self.present(imagepicker, animated: true, completion: nil)
                 
             }

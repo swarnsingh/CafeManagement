@@ -5,12 +5,15 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseFirestore
+import SideMenuSwift
 
 typealias ValidationResult = (error:String,isValid:Bool)
 
 enum SuccessMessage{
     
     case passwordResetMail,userCreated,loginSuccessfull
+    case orderReady, orderPicked, orderAccepted, productUpdated
     
     var stringValue:String{
         
@@ -18,24 +21,33 @@ enum SuccessMessage{
             
         case .passwordResetMail:
             return "Password reset mail has been sent successfully. Please check your inbox."
-
+            
         case .userCreated:
             return "User has been registered successfully. We have sent you a verification mail, Verify your mail to login."
             
         case .loginSuccessfull:
             return "Login Successfull."
+        case .orderReady:
+            return "Order Ready message sent Successfully"
+        case .orderPicked:
+            return "Order Picked up Successfully"
+        case .orderAccepted:
+            return "Order Accepted Successfully"
+        case .productUpdated:
+            return "Product Updated Successfully"
         }
         
     }
     
 }
 
-enum ErrorMessage{
+enum ErrorMessage {
     
     case emptyEmail,invalidEmail,emptyPassword,invalidPassword
     case emptyFirstName,emptyLastName,passwordNotMatch,verifyEmail
+    case internetConnection, emptyProducts, orderDeclined
     
-    var stringValue:String{
+    var stringValue:String {
         
         switch self {
         case .emptyEmail:
@@ -54,8 +66,13 @@ enum ErrorMessage{
             return "Password and confirm password not match."
         case .verifyEmail:
             return "Your email is not verified. Please verify it first."
+        case .internetConnection:
+            return "Please check your internet connection!"
+        case .emptyProducts:
+            return " don't have any products. Please add new products by clcik on add button"
+        case .orderDeclined:
+            return "Order Declined Successfully"
         }
-        
     }
     
 }
@@ -96,7 +113,11 @@ struct Device {
 
 class Constants: NSObject {
     
+    static var sideMenu: SideMenuController!
+    
     static var device = Device()
+    
+    static var config = Config()
     
     static let dateFormatter = DateFormatter()
     
@@ -107,7 +128,7 @@ class Constants: NSObject {
     static let BLANK = ""
     
     static let screenHeight = UIScreen.main.bounds.height
-
+    
     static let screenWidth = UIScreen.main.bounds.width
     
     public static let db: Firestore = Firestore.firestore()
@@ -127,5 +148,7 @@ class Constants: NSObject {
     public static let ORDER_DETAIL_VIEW_SEGUE = "OrderDetailViewController"
     
     public static let REPORTS_VIEW_SEGUE = "MerchantReportViewController"
-
+    
+    public static let PROFILE_VIEW_SEGUE = "ProfileViewController"
+    
 }

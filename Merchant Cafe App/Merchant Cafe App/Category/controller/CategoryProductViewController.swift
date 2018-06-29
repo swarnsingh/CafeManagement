@@ -12,10 +12,10 @@ class CategoryProductViewController: UIViewController {
     var categoryArray = [Category]()
     
     var isFromCategory = false
+    var categorySnapShot: FirebaseFirestore.ListenerRegistration?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         if isFromCategory {
             self.navigationController?.navigationBar.tintColor = UIColor.white
@@ -25,28 +25,22 @@ class CategoryProductViewController: UIViewController {
         } else {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CategoryProductViewController.btnAddProductPressed))
         }
-        
-        if Connectivity.isConnectedToInternet {
-            self.getCategories()
-        } else {
-            self.view.makeToast("Please check your internet connection!", duration: 1.0, position: .bottom)
-        }
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        if Connectivity.isConnectedToInternet {
+            self.getCategories()
+        } else {
+            self.view.makeToast(ErrorMessage.internetConnection.stringValue, duration: 1.0, position: .bottom)
+        }
     }
     
-    @objc func btnAddPressed(){
+    @objc func btnAddPressed() {
         let AddCategoryVC = AppStoryBoard.Main.instance.instantiateViewController(withIdentifier: Constants.Category_OP_VIEW_SEGUE) as! AddCategoryFormViewController
             AddCategoryVC.categoryArray = categoryArray
         self.navigationController?.pushViewController(AddCategoryVC, animated: true)
@@ -60,6 +54,9 @@ class CategoryProductViewController: UIViewController {
         self.navigationController?.pushViewController(productVC, animated: true)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.categorySnapShot?.remove()
+    }
 }
 
 extension CategoryProductViewController {
@@ -68,24 +65,20 @@ extension CategoryProductViewController {
     
     func getCategories() {
         
-        let unsubscribe = Firestore.firestore().collection("category").addSnapshotListener { (snapshot, error) in
+        categorySnapShot = Firestore.firestore().collection(Database.Collection.category.rawValue).addSnapshotListener { (snapshot, error) in
             
             if error == nil {
                 
                 self.categoryArray.removeAll()
                 
-                for document in (snapshot?.documents)!{
-                    
+                for document in (snapshot?.documents)!{   
                     let category = Category(info: document.data(), id: document.documentID)
                     self.categoryArray.append(category)
                 }
-                
+                self.categoryArray = self.categoryArray.sorted(by: { $0.name < $1.name })
                 self.categoryListTableView.reloadData()
-                
             }
-            
         }
-        unsubscribe;
     }
     
 }

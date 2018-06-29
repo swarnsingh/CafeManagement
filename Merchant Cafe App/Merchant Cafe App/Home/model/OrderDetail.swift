@@ -8,9 +8,10 @@ import UIKit
 struct OrderDetail {
     
     enum OrderStatus:String {
-        case Placed,Accepted,Declined,Ready,Delivered
+        case Placed,Accepted,Declined,Ready,Delivered,Cancelled
     }
     
+    var contactDetail = ""
     var orderId = ""
     var otp = ""
     var documentID = ""
@@ -26,6 +27,7 @@ struct OrderDetail {
         self.orderId = info["order_id"] as? String ?? ""
         self.documentID = id
         self.otp = info["otp"] as? String ?? ""
+        self.contactDetail = info["contact_detail"] as? String ?? ""
         
         let userJSON = info["user_info"] as? [String:Any] ?? [:]
         
@@ -72,12 +74,14 @@ struct OrderDetail {
         var lastName = ""
         var id = ""
         var profileImage = ""
+        var mobile = ""
         
         init(info:[String:Any]) {
             self.firstName = info["first_name"] as? String ?? ""
             self.lastName = info["last_name"] as? String ?? ""
             self.id = info["id"] as? String ?? ""
-            self.profileImage = info["profile_image"] as? String ?? ""
+            self.profileImage = info["image"] as? String ?? ""
+            self.mobile = info["mobile"] as? String ?? ""
         }
     }
     
