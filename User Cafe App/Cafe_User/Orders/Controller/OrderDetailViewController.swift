@@ -25,7 +25,10 @@ class OrderDetailViewController: UIViewController {
     
     var order:Order!
     
+    var orderStatusObserver:ListenerRegistration?
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         productListTableView.tableFooterView = UIView()
@@ -42,11 +45,45 @@ class OrderDetailViewController: UIViewController {
         
         self.title = "Order Detail"
         
+        self.observeOrderStatus()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        guard let orderObserver = orderStatusObserver else {return}
+        
+        orderObserver.remove()
+        
+    }
+    
+    func observeOrderStatus(){
+        
+        if order.status == .Placed{
+            
+            orderStatusObserver = Firestore.firestore().collection(Database.Collection.order.rawValue).document(order.id).addSnapshotListener { (snapshot, error) in
+                
+                if error == nil && (snapshot?.exists)!{
+                    
+                    let order = Order(info: (snapshot!.data())!)
+                    
+                    self.cancelOrderButton.isHidden = order.status != .Placed
+                    self.orderStatusLabel.textColor = order.status.color
+                    self.orderStatusLabel.text = order.status.rawValue
+                    
+                }
+                
+                
+            }
+            
+        }
+
+        
     }
     
     //MARK: Button Methods

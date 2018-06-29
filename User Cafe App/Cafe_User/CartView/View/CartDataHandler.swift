@@ -52,10 +52,16 @@ extension CartViewController{
     
     func placeOrder(){
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        
         let totalPrice = cartProductArray.map{$0.price*Double($0.addedQty)}.reduce(0.0, +)
         
+        if totalPrice > 10_000{
+            
+            self.showAlert(InfoMessage.orderPriceLimitReached.stringValue)
+            return
+        }
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+
         let objectID = Firestore.firestore().collection(Database.Collection.order.rawValue).document().documentID.encodeValue
         
         let orderObject = Firestore.firestore().collection(Database.Collection.order.rawValue).document(objectID)

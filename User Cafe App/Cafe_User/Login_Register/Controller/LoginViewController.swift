@@ -11,7 +11,7 @@ import FirebaseAuth
 import MBProgressHUD
 import FirebaseFirestore
 
-class LoginViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
+class LoginViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource{
     
     @IBOutlet weak var emailTextField:UITextField!
     @IBOutlet weak var passwordTextField:UITextField!
@@ -23,7 +23,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate,UIPickerViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         Firestore.firestore().collection(Database.Collection.config.rawValue).getDocuments { (snapshot, error) in
             
             if error == nil{
@@ -39,8 +38,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,UIPickerViewDele
             }
             
         }
-        
-        // Do any additional setup after loading the view.
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,6 +64,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,UIPickerViewDele
     
     @IBAction private func allowedEmailButtonPressed(_ sender:UIButton){
         
+        view.endEditing(true)
         pickerContainerView.isHidden = false
         pickerView.reloadComponent(0)
         
@@ -107,6 +106,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,UIPickerViewDele
                             try? Auth.auth().signOut()
                             MBProgressHUD.hide(for: self.view, animated: true)
                             return
+                            
                         }
                         
                         let uID = user?.providerData.map{ $0.uid }
